@@ -4,9 +4,52 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export function ContactSection() {
   const [isTyping, setIsTyping] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries((formData as any).entries());
+
+    // Basic validation
+    if (!data.name || !data.email || !data.message) {
+      toast.error("Please fill in all fields");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/rajajamalparvez@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: `New Contact from ${data.name}`,
+          _template: "table",
+          _captcha: "false"
+        })
+      });
+
+      if (!response.ok) throw new Error("Failed to send message");
+
+      toast.success("Message sent successfully!");
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      toast.error("Failed to send message. Please try again or email directly.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactInfo = [
     {
@@ -111,66 +154,76 @@ export function ContactSection() {
                 </div>
               </div>
 
-              {/* Form Content */}
-              <div className="p-8 space-y-6">
-                <div className="flex items-center gap-2 text-green-400 mb-6">
-                  <span>$</span>
-                  <motion.span
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
-                    initialize_contact_sequence...
-                  </motion.span>
-                </div>
-
-                <div className="space-y-4">
-                  {/* Name Input */}
-                  <div>
-                    <label className="block text-sm text-cyan-400 mb-2">
-                      {">"} Your Name
-                    </label>
-                    <Input
-                      placeholder="Enter your name"
-                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
-                      onFocus={() => setIsTyping(true)}
-                      onBlur={() => setIsTyping(false)}
-                    />
+                {/* Form Content */}
+                <form onSubmit={handleSubmit} className="p-8 space-y-6">
+                  <div className="flex items-center gap-2 text-green-400 mb-6">
+                    <span>$</span>
+                    <motion.span
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    >
+                      initialize_contact_sequence...
+                    </motion.span>
                   </div>
 
-                  {/* Email Input */}
-                  <div>
-                    <label className="block text-sm text-cyan-400 mb-2">
-                      {">"} Your Email
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="your.email@example.com"
-                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
-                      onFocus={() => setIsTyping(true)}
-                      onBlur={() => setIsTyping(false)}
-                    />
-                  </div>
+                  <div className="space-y-4">
+                    {/* Name Input */}
+                    <div>
+                      <label className="block text-sm text-cyan-400 mb-2">
+                        {">"} Your Name
+                      </label>
+                      <Input
+                        name="name"
+                        required
+                        placeholder="Enter your name"
+                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
+                        onFocus={() => setIsTyping(true)}
+                        onBlur={() => setIsTyping(false)}
+                      />
+                    </div>
 
-                  {/* Message Textarea */}
-                  <div>
-                    <label className="block text-sm text-cyan-400 mb-2">
-                      {">"} Message
-                    </label>
-                    <Textarea
-                      placeholder="Tell me about your project..."
-                      rows={6}
-                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200 resize-none"
-                      onFocus={() => setIsTyping(true)}
-                      onBlur={() => setIsTyping(false)}
-                    />
-                  </div>
+                    {/* Email Input */}
+                    <div>
+                      <label className="block text-sm text-cyan-400 mb-2">
+                        {">"} Your Email
+                      </label>
+                      <Input
+                        name="email"
+                        required
+                        type="email"
+                        placeholder="your.email@example.com"
+                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
+                        onFocus={() => setIsTyping(true)}
+                        onBlur={() => setIsTyping(false)}
+                      />
+                    </div>
 
-                  {/* Submit Button */}
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25">
-                    <Send className="w-4 h-4 mr-2" />
-                    Execute: Send Message
-                  </Button>
-                </div>
+                    {/* Message Textarea */}
+                    <div>
+                      <label className="block text-sm text-cyan-400 mb-2">
+                        {">"} Message
+                      </label>
+                      <Textarea
+                        name="message"
+                        required
+                        placeholder="Tell me about your project..."
+                        rows={6}
+                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200 resize-none"
+                        onFocus={() => setIsTyping(true)}
+                        onBlur={() => setIsTyping(false)}
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <Button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Send className={`w-4 h-4 mr-2 ${isSubmitting ? "animate-spin" : ""}`} />
+                      {isSubmitting ? "Transmitting..." : "Execute: Send Message"}
+                    </Button>
+                  </div>
 
                 {/* Terminal Output */}
                 <div className="mt-6 p-4 bg-slate-950/50 rounded-lg border border-slate-800">
@@ -186,7 +239,7 @@ export function ContactSection() {
                     </motion.span>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </motion.div>
 

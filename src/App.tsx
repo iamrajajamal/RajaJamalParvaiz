@@ -8,6 +8,7 @@ import { ProjectsSection } from "./components/ProjectsSection";
 import { StatsSection } from "./components/StatsSection";
 import { ContactSection } from "./components/ContactSection";
 import { CaseStudyPage } from "./components/CaseStudyPage";
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<"portfolio" | "caseStudy">("portfolio");
@@ -58,6 +59,7 @@ export default function App() {
       <div id="contact">
         <ContactSection />
       </div>
+      <Toaster />
     </div>
   );
 }
