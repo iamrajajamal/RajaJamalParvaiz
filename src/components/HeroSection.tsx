@@ -109,6 +109,19 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
           >
             <Button
+              onClick={() => {
+                const element = document.getElementById("projects");
+                if (element) {
+                  const offset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
+                }
+              }}
               className="group relative px-8 py-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-xl overflow-hidden transition-all hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-2">
