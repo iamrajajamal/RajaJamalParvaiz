@@ -187,3 +187,27 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Smooth horizontal snapping */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+.snap-center {
+  scroll-snap-align: center;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,220,255,.6); }
+  50% { box-shadow: 0 0 16px rgba(0,220,255,1); }
+}
+
+/* Animated connecting line shimmer */
+@keyframes lineFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}

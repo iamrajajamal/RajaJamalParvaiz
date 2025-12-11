@@ -3,6 +3,8 @@ import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
 import { SkillsSection } from "./components/SkillsSection";
+import { ServicesSection } from "./components/ServicesSection";
+import { ProcessSection } from "./components/ProcessSection";
 import { ExperienceSection } from "./components/ExperienceSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { StatsSection } from "./components/StatsSection";
@@ -46,6 +48,12 @@ export default function App() {
       </div>
       <div id="skills">
         <SkillsSection />
+      </div>
+      <div id="services">
+        <ServicesSection />
+      </div>
+      <div id="process">
+        <ProcessSection />
       </div>
       <div id="experience">
         <ExperienceSection />

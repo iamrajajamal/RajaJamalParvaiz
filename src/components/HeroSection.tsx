@@ -74,7 +74,7 @@ export function HeroSection() {
             className="inline-block px-6 py-3 rounded-full border border-cyan-400/30 bg-cyan-400/5 backdrop-blur-sm pt-50"
           >
             <p className="text-2xl md:text-3xl text-cyan-300">
-              Lead / Senior Game Developer
+              Lead Game Programmer & Producer
             </p>
           </motion.div>
 
@@ -88,9 +88,11 @@ export function HeroSection() {
             {[
               "Unity 3D",
               "Multiplayer Systems",
+              "Project Management",
               "AR/VR",
               "Mobile & PC Games",
               "WebGL",
+              "Console Games",
             ].map((tech, index) => (
               <span
                 key={index}

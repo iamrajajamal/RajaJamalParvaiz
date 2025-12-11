@@ -1,17 +1,15 @@
 import { motion } from "motion/react";
 import {
   ArrowLeft,
-  Code,
-  Zap,
-  Target,
-  Trophy,
-  Users,
   Play,
   Image as ImageIcon,
+  Target,
+  Zap,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Navigation } from "./Navigation";
+import { getCaseStudyData } from "../data/caseStudies";
 
 interface CaseStudyPageProps {
   project: {
@@ -27,68 +25,8 @@ interface CaseStudyPageProps {
 }
 
 export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
-  // Extended case study data
-  const caseStudyData = {
-    overview: `${project.description} This project showcases advanced game development techniques, innovative multiplayer systems, and cutting-edge optimization strategies. Built from the ground up with scalability and player experience as top priorities.`,
-    role: "Lead Developer & Technical Architect",
-    duration: "6 months",
-    team: "5 developers, 2 designers, 1 QA",
-    platform: project.tags.join(", "),
-    
-    features: [
-      {
-        title: "Advanced Multiplayer System",
-        description: "Real-time synchronization with lag compensation and prediction algorithms for smooth gameplay across different network conditions.",
-        icon: Users,
-      },
-      {
-        title: "Optimized Performance",
-        description: "Achieved 60 FPS on mid-range devices through advanced optimization techniques including object pooling and LOD systems.",
-        icon: Zap,
-      },
-      {
-        title: "Scalable Architecture",
-        description: "Modular codebase with clean architecture patterns, making it easy to add new features and maintain the project long-term.",
-        icon: Code,
-      },
-      {
-        title: "Player Engagement",
-        description: "Implemented progression systems, achievements, and social features that keep players coming back.",
-        icon: Trophy,
-      },
-    ],
-
-    challenges: [
-      {
-        challenge: "Network Latency Issues",
-        solution: "Implemented client-side prediction and server reconciliation to provide smooth gameplay even with 150ms+ latency.",
-      },
-      {
-        challenge: "Cross-Platform Compatibility",
-        solution: "Created platform-specific build pipelines and abstraction layers to handle differences between mobile, PC, and web versions.",
-      },
-      {
-        challenge: "Performance on Low-End Devices",
-        solution: "Developed dynamic quality settings and aggressive optimization techniques including texture atlasing and draw call batching.",
-      },
-    ],
-
-    results: [
-      { metric: "10K+", label: "Active Players" },
-      { metric: "4.8★", label: "Average Rating" },
-      { metric: "85%", label: "Retention Rate" },
-      { metric: "60 FPS", label: "Performance" },
-    ],
-
-    gallery: [
-      { type: "image", url: project.image, caption: "Main Gameplay" },
-      { type: "image", url: project.image, caption: "UI/UX Design" },
-      { type: "video", url: "", caption: "Gameplay Demo" },
-      { type: "image", url: project.image, caption: "Multiplayer Mode" },
-      { type: "image", url: project.image, caption: "Character Selection" },
-      { type: "image", url: project.image, caption: "In-Game Features" },
-    ],
-  };
+  // Get extended case study data
+  const caseStudyData = getCaseStudyData(project);
 
   return (
     <div className="min-h-screen bg-black">
@@ -115,22 +53,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Back Button */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="absolute top-8 left-8"
-            >
-              <Button
-                onClick={onBack}
-                className="bg-slate-900/80 hover:bg-slate-800 border border-cyan-400/30 hover:border-cyan-400/60 text-cyan-300 backdrop-blur-sm"
-                variant="outline"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Portfolio
-              </Button>
-            </motion.div>
+
 
             {/* Tags */}
             <div className="flex flex-wrap justify-center gap-2 mb-6">
@@ -412,6 +335,46 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             ))}
           </div>
 
+          {/* Producer KPIs Divider */}
+          {caseStudyData.producerMetrics && (
+            <div className="mt-24">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4">
+                  Production KPIs
+                </h2>
+                <p className="text-xl text-slate-400">Management & Efficiency</p>
+                <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full mt-4" />
+              </motion.div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {caseStudyData.producerMetrics.map((metric, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative group"
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
+                    <div className="relative bg-slate-900/80 backdrop-blur-xl border border-yellow-400/30 group-hover:border-yellow-400/60 rounded-2xl p-8 text-center transition-all">
+                      <div className="text-3xl md:text-4xl bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-3 font-bold">
+                        {metric.metric}
+                      </div>
+                      <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">{metric.label}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -425,7 +388,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
               className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-6 rounded-xl transition-all hover:scale-105"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Portfolio
+              Back to Home
             </Button>
           </motion.div>
         </div>

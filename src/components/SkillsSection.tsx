@@ -8,6 +8,7 @@ import {
   Network,
   Cpu,
   Database,
+  ClipboardList,
 } from "lucide-react";
 
 export function SkillsSection() {
@@ -25,6 +26,20 @@ export function SkillsSection() {
         "Optimization",
         "AI Systems",
         "Addressables",
+      ],
+    },
+    {
+      icon: ClipboardList,
+      title: "Production & Management",
+      color: "from-green-500 to-emerald-600",
+      borderColor: "border-green-400/30",
+      skills: [
+        "JIRA & Confluence",
+        "Agile/Scrum Leadership",
+        "Sprint Planning",
+        "Game Design Documents",
+        "Team Management",
+        "Product Roadmap",
       ],
     },
     {

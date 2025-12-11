@@ -1,6 +1,6 @@
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState } from "react";
-import { Menu, X, Home, User, Code, Briefcase, FolderOpen, Trophy, Mail } from "lucide-react";
+import { Menu, X, Home, User, Code, Briefcase, FolderOpen, Trophy, Mail, ArrowLeft, Zap, GitBranch } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface NavigationProps {
@@ -21,6 +21,8 @@ export function Navigation({ onNavigate, showSections = true }: NavigationProps)
     { name: "Home", icon: Home, section: "hero" },
     { name: "About", icon: User, section: "about" },
     { name: "Skills", icon: Code, section: "skills" },
+    { name: "Services", icon: Zap, section: "services" },
+    { name: "Process", icon: GitBranch, section: "process" },
     { name: "Experience", icon: Briefcase, section: "experience" },
     { name: "Projects", icon: FolderOpen, section: "projects" },
     { name: "Stats", icon: Trophy, section: "stats" },
@@ -80,6 +82,18 @@ export function Navigation({ onNavigate, showSections = true }: NavigationProps)
                   Raja Jamal Parvaiz
                 </div>
                 <div className="text-xs text-slate-400">Game Developer/Producer</div>
+                {!showSections && (
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (onNavigate) onNavigate("home");
+                    }}
+                    className="text-xs text-cyan-400 mt-1 cursor-pointer hover:text-cyan-300 flex items-center gap-1 transition-colors"
+                  >
+                    <ArrowLeft className="w-3 h-3" />
+                    Back to Home
+                  </div>
+                )}
               </div>
             </motion.div>
 

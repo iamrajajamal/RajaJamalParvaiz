@@ -48,7 +48,7 @@ export function AboutSection() {
             <p className="text-xl text-slate-300 leading-relaxed mb-8">
               Lead/Senior Game Developer with{" "}
               <span className="text-cyan-400">6+ years of experience</span>{" "}
-              building Mobile, PC, WebGL and AR/VR games. Expert in{" "}
+              building Mobile, PC, WebGL, Console and AR/VR games. Expert in{" "}
               <span className="text-purple-400">Unity3D</span>, multiplayer
               systems (Photon/Nakama/Mirror), gameplay programming,
               optimization, and team leadership. Passionate about creating

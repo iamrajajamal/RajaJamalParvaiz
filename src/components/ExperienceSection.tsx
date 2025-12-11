@@ -9,10 +9,15 @@ export function ExperienceSection() {
       period: "2024 – Present",
       icon: Crown,
       color: "from-yellow-500 to-orange-500",
-      achievements: [
-        "Leading game development team",
-        "Architecture & technical decisions",
-        "Multiplayer game systems",
+      engineering: [
+        "Architected scalable multiplayer systems",
+        "Optimized core gameplay loops in C#",
+        "Implemented advanced AI behaviors",
+      ],
+      management: [
+        "Led a team of 10+ developers & artists",
+        "Managed sprint planning & JIRA backlogs",
+        "Conducted code reviews & technical mentorship",
       ],
       level: "Epic",
     },
@@ -22,10 +27,15 @@ export function ExperienceSection() {
       period: "2022 – 2024",
       icon: Star,
       color: "from-purple-500 to-pink-500",
-      achievements: [
-        "Led multiple Unity projects",
-        "Team management & mentoring",
-        "WebGL & mobile optimization",
+      engineering: [
+        "Developed 5+ Unity mobile titles",
+        "WebGL performance optimization",
+        "Custom shader development",
+      ],
+      management: [
+        "Coordinated with QA & Design teams",
+        "Defined technical roadmap & milestones",
+        "Client communication & requirement analysis",
       ],
       level: "Legendary",
     },
@@ -35,10 +45,14 @@ export function ExperienceSection() {
       period: "2023 – Present",
       icon: Code,
       color: "from-cyan-500 to-blue-500",
-      achievements: [
-        "WebGL game optimization",
-        "Performance consulting",
-        "Cross-platform deployment",
+      engineering: [
+        "WebGL build size reduction by 40%",
+        "Cross-platform input systems",
+        "Memory management optimization",
+      ],
+      management: [
+        "Technical consultation for stakeholders",
+        "Documentation of best practices",
       ],
       level: "Expert",
     },
@@ -48,10 +62,14 @@ export function ExperienceSection() {
       period: "2021 – 2022",
       icon: Rocket,
       color: "from-blue-500 to-cyan-500",
-      achievements: [
-        "Mobile game development",
-        "Multiplayer integration",
-        "AR/VR implementations",
+      engineering: [
+        "Integrated AR/VR SDKs (Oculus/ARCore)",
+        "Real-time multiplayer synchronization",
+        "Third-party API integrations",
+      ],
+      management: [
+        "Mentored junior developers",
+        "Assisted in hiring process",
       ],
       level: "Master",
     },
@@ -61,11 +79,12 @@ export function ExperienceSection() {
       period: "2019 – 2021",
       icon: Users,
       color: "from-pink-500 to-purple-500",
-      achievements: [
-        "Unity gameplay programming",
-        "Feature development",
-        "Bug fixes & optimization",
+      engineering: [
+        "Gameplay mechanic implementation",
+        "UI/UX programming",
+        "Bug fixing & polishing",
       ],
+      management: [],
       level: "Advanced",
     },
     {
@@ -74,11 +93,12 @@ export function ExperienceSection() {
       period: "2018 – 2019",
       icon: Briefcase,
       color: "from-slate-500 to-slate-600",
-      achievements: [
-        "Unity fundamentals",
-        "Game mechanic implementation",
-        "Collaboration & learning",
+      engineering: [
+        "Unity fundamentals & C# scripting",
+        "Prototyping game ideas",
+        "Asset integration",
       ],
+      management: [],
       level: "Beginner",
     },
   ];
@@ -151,17 +171,41 @@ export function ExperienceSection() {
                       </div>
                     </div>
 
-                    {/* Achievements */}
-                    <div className="space-y-2 ml-16">
-                      {exp.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500" />
-                          <span className="text-sm text-slate-300">
-                            {achievement}
-                          </span>
+                    {/* Engineering Skills */}
+                    {exp.engineering && exp.engineering.length > 0 && (
+                      <div className="mb-3">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Code className="w-4 h-4 text-cyan-400" />
+                          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Engineering</span>
                         </div>
-                      ))}
-                    </div>
+                        <div className="space-y-1 ml-2">
+                          {exp.engineering.map((item, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <div className="w-1 h-1 rounded-full bg-cyan-400" />
+                              <span className="text-sm text-slate-300">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Management Skills */}
+                    {exp.management && exp.management.length > 0 && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Users className="w-4 h-4 text-purple-400" />
+                          <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">Management</span>
+                        </div>
+                        <div className="space-y-1 ml-2">
+                          {exp.management.map((item, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <div className="w-1 h-1 rounded-full bg-purple-400" />
+                              <span className="text-sm text-slate-300">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* XP Bar */}
                     <div className="mt-4 pt-4 border-t border-slate-700/30">
