@@ -1,6 +1,19 @@
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState } from "react";
-import { Menu, X, Home, User, Code, Briefcase, FolderOpen, Trophy, Mail, ArrowLeft, Zap, GitBranch } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  User,
+  Code,
+  Briefcase,
+  FolderOpen,
+  Trophy,
+  Mail,
+  ArrowLeft,
+  Zap,
+  GitBranch,
+} from "lucide-react";
 import { Button } from "./ui/button";
 
 interface NavigationProps {
@@ -8,7 +21,10 @@ interface NavigationProps {
   showSections?: boolean;
 }
 
-export function Navigation({ onNavigate, showSections = true }: NavigationProps) {
+export function Navigation({
+  onNavigate,
+  showSections = true,
+}: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -31,7 +47,7 @@ export function Navigation({ onNavigate, showSections = true }: NavigationProps)
 
   const scrollToSection = (section: string) => {
     setIsMobileMenuOpen(false);
-    
+
     if (onNavigate) {
       onNavigate(section);
       return;
@@ -73,15 +89,19 @@ export function Navigation({ onNavigate, showSections = true }: NavigationProps)
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg blur-lg opacity-50" />
-                <div className="relative w-10 h-10 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xl">RJ</span>
-                </div>
+                <img
+                  src="/favicon.png"
+                  alt="Logo"
+                  className="relative w-10 h-10 rounded-lg object-cover border border-cyan-500/20"
+                />
               </div>
               <div className="hidden sm:block">
                 <div className="text-xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                  Raja Jamal Parvaiz
+                  Jamal Parvaiz
                 </div>
-                <div className="text-xs text-slate-400">Game Developer/Producer</div>
+                <div className="text-xs text-slate-400">
+                  Game Developer/Producer
+                </div>
                 {!showSections && (
                   <div
                     onClick={(e) => {
@@ -177,7 +197,7 @@ export function Navigation({ onNavigate, showSections = true }: NavigationProps)
                   </div>
                 </motion.button>
               ))}
-              
+
               {/* Mobile CTA */}
               <div className="pt-4">
                 <Button
