@@ -24,7 +24,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      <Navigation onNavigate={onBack} showSections={false} />
+      <Navigation onNavigate={onBack} showSections={true} />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         {/* Background Image */}
