@@ -1,11 +1,5 @@
 import { motion } from "motion/react";
-import {
-  ArrowLeft,
-  Play,
-  Image as ImageIcon,
-  Target,
-  Zap,
-} from "lucide-react";
+import { ArrowLeft, Play, Image as ImageIcon, Target, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Navigation } from "./Navigation";
@@ -53,8 +47,6 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-
-
             {/* Tags */}
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {project.tags.map((tag, i) => (
@@ -67,7 +59,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
               ))}
             </div>
 
-            <h1 className="text-6xl md:text-8xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h1 className="text-6xl md:text-8xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
               {project.title}
             </h1>
             <p className="text-2xl md:text-3xl text-cyan-300 mb-8">
@@ -123,7 +115,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-8">
+            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-8 py-4">
               Project Overview
             </h2>
             <p className="text-xl text-slate-300 leading-relaxed">
@@ -143,7 +135,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
               Key Features
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
@@ -161,12 +153,12 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity" />
                 <div className="relative h-full bg-slate-950/80 backdrop-blur-xl border border-slate-700/50 group-hover:border-cyan-400/50 rounded-2xl p-8 transition-all">
-                  <div className={`inline-block p-4 rounded-xl bg-gradient-to-r ${project.color} mb-4`}>
+                  <div
+                    className={`inline-block p-4 rounded-xl bg-gradient-to-r ${project.color} mb-4`}
+                  >
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl text-white mb-3">
-                    {feature.title}
-                  </h3>
+                  <h3 className="text-2xl text-white mb-3">{feature.title}</h3>
                   <p className="text-slate-400">{feature.description}</p>
                 </div>
               </motion.div>
@@ -185,7 +177,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
               Gallery
             </h2>
             <p className="text-xl text-slate-400">Screenshots & Videos</p>
@@ -226,7 +218,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
           </div>
 
           {/* Add Media Note */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -236,10 +228,10 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             <div className="inline-block bg-slate-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-xl px-6 py-4">
               <p className="text-cyan-300 flex items-center gap-2">
                 <ImageIcon className="w-5 h-5" />
-                Custom images and videos can be added for each project
+                Coming Soon on Stores
               </p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -253,7 +245,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
               Challenges & Solutions
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
@@ -275,18 +267,14 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                     <div>
                       <div className="flex items-center gap-3 mb-4">
                         <Target className="w-6 h-6 text-red-400" />
-                        <h3 className="text-xl text-red-400">
-                          Challenge
-                        </h3>
+                        <h3 className="text-xl text-red-400">Challenge</h3>
                       </div>
                       <p className="text-slate-300">{item.challenge}</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-4">
                         <Zap className="w-6 h-6 text-green-400" />
-                        <h3 className="text-xl text-green-400">
-                          Solution
-                        </h3>
+                        <h3 className="text-xl text-green-400">Solution</h3>
                       </div>
                       <p className="text-slate-300">{item.solution}</p>
                     </div>
@@ -308,7 +296,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
               Results & Impact
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
@@ -326,7 +314,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
                 <div className="relative bg-slate-900/80 backdrop-blur-xl border border-cyan-400/30 group-hover:border-cyan-400/60 rounded-2xl p-8 text-center transition-all">
-                  <div className="text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-3">
+                  <div className="text-4xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-3">
                     {result.metric}
                   </div>
                   <div className="text-slate-400">{result.label}</div>
@@ -345,11 +333,13 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4">
+                <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
                   Production KPIs
                 </h2>
-                <p className="text-xl text-slate-400">Management & Efficiency</p>
-                <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full mt-4" />
+                <p className="text-xl text-slate-400">
+                  Management & Efficiency
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
               </motion.div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -362,12 +352,14 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="relative group"
                   >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
-                    <div className="relative bg-slate-900/80 backdrop-blur-xl border border-yellow-400/30 group-hover:border-yellow-400/60 rounded-2xl p-8 text-center transition-all">
-                      <div className="text-3xl md:text-4xl bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-3 font-bold">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
+                    <div className="relative bg-slate-900/80 backdrop-blur-xl border border-cyan-400/30 group-hover:border-cyan-400/60 rounded-2xl p-8 text-center transition-all">
+                      <div className="text-3xl md:text-4xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-3 font-bold">
                         {metric.metric}
                       </div>
-                      <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">{metric.label}</div>
+                      <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">
+                        {metric.label}
+                      </div>
                     </div>
                   </motion.div>
                 ))}

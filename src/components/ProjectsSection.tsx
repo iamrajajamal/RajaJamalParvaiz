@@ -11,63 +11,58 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
   const projects = [
     {
       title: "Clown Town",
-      subtitle: "Multiplayer Brawler Game",
+      subtitle: "High-Energy Multiplayer Brawler",
       description:
-        "High-energy multiplayer brawler with real-time PvP combat, custom physics, and dynamic matchmaking systems.",
-      image: "https://images.unsplash.com/photo-1559571239-79ad463fde14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdWx0aXBsYXllciUyMGdhbWUlMjBiYXR0bGV8ZW58MXx8fHwxNzY0NzcyOTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Multiplayer", "Real-time", "Mobile"],
+        "Dive into chaotic physics-based combat with fast-paced PvP, custom hit detection, and dynamic matchmaking that keeps every battle thrilling.",
+      image:
+        "https://images.unsplash.com/photo-1559571239-79ad463fde14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdWx0aXBsYXllciUyMGdhbWUlMjBiYXR0bGV8ZW58MXx8fHwxNzY0NzcyOTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Multiplayer", "Real-Time", "Mobile", "Physics"],
       tech: ["Unity", "C#", "Nakama", "Photon"],
       color: "from-red-500 to-orange-500",
     },
     {
       title: "Spades With Friends",
-      subtitle: "Multiplayer Card Game",
+      subtitle: "Classic Multiplayer Card Game",
       description:
-        "Classic spades card game with online multiplayer, friend systems, tournaments, and real-time voice chat.",
-      image: "https://images.unsplash.com/photo-1605420801008-456056f2c700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJkJTIwZ2FtZSUyMHBva2VyfGVufDF8fHx8MTc2NDY5MDQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Multiplayer", "Social", "Cross-platform"],
+        "Enjoy competitive 2v2 Spades online with friend lobbies, private rooms, multiple rule sets, and real-time chat for seamless social gameplay.",
+      image:
+        "https://images.unsplash.com/photo-1605420801008-456056f2c700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJkJTIwZ2FtZSUyMHBva2VyfGVufDF8fHx8MTc2NDY5MDQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Multiplayer", "Social", "Card Game", "Cross-Platform"],
       tech: ["Unity", "Mirror", "PlayFab", "Firebase"],
       color: "from-purple-500 to-pink-500",
     },
     {
       title: "Pocket Shop",
-      subtitle: "Garage + Racing Simulation",
+      subtitle: "Garage & Racing Simulation",
       description:
-        "Build and customize your dream garage, race cars, and manage a automotive business empire.",
-      image: "https://images.unsplash.com/photo-1757513915189-3268463ae2be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYXJhZ2UlMjBjYXJzfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Simulation", "Mobile", "3D"],
-      tech: ["Unity", "C#", "Addressables", "IAP"],
+        "Build, upgrade, and manage your dream garage while racing in drift and drag competitions, with interconnected departments and a story-driven progression system.",
+      image:
+        "https://images.unsplash.com/photo-1757513915189-3268463ae2be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYXJhZ2UlMjBjYXJzfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Simulation", "Racing", "3D", "Story-Driven"],
+      tech: ["Unity", "C#", "Addressables", "IAP", "Nakama"],
       color: "from-blue-500 to-cyan-500",
     },
     {
       title: "DubbGames",
-      subtitle: "Full Web Gaming Platform",
+      subtitle: "Full Web-Based Gaming Platform",
       description:
-        "Complete WebGL gaming platform with user accounts, leaderboards, achievements, and social features.",
-      image: "https://images.unsplash.com/photo-1549455532-62f7ab74d527?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwZ2FtaW5nfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["WebGL", "Platform", "Full-Stack"],
-      tech: ["Unity", "WebGL", "React", "Node.js"],
+        "A seamless WebGL platform featuring five casino-style games with multiplayer tables, backend-powered leaderboards, reward systems, and Unity–React integration.",
+      image:
+        "https://images.unsplash.com/photo-1549455532-62f7ab74d527?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwZ2FtaW5nfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["WebGL", "Multiplayer", "Platform", "Full-Stack"],
+      tech: ["Unity", "React", "Node.js", "WebGL", "Nakama"],
       color: "from-cyan-500 to-purple-500",
     },
     {
       title: "Alive AR",
-      subtitle: "5v5 Multiplayer AR Shooter",
+      subtitle: "5v5 Augmented Reality Shooter",
       description:
-        "Innovative AR FPS with real-world mapping, team-based combat, and location-based multiplayer.",
-      image: "https://images.unsplash.com/photo-1545579833-02a4c62797f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdWdtZW50ZWQlMjByZWFsaXR5JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NjQ3NjMzMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["AR", "Multiplayer", "FPS"],
-      tech: ["Unity", "ARFoundation", "Photon", "GPS"],
+        "Step into real-world maps with team-based AR combat, custom loadouts, and competitive multiplayer using ARCore/ARKit and Photon for seamless spatial gameplay.",
+      image:
+        "https://images.unsplash.com/photo-1545579833-02a4c62797f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdWdtZW50ZWQlMjByZWFsaXR5JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NjQ3NjMzMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["AR", "Multiplayer", "FPS", "Team Combat"],
+      tech: ["Unity", "ARFoundation", "Photon", "PlayFab", "GPS"],
       color: "from-green-500 to-teal-500",
-    },
-    {
-      title: "Space Hole",
-      subtitle: "Arcade Game",
-      description:
-        "Fast-paced arcade game with physics-based gameplay, procedural levels, and addictive mechanics.",
-      image: "https://images.unsplash.com/photo-1500185497267-d635f9c5e90f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMGdhbGF4eSUyMHN0YXJzfGVufDF8fHx8MTc2NDc0NDMyMnww&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Arcade", "Mobile", "Casual"],
-      tech: ["Unity", "C#", "Physics", "Procedural"],
-      color: "from-indigo-500 to-purple-500",
     },
   ];
 
@@ -87,7 +82,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
             Featured Projects
           </h2>
           <p className="text-xl text-slate-400">Game Library</p>
@@ -106,7 +101,9 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
               className="group relative"
             >
               {/* Card Glow */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${project.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
+              <div
+                className={`absolute -inset-1 bg-gradient-to-r ${project.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500`}
+              />
 
               {/* Card */}
               <div className="relative h-full bg-slate-900/90 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-cyan-400/50 group-hover:transform group-hover:scale-[1.02]">
@@ -119,7 +116,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
-                  
+
                   {/* Hover Play Button */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

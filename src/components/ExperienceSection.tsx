@@ -67,10 +67,7 @@ export function ExperienceSection() {
         "Real-time multiplayer synchronization",
         "Third-party API integrations",
       ],
-      management: [
-        "Mentored junior developers",
-        "Assisted in hiring process",
-      ],
+      management: ["Mentored junior developers", "Assisted in hiring process"],
       level: "Master",
     },
     {
@@ -116,7 +113,7 @@ export function ExperienceSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
             Quest Progression
           </h2>
           <p className="text-xl text-slate-400">Career Journey</p>
@@ -144,26 +141,30 @@ export function ExperienceSection() {
                 {/* Card */}
                 <div className="w-full md:w-5/12 group">
                   {/* Glow Effect */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${exp.color} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity`} />
+                  <div
+                    className={`absolute -inset-1 bg-gradient-to-r ${exp.color} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity`}
+                  />
 
                   {/* Card Content */}
                   <div className="relative bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 group-hover:border-cyan-400/50 rounded-2xl p-6 transition-all">
                     {/* Level Badge */}
                     <div className="absolute -top-3 -right-3">
-                      <div className={`px-4 py-1 rounded-full bg-gradient-to-r ${exp.color} text-xs text-white shadow-lg`}>
+                      <div
+                        className={`px-4 py-1 rounded-full bg-gradient-to-r ${exp.color} text-xs text-white shadow-lg`}
+                      >
                         {exp.level}
                       </div>
                     </div>
 
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${exp.color} shadow-lg`}>
+                      <div
+                        className={`p-3 rounded-xl bg-gradient-to-r ${exp.color} shadow-lg`}
+                      >
                         <exp.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl text-white mb-1">
-                          {exp.role}
-                        </h3>
+                        <h3 className="text-xl text-white mb-1">{exp.role}</h3>
                         <p className="text-cyan-400">{exp.company}</p>
                         <p className="text-sm text-slate-500 mt-1">
                           {exp.period}
@@ -176,13 +177,17 @@ export function ExperienceSection() {
                       <div className="mb-3">
                         <div className="flex items-center gap-2 mb-2">
                           <Code className="w-4 h-4 text-cyan-400" />
-                          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Engineering</span>
+                          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+                            Engineering
+                          </span>
                         </div>
                         <div className="space-y-1 ml-2">
                           {exp.engineering.map((item, i) => (
                             <div key={i} className="flex items-center gap-2">
                               <div className="w-1 h-1 rounded-full bg-cyan-400" />
-                              <span className="text-sm text-slate-300">{item}</span>
+                              <span className="text-sm text-slate-300">
+                                {item}
+                              </span>
                             </div>
                           ))}
                         </div>
@@ -194,13 +199,17 @@ export function ExperienceSection() {
                       <div>
                         <div className="flex items-center gap-2 mb-2">
                           <Users className="w-4 h-4 text-purple-400" />
-                          <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">Management</span>
+                          <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+                            Management
+                          </span>
                         </div>
                         <div className="space-y-1 ml-2">
                           {exp.management.map((item, i) => (
                             <div key={i} className="flex items-center gap-2">
                               <div className="w-1 h-1 rounded-full bg-purple-400" />
-                              <span className="text-sm text-slate-300">{item}</span>
+                              <span className="text-sm text-slate-300">
+                                {item}
+                              </span>
                             </div>
                           ))}
                         </div>
@@ -210,7 +219,9 @@ export function ExperienceSection() {
                     {/* XP Bar */}
                     <div className="mt-4 pt-4 border-t border-slate-700/30">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-slate-500">XP EARNED</span>
+                        <span className="text-xs text-slate-500">
+                          XP EARNED
+                        </span>
                         <span className="text-xs text-cyan-400">
                           {1000 * (experiences.length - index)} XP
                         </span>
@@ -230,9 +241,13 @@ export function ExperienceSection() {
 
                 {/* Center Node (Desktop only) */}
                 <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-16 h-16 items-center justify-center">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${exp.color} rounded-full blur opacity-50`} />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${exp.color} rounded-full blur opacity-50`}
+                  />
                   <div className="relative w-12 h-12 bg-slate-900 border-4 border-cyan-400 rounded-full flex items-center justify-center">
-                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${exp.color}`} />
+                    <div
+                      className={`w-4 h-4 rounded-full bg-gradient-to-r ${exp.color}`}
+                    />
                   </div>
                 </div>
               </motion.div>

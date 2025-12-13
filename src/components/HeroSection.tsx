@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import { Download, Play, Gamepad2, Monitor, Smartphone } from "lucide-react";
 import { Button } from "./ui/button";
+import MyPicture from "../assets/mypicture/MyPicture.jpeg";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 pt-20">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)] opacity-30" />
 
@@ -52,7 +53,11 @@ export function HeroSection() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur-xl opacity-50 animate-pulse" />
             <div className="relative w-full h-full rounded-full border-4 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-              <div className="text-6xl">👨‍💻</div>
+              <img
+                src={MyPicture}
+                alt="Raja Jamal Parvaiz"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
@@ -61,7 +66,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-6xl md:text-8xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent"
+            className="text-6xl leading-[1.2] md:text-8xl md:leading-[1.2] bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent py-4"
           >
             Raja Jamal Parvaiz
           </motion.h1>
@@ -116,7 +121,8 @@ export function HeroSection() {
                 if (element) {
                   const offset = 80;
                   const elementPosition = element.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - offset;
 
                   window.scrollTo({
                     top: offsetPosition,
@@ -134,11 +140,14 @@ export function HeroSection() {
             </Button>
 
             <Button
-              asChild                       
+              asChild
               variant="outline"
               className="px-8 py-6 border-2 border-purple-500/50 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 hover:text-purple-200 rounded-xl backdrop-blur-sm transition-all hover:scale-105"
             >
-              <a href="/assets/CV/RajaJamalParvaiz-GameDeveloper.pdf" download="RajaJamalParvaiz-GameDeveloper.pdf">
+              <a
+                href="/assets/CV/RajaJamalParvaiz-GameDeveloper.pdf"
+                download="RajaJamalParvaiz-GameDeveloper.pdf"
+              >
                 <Download className="w-5 h-5 mr-2" />
                 Download CV
               </a>

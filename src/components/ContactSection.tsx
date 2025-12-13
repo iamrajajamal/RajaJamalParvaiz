@@ -1,5 +1,13 @@
 import { motion } from "motion/react";
-import { Mail, Phone, Linkedin, Github, Send, Terminal, PhoneCallIcon } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Linkedin,
+  Github,
+  Send,
+  Terminal,
+  PhoneCallIcon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -25,26 +33,31 @@ export function ContactSection() {
     }
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/rajajamalparvez@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New Contact from ${data.name}`,
-          _template: "table",
-          _captcha: "false"
-        })
-      });
+      const response = await fetch(
+        "https://formsubmit.co/ajax/rajajamalparvez@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...data,
+            _subject: `New Contact from ${data.name}`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to send message");
 
       toast.success("Message sent successfully!");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
-      toast.error("Failed to send message. Please try again or email directly.");
+      toast.error(
+        "Failed to send message. Please try again or email directly."
+      );
       console.error(error);
     } finally {
       setIsSubmitting(false);
@@ -69,17 +82,17 @@ export function ContactSection() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "/in/rajajamal",
+      value: "/in/raja-jamal",
       link: "https://www.linkedin.com/in/raja-jamal/",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "@rajajamal",
+      value: "@iamrajajamal",
       link: "https://github.com/iamrajajamal",
       color: "from-pink-500 to-purple-500",
-    }
+    },
   ];
 
   return (
@@ -123,7 +136,9 @@ export function ContactSection() {
           <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
             Initialize Contact
           </h2>
-          <p className="text-xl text-slate-400">{"// Let's build something amazing together"}</p>
+          <p className="text-xl text-slate-400">
+            {"// Let's build something amazing together"}
+          </p>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
         </motion.div>
 
@@ -150,80 +165,86 @@ export function ContactSection() {
                 </div>
                 <div className="flex items-center gap-2 ml-4">
                   <Terminal className="w-4 h-4 text-cyan-400" />
-                  <span className="text-sm text-slate-400">contact.terminal</span>
+                  <span className="text-sm text-slate-400">
+                    contact.terminal
+                  </span>
                 </div>
               </div>
 
-                {/* Form Content */}
-                <form onSubmit={handleSubmit} className="p-8 space-y-6">
-                  <div className="flex items-center gap-2 text-green-400 mb-6">
-                    <span>$</span>
-                    <motion.span
-                      animate={{ opacity: [1, 0, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      initialize_contact_sequence...
-                    </motion.span>
+              {/* Form Content */}
+              <form onSubmit={handleSubmit} className="p-8 space-y-6">
+                <div className="flex items-center gap-2 text-green-400 mb-6">
+                  <span>$</span>
+                  <motion.span
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >
+                    initialize_contact_sequence...
+                  </motion.span>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Name Input */}
+                  <div>
+                    <label className="block text-sm text-cyan-400 mb-2">
+                      {">"} Your Name
+                    </label>
+                    <Input
+                      name="name"
+                      required
+                      placeholder="Enter your name"
+                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
+                      onFocus={() => setIsTyping(true)}
+                      onBlur={() => setIsTyping(false)}
+                    />
                   </div>
 
-                  <div className="space-y-4">
-                    {/* Name Input */}
-                    <div>
-                      <label className="block text-sm text-cyan-400 mb-2">
-                        {">"} Your Name
-                      </label>
-                      <Input
-                        name="name"
-                        required
-                        placeholder="Enter your name"
-                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
-                        onFocus={() => setIsTyping(true)}
-                        onBlur={() => setIsTyping(false)}
-                      />
-                    </div>
-
-                    {/* Email Input */}
-                    <div>
-                      <label className="block text-sm text-cyan-400 mb-2">
-                        {">"} Your Email
-                      </label>
-                      <Input
-                        name="email"
-                        required
-                        type="email"
-                        placeholder="your.email@example.com"
-                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
-                        onFocus={() => setIsTyping(true)}
-                        onBlur={() => setIsTyping(false)}
-                      />
-                    </div>
-
-                    {/* Message Textarea */}
-                    <div>
-                      <label className="block text-sm text-cyan-400 mb-2">
-                        {">"} Message
-                      </label>
-                      <Textarea
-                        name="message"
-                        required
-                        placeholder="Tell me about your project..."
-                        rows={6}
-                        className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200 resize-none"
-                        onFocus={() => setIsTyping(true)}
-                        onBlur={() => setIsTyping(false)}
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <Button 
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Send className={`w-4 h-4 mr-2 ${isSubmitting ? "animate-spin" : ""}`} />
-                      {isSubmitting ? "Transmitting..." : "Execute: Send Message"}
-                    </Button>
+                  {/* Email Input */}
+                  <div>
+                    <label className="block text-sm text-cyan-400 mb-2">
+                      {">"} Your Email
+                    </label>
+                    <Input
+                      name="email"
+                      required
+                      type="email"
+                      placeholder="your.email@example.com"
+                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200"
+                      onFocus={() => setIsTyping(true)}
+                      onBlur={() => setIsTyping(false)}
+                    />
                   </div>
+
+                  {/* Message Textarea */}
+                  <div>
+                    <label className="block text-sm text-cyan-400 mb-2">
+                      {">"} Message
+                    </label>
+                    <Textarea
+                      name="message"
+                      required
+                      placeholder="Tell me about your project..."
+                      rows={6}
+                      className="bg-slate-800/50 border-slate-700 focus:border-cyan-400 text-slate-200 resize-none"
+                      onFocus={() => setIsTyping(true)}
+                      onBlur={() => setIsTyping(false)}
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Send
+                      className={`w-4 h-4 mr-2 ${
+                        isSubmitting ? "animate-spin" : ""
+                      }`}
+                    />
+                    {isSubmitting ? "Transmitting..." : "Execute: Send Message"}
+                  </Button>
+                </div>
 
                 {/* Terminal Output */}
                 <div className="mt-6 p-4 bg-slate-950/50 rounded-lg border border-slate-800">
@@ -231,7 +252,10 @@ export function ContactSection() {
                     <span className="text-green-400">{">"}</span>
                     <motion.span
                       animate={{ opacity: isTyping ? [1, 0, 1] : 1 }}
-                      transition={{ duration: 0.5, repeat: isTyping ? Infinity : 0 }}
+                      transition={{
+                        duration: 0.5,
+                        repeat: isTyping ? Infinity : 0,
+                      }}
                     >
                       {isTyping
                         ? "Awaiting input..."
@@ -255,9 +279,7 @@ export function ContactSection() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity" />
               <div className="relative bg-slate-900/90 backdrop-blur-xl border border-cyan-400/30 rounded-2xl p-6">
-                <h3 className="text-2xl text-white mb-2">
-                  Direct Channels
-                </h3>
+                <h3 className="text-2xl text-white mb-2">Direct Channels</h3>
                 <p className="text-slate-400">
                   Reach out through any of these platforms
                 </p>
@@ -277,13 +299,19 @@ export function ContactSection() {
                   whileHover={{ x: 5 }}
                   className="block relative group"
                 >
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${contact.color} rounded-xl blur opacity-0 group-hover:opacity-40 transition-opacity`} />
+                  <div
+                    className={`absolute -inset-0.5 bg-gradient-to-r ${contact.color} rounded-xl blur opacity-0 group-hover:opacity-40 transition-opacity`}
+                  />
                   <div className="relative flex items-center gap-4 p-5 bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 group-hover:border-cyan-400/50 rounded-xl transition-all">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${contact.color}`}>
+                    <div
+                      className={`p-3 rounded-lg bg-gradient-to-r ${contact.color}`}
+                    >
                       <contact.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm text-slate-400">{contact.label}</div>
+                      <div className="text-sm text-slate-400">
+                        {contact.label}
+                      </div>
                       <div className="text-slate-200 group-hover:text-cyan-300 transition-colors">
                         {contact.value}
                       </div>
@@ -308,11 +336,13 @@ export function ContactSection() {
               <div className="relative bg-slate-900/90 backdrop-blur-xl border border-cyan-400/30 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-sm text-slate-400">STATUS: AVAILABLE</span>
+                  <span className="text-sm text-slate-400">
+                    STATUS: AVAILABLE
+                  </span>
                 </div>
                 <p className="text-sm text-slate-300">
-                  Open to freelance projects, consulting opportunities, and full-time positions.
-                  Response time: Usually within 24 hours.
+                  Open to freelance projects, consulting opportunities, and
+                  full-time positions. Response time: Usually within 24 hours.
                 </p>
               </div>
             </motion.div>
@@ -330,7 +360,8 @@ export function ContactSection() {
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-slate-500 text-sm">
-            © 2025 Raja Jamal Parvaiz. Built with Unity mindset, powered by React.
+            © 2025 Raja Jamal Parvaiz. Built with Unity mindset, powered by
+            React.
           </p>
           <p className="text-slate-600 text-xs mt-2">
             {"// Crafted with passion for game development"}

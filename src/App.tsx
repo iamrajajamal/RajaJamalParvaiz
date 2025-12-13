@@ -13,7 +13,9 @@ import { CaseStudyPage } from "./components/CaseStudyPage";
 import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<"portfolio" | "caseStudy">("portfolio");
+  const [currentPage, setCurrentPage] = useState<"portfolio" | "caseStudy">(
+    "portfolio"
+  );
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const handleViewCaseStudy = (project: any) => {
@@ -25,15 +27,17 @@ export default function App() {
   const handleBackToPortfolio = () => {
     setCurrentPage("portfolio");
     setSelectedProject(null);
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      const element = document.getElementById("projects");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   if (currentPage === "caseStudy" && selectedProject) {
     return (
-      <CaseStudyPage
-        project={selectedProject}
-        onBack={handleBackToPortfolio}
-      />
+      <CaseStudyPage project={selectedProject} onBack={handleBackToPortfolio} />
     );
   }
 
