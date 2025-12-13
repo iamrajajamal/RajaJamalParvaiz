@@ -218,7 +218,7 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
           </div>
 
           {/* Add Media Note */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -228,10 +228,14 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             <div className="inline-block bg-slate-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-xl px-6 py-4">
               <p className="text-cyan-300 flex items-center gap-2">
                 <ImageIcon className="w-5 h-5" />
-                Coming Soon on Stores
+                Disclaimer: All images displayed here are AI-generated and used
+                as **placeholders**. This is done to comply with confidentiality
+                agreements and avoid contract breach, as I do not own the
+                proprietary project work. My role in this project was strictly
+                as a Game Developer.
               </p>
             </div>
-          </motion.div> */}
+          </motion.div>
         </div>
       </section>
 

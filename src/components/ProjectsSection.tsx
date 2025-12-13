@@ -1,10 +1,18 @@
 import { motion } from "motion/react";
-import { ExternalLink, Users, Smartphone, Globe, Eye } from "lucide-react";
+import { ArrowUpRight, Github, ExternalLink, Play, Eye } from "lucide-react";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+// Import Project Images
+import ClownTownImg from "../assets/portfolio/ClownTown/1.png";
+import SpadesImg from "../assets/portfolio/SpadesWithFriends/1.png";
+import PocketShopImg from "../assets/portfolio/PocketShop/1.png";
+import DubbGamesImg from "../assets/portfolio/DubbGames/1.png";
+import AliveARImg from "../assets/portfolio/AliveAR/1.png";
+
 interface ProjectsSectionProps {
-  onViewCaseStudy: (project: any) => void;
+  onViewCaseStudy?: (project: any) => void;
 }
 
 export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
@@ -14,8 +22,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       subtitle: "High-Energy Multiplayer Brawler",
       description:
         "Dive into chaotic physics-based combat with fast-paced PvP, custom hit detection, and dynamic matchmaking that keeps every battle thrilling.",
-      image:
-        "https://images.unsplash.com/photo-1559571239-79ad463fde14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdWx0aXBsYXllciUyMGdhbWUlMjBiYXR0bGV8ZW58MXx8fHwxNzY0NzcyOTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: ClownTownImg,
       tags: ["Multiplayer", "Real-Time", "Mobile", "Physics"],
       tech: ["Unity", "C#", "Nakama", "Photon"],
       color: "from-red-500 to-orange-500",
@@ -25,8 +32,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       subtitle: "Classic Multiplayer Card Game",
       description:
         "Enjoy competitive 2v2 Spades online with friend lobbies, private rooms, multiple rule sets, and real-time chat for seamless social gameplay.",
-      image:
-        "https://images.unsplash.com/photo-1605420801008-456056f2c700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJkJTIwZ2FtZSUyMHBva2VyfGVufDF8fHx8MTc2NDY5MDQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: SpadesImg,
       tags: ["Multiplayer", "Social", "Card Game", "Cross-Platform"],
       tech: ["Unity", "Mirror", "PlayFab", "Firebase"],
       color: "from-purple-500 to-pink-500",
@@ -36,8 +42,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       subtitle: "Garage & Racing Simulation",
       description:
         "Build, upgrade, and manage your dream garage while racing in drift and drag competitions, with interconnected departments and a story-driven progression system.",
-      image:
-        "https://images.unsplash.com/photo-1757513915189-3268463ae2be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYXJhZ2UlMjBjYXJzfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: PocketShopImg,
       tags: ["Simulation", "Racing", "3D", "Story-Driven"],
       tech: ["Unity", "C#", "Addressables", "IAP", "Nakama"],
       color: "from-blue-500 to-cyan-500",
@@ -47,8 +52,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       subtitle: "Full Web-Based Gaming Platform",
       description:
         "A seamless WebGL platform featuring five casino-style games with multiplayer tables, backend-powered leaderboards, reward systems, and Unity–React integration.",
-      image:
-        "https://images.unsplash.com/photo-1549455532-62f7ab74d527?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwZ2FtaW5nfGVufDF8fHx8MTc2NDc3Mjk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: DubbGamesImg,
       tags: ["WebGL", "Multiplayer", "Platform", "Full-Stack"],
       tech: ["Unity", "React", "Node.js", "WebGL", "Nakama"],
       color: "from-cyan-500 to-purple-500",
@@ -58,8 +62,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       subtitle: "5v5 Augmented Reality Shooter",
       description:
         "Step into real-world maps with team-based AR combat, custom loadouts, and competitive multiplayer using ARCore/ARKit and Photon for seamless spatial gameplay.",
-      image:
-        "https://images.unsplash.com/photo-1545579833-02a4c62797f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdWdtZW50ZWQlMjByZWFsaXR5JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NjQ3NjMzMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: AliveARImg,
       tags: ["AR", "Multiplayer", "FPS", "Team Combat"],
       tech: ["Unity", "ARFoundation", "Photon", "PlayFab", "GPS"],
       color: "from-green-500 to-teal-500",

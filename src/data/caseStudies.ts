@@ -14,6 +14,38 @@ import {
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
+// Import Gallery Images
+// Clown Town
+import ClownTown2 from "../assets/portfolio/ClownTown/2.png";
+import ClownTown3 from "../assets/portfolio/ClownTown/3.png";
+import ClownTown4 from "../assets/portfolio/ClownTown/4.png";
+import ClownTown5 from "../assets/portfolio/ClownTown/5.png";
+
+// Alive AR
+import AliveAR2 from "../assets/portfolio/AliveAR/2.jpeg";
+import AliveAR3 from "../assets/portfolio/AliveAR/3.jpeg";
+import AliveAR4 from "../assets/portfolio/AliveAR/4.jpeg";
+import AliveAR5 from "../assets/portfolio/AliveAR/5.jpeg";
+
+// Spades With Friends
+import Spades2 from "../assets/portfolio/SpadesWithFriends/2.png";
+import Spades3 from "../assets/portfolio/SpadesWithFriends/3.png";
+import Spades4 from "../assets/portfolio/SpadesWithFriends/4.png";
+import Spades5 from "../assets/portfolio/SpadesWithFriends/5.png";
+import Spades6 from "../assets/portfolio/SpadesWithFriends/6.png";
+
+// Pocket Shop
+import PocketShop2 from "../assets/portfolio/PocketShop/2.png";
+import PocketShop3 from "../assets/portfolio/PocketShop/3.jpeg";
+import PocketShop4 from "../assets/portfolio/PocketShop/4.jpeg";
+import PocketShop5 from "../assets/portfolio/PocketShop/5.jpeg";
+
+// DubbGames
+import DubbGames2 from "../assets/portfolio/DubbGames/2.png";
+import DubbGames3 from "../assets/portfolio/DubbGames/3.jpeg";
+import DubbGames4 from "../assets/portfolio/DubbGames/4.jpeg";
+import DubbGames5 from "../assets/portfolio/DubbGames/5.jpeg";
+
 export interface Project {
   title: string;
   subtitle: string;
@@ -187,10 +219,10 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
     ],
 
     gallery: [
-      { type: "image", url: project.image, caption: "Chaotic Physics-Based Brawls" },
-      { type: "image", url: project.image, caption: "Asymmetrical Boss Clown Gameplay" },
-      { type: "image", url: project.image, caption: "Multiplayer Lobby & Matchmaking Flow" },
-      { type: "image", url: project.image, caption: "Competitive Victory & Results Screen" },
+      { type: "image", url: ClownTown2, caption: "Chaotic Physics-Based Brawls" },
+      { type: "image", url: ClownTown3, caption: "Asymmetrical Boss Clown Gameplay" },
+      { type: "image", url: ClownTown4, caption: "Multiplayer Lobby & Matchmaking Flow" },
+      { type: "image", url: ClownTown5, caption: "Competitive Victory & Results Screen" },
     ],
   },
     "Alive AR": {
@@ -277,10 +309,10 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
     ],
 
     gallery: [
-      { type: "image", url: project.image, caption: "5v5 AR Team Combat" },
-      { type: "image", url: project.image, caption: "Shared AR World Map" },
-      { type: "image", url: project.image, caption: "Custom Weapon Loadouts" },
-      { type: "image", url: project.image, caption: "AR Multiplayer Match in Progress" },
+      { type: "image", url: AliveAR2, caption: "5v5 AR Team Combat" },
+      { type: "image", url: AliveAR3, caption: "Shared AR World Map" },
+      { type: "image", url: AliveAR4, caption: "Custom Weapon Loadouts" },
+      { type: "image", url: AliveAR5, caption: "AR Multiplayer Match in Progress" },
     ],
   },
     "Spades With Friends": {
@@ -366,10 +398,11 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
     ],
 
     gallery: [
-      { type: "image", url: project.image, caption: "2v2 Multiplayer Card Table" },
-      { type: "image", url: project.image, caption: "Custom Room & Party System" },
-      { type: "image", url: project.image, caption: "In-Game Chat Interface" },
-      { type: "image", url: project.image, caption: "Multiple Rule Set Selection" },
+      { type: "image", url: Spades2, caption: "2v2 Multiplayer Card Table" },
+      { type: "image", url: Spades3, caption: "Custom Room & Party System" },
+      { type: "image", url: Spades4, caption: "In-Game Chat Interface" },
+      { type: "image", url: Spades5, caption: "In-Game Chat Interface" },
+      { type: "image", url: Spades6, caption: "Multiple Rule Set Selection" },
     ],
   },
   "Pocket Shop": {
@@ -460,10 +493,10 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
     ],
 
     gallery: [
-      { type: "image", url: project.image, caption: "Garage & Department Management" },
-      { type: "image", url: project.image, caption: "Drift & Drag Racing Modes" },
-      { type: "image", url: project.image, caption: "Visual Novel Story Scenes" },
-      { type: "image", url: project.image, caption: "World Map & Leaderboard View" },
+      { type: "image", url: PocketShop2, caption: "Garage & Department Management" },
+      { type: "image", url: PocketShop3, caption: "Drift & Drag Racing Modes" },
+      { type: "image", url: PocketShop4, caption: "Visual Novel Story Scenes" },
+      { type: "image", url: PocketShop5, caption: "World Map & Leaderboard View" },
     ],
   },
   "DubbGames": {
@@ -554,10 +587,10 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
     ],
 
     gallery: [
-      { type: "image", url: project.image, caption: "Web-Based Casino Lobby" },
-      { type: "image", url: project.image, caption: "Multiplayer Blackjack & Baccarat Tables" },
-      { type: "image", url: project.image, caption: "Slot Machine with Paylines" },
-      { type: "image", url: project.image, caption: "Unity–React Integrated Gameplay View" },
+      { type: "image", url: DubbGames2, caption: "Web-Based Casino Lobby" },
+      { type: "image", url: DubbGames3, caption: "Multiplayer Blackjack & Baccarat Tables" },
+      { type: "image", url: DubbGames4, caption: "Slot Machine with Paylines" },
+      { type: "image", url: DubbGames5, caption: "Unity–React Integrated Gameplay View" },
     ],
   },
   };
