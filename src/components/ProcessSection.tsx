@@ -63,14 +63,19 @@ export function ProcessSection() {
           </motion.div>
 
           {/* Horizontal Timeline */}
-          <div className="relative mt-24">
-            {/* ENERGY TRACK */}
-            <div className="absolute top-20 left-0 right-0 h-2 bg-slate-800 rounded-full overflow-hidden">
+          <div className="relative mt-12 md:mt-24">
+            {/* ENERGY TRACK (Horizontal - Desktop) */}
+            <div className="hidden md:block absolute top-20 left-0 right-0 h-2 bg-slate-800 rounded-full overflow-hidden">
               <div className="absolute inset-0 bg-[linear-gradient(90deg,#0ff2,transparent,#0ff2)] bg-[length:200%_100%] animate-[lineFlow_3s_linear_infinite]" />
             </div>
 
-            {/* HORIZONTAL SCROLLER */}
-            <div className="flex gap-20 overflow-x-auto pb-10 snap-x no-scrollbar md:justify-between">
+            {/* ENERGY TRACK (Vertical - Mobile) */}
+            <div className="md:hidden absolute top-0 bottom-10 left-1/2 -translate-x-1/2 w-2 bg-slate-800 rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,#0ff2,transparent,#0ff2)] bg-[length:100%_200%] animate-[lineFlow_3s_linear_infinite]" />
+            </div>
+
+            {/* SCROLLER / GRID */}
+            <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center overflow-visible md:overflow-x-auto pb-10 md:justify-between">
               {steps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -78,9 +83,9 @@ export function ProcessSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className="relative flex flex-col items-center min-w-[200px] snap-center"
+                  className="relative flex flex-col items-center min-w-[200px] snap-center z-10"
                 >
-                  {/* CONNECTING LINE BETWEEN NODES */}
+                  {/* CONNECTING LINE BETWEEN NODES (Desktop only) */}
                   {index !== steps.length - 1 && (
                     <div className="absolute top-10 left-[120px] w-[140px] h-[2px] bg-cyan-500/20 md:block hidden">
                       <div className="w-full h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse opacity-60" />
@@ -122,7 +127,7 @@ export function ProcessSection() {
                   </div>
 
                   {/* TEXT */}
-                  <div className="text-center max-w-[180px] px-2">
+                  <div className="text-center max-w-[260px] md:max-w-[180px] px-2 bg-slate-900/50 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-4 md:p-0 rounded-xl md:rounded-none border border-slate-800/50 md:border-none">
                     <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-wide group-hover:text-cyan-300 transition-colors">
                       {step.title}
                     </h3>
