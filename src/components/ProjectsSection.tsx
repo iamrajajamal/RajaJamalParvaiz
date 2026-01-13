@@ -1,15 +1,16 @@
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, ExternalLink, Play, Eye } from "lucide-react";
+import { ExternalLink, Eye } from "lucide-react";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // Import Project Images
-import ClownTownImg from "../assets/portfolio/ClownTown/1.png";
-import SpadesImg from "../assets/portfolio/SpadesWithFriends/1.png";
-import PocketShopImg from "../assets/portfolio/PocketShop/1.png";
-import DubbGamesImg from "../assets/portfolio/DubbGames/1.png";
-import AliveARImg from "../assets/portfolio/AliveAR/1.png";
+import ClownTownImg from "../assets/Portfolio-Compressed/ClownTown/Clown Town.webp";
+import SpadesImg from "../assets/Portfolio-Compressed/SpadesWithFriends/Splash Screen.webp";
+import PocketShopImg from "../assets/Portfolio-Compressed/PocketShop/Splash.webp";
+import DubbGamesImg from "../assets/Portfolio-Compressed/DubbGame/Home.webp";
+import AliveARImg from "../assets/Portfolio-Compressed/AliveAR/1.webp";
+import DalcalImg from "../assets/Portfolio-Compressed/Dalcal/Splash.webp";
+import NineNoDrawImg from "../assets/Portfolio-Compressed/NineNoDraw/Splash Screen.webp";
 
 interface ProjectsSectionProps {
   onViewCaseStudy?: (project: any) => void;
@@ -66,6 +67,26 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       tags: ["AR", "Multiplayer", "FPS", "Team Combat"],
       tech: ["Unity", "ARFoundation", "Photon", "PlayFab", "GPS"],
       color: "from-green-500 to-teal-500",
+    },
+    {
+      title: "Dalcal",
+      subtitle: "Competitive Word Puzzle Game",
+      description:
+        "Form words in 3, 4, or 5-letter modes and challenge friends in real-time multiplayer matches with dynamic difficulty scaling.",
+      image: DalcalImg,
+      tags: ["Mobile", "Puzzle", "Multiplayer", "Social"],
+      tech: ["Unity", "Nakama", "C#", "Socket.IO"],
+      color: "from-yellow-500 to-amber-500",
+    },
+    {
+      title: "Nine No Draw",
+      subtitle: "Multiplayer Domino Tactics",
+      description:
+        "Play classic Dominoes in 1v1, 1v1v1, or 2v2 modes online, or enjoy local Pass & Play with friends. Strategic placement meets social fun.",
+      image: NineNoDrawImg,
+      tags: ["Mobile", "Board Game", "Multiplayer", "Dominoes"],
+      tech: ["Unity", "Nakama", "Addressables", "Zenject"],
+      color: "from-indigo-500 to-violet-500",
     },
   ];
 
@@ -173,7 +194,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
 
                   {/* CTA Button */}
                   <Button
-                    onClick={() => onViewCaseStudy(project)}
+                    onClick={() => onViewCaseStudy?.(project)}
                     className="w-full bg-slate-800/50 hover:bg-cyan-500/20 border border-slate-700/50 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 transition-all"
                     variant="outline"
                   >

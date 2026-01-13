@@ -1,9 +1,17 @@
-import { motion } from "motion/react";
-import { ArrowLeft, Play, Image as ImageIcon, Target, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  ArrowLeft,
+  Play,
+  Image as ImageIcon,
+  Target,
+  Zap,
+  X,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Navigation } from "./Navigation";
 import { getCaseStudyData } from "../data/caseStudies";
+import { useState } from "react";
 
 interface CaseStudyPageProps {
   project: {
@@ -19,6 +27,7 @@ interface CaseStudyPageProps {
 }
 
 export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   // Get extended case study data
   const caseStudyData = getCaseStudyData(project);
 
@@ -192,7 +201,10 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
+                className="relative group cursor-pointer"
+                onClick={() =>
+                  item.type === "image" && setSelectedImage(item.url)
+                }
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity" />
                 <div className="relative bg-slate-900 border border-slate-700/50 group-hover:border-cyan-400/50 rounded-2xl overflow-hidden transition-all">
@@ -226,13 +238,29 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
             className="mt-12 text-center"
           >
             <div className="inline-block bg-slate-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-xl px-6 py-4">
-              <p className="text-cyan-300 flex items-center gap-2">
-                <ImageIcon className="w-5 h-5" />
-                Disclaimer: All images displayed here are AI-generated and used
-                as **placeholders**. This is done to comply with confidentiality
-                agreements and avoid contract breach, as I do not own the
-                proprietary project work. My role in this project was strictly
-                as a Game Developer.
+              <p className="text-cyan-300 leading-relaxed">
+                <span className="flex items-center gap-2 mb-1">
+                  <ImageIcon className="w-5 h-5" />
+                  <strong>Disclaimer:</strong>
+                </span>
+                All showcased projects belong to{" "}
+                <a
+                  href="https://trangotech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-cyan-400"
+                >
+                  <strong>TrangoTech</strong>
+                </a>{" "}
+                and associated partners. I am not the owner of these projects. I
+                contributed to them as part of a talented development team,
+                working as a <strong>Game Developer</strong> and, on select
+                projects, taking on <strong>Lead</strong> and{" "}
+                <strong>Producer</strong> responsibilities — overseeing
+                workflows, collaborating with cross-functional teams, and
+                supporting production quality. These projects are featured
+                strictly to highlight my professional expertise, team
+                contribution, and leadership experience.
               </p>
             </div>
           </motion.div>
@@ -389,6 +417,39 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors z-10"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Full View"
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
