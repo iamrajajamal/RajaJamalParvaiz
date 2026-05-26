@@ -8,6 +8,8 @@ import MyPictureCoding from "../assets/mypicture/mypicture_developer_coding.png"
 
 export function HeroSection() {
   const [activePhoto, setActivePhoto] = useState(0);
+  const [prevActivePhoto, setPrevActivePhoto] = useState(0);
+  const [exitingCardId, setExitingCardId] = useState<number | null>(null);
 
   const photos = [
     {
@@ -15,7 +17,7 @@ export function HeroSection() {
       src: MyPictureCutout,
       caption: "Jamal - Developer Portrait",
       tag: "Self Portrait",
-      rotation: "-3deg",
+      rotation: -3,
       color: "border-craft-red"
     },
     {
@@ -23,7 +25,7 @@ export function HeroSection() {
       src: MyPictureStanding,
       caption: "Jamal - Level Design & Production",
       tag: "Producer Mode",
-      rotation: "4deg",
+      rotation: 4,
       color: "border-craft-blue"
     },
     {
@@ -31,13 +33,24 @@ export function HeroSection() {
       src: MyPictureCoding,
       caption: "Jamal - Systems Architecture",
       tag: "Writing Code",
-      rotation: "-5deg",
+      rotation: -5,
       color: "border-craft-green"
     }
   ];
 
   const handlePhotoClick = (index: number) => {
-    setActivePhoto(index);
+    setPrevActivePhoto(activePhoto);
+    setExitingCardId(activePhoto);
+    
+    if (index === activePhoto) {
+      setActivePhoto((prev) => (prev + 1) % photos.length);
+    } else {
+      setActivePhoto(index);
+    }
+
+    setTimeout(() => {
+      setExitingCardId(null);
+    }, 300);
   };
 
   const techTags = [
@@ -211,19 +224,38 @@ export function HeroSection() {
               const positionIndex = (index - activePhoto + photos.length) % photos.length;
               const zIndex = photos.length - positionIndex;
               const isBehind = positionIndex > 0;
+              const isExiting = index === prevActivePhoto && !isActive;
+              const renderZIndex = exitingCardId === photo.id ? photos.length + 2 : zIndex;
 
               return (
                 <motion.div
                   key={photo.id}
-                  style={{ zIndex }}
+                  style={{ zIndex: renderZIndex }}
                   animate={{
-                    x: isBehind ? positionIndex * 15 : 0,
-                    y: isBehind ? positionIndex * -12 : 0,
-                    rotate: isBehind ? `${(index % 2 === 0 ? 1 : -1) * (positionIndex * 6)}deg` : photo.rotation,
+                    x: isExiting ? [0, 240, positionIndex * 15] : (isBehind ? positionIndex * 15 : 0),
+                    y: isExiting ? [0, -16, positionIndex * -12] : (isBehind ? positionIndex * -12 : 0),
+                    rotate: isExiting 
+                      ? [
+                          photo.rotation, 
+                          12, 
+                          (index % 2 === 0 ? 1 : -1) * (positionIndex * 6)
+                        ] 
+                      : (isBehind ? (index % 2 === 0 ? 1 : -1) * (positionIndex * 6) : photo.rotation),
                     scale: isBehind ? 0.95 - positionIndex * 0.04 : 1,
                   }}
                   whileHover={!isBehind ? { scale: 1.02 } : { scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 25 }}
+                  transition={isExiting 
+                    ? {
+                        duration: 0.65,
+                        ease: "easeInOut",
+                        times: [0, 0.4, 1]
+                      }
+                    : {
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 25
+                      }
+                  }
                   onClick={() => handlePhotoClick(index)}
                   className="absolute inset-0 cursor-pointer craft-polaroid w-full h-full flex flex-col justify-between"
                 >
