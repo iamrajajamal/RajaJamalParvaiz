@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Brain, Calendar, Code, Bug, Rocket, ArrowRight } from "lucide-react";
+import { Brain, Calendar, Code, Bug, Rocket } from "lucide-react";
 
 export function ProcessSection() {
   const steps = [
@@ -8,147 +8,127 @@ export function ProcessSection() {
       description:
         "Evaluating ideas, creating design documents, and defining core loops.",
       icon: Brain,
-      color: "from-pink-500 to-rose-500",
+      color: "bg-craft-pink/50 text-[#232321] border-foreground/40",
+      tagBg: "bg-craft-red text-white",
     },
     {
       title: "Planning",
       description:
         "Roadmaps, task estimation, team assignment, and architecture design.",
       icon: Calendar,
-      color: "from-orange-500 to-amber-500",
+      color: "bg-[#fef9c3] text-[#5c4613] border-foreground/40",
+      tagBg: "bg-craft-yellow text-foreground",
     },
     {
       title: "Development",
       description:
         "Agile sprints, daily standups, code reviews, and rapid iteration.",
       icon: Code,
-      color: "from-cyan-500 to-blue-500",
+      color: "bg-[#dbeafe] text-[#1e40af] border-foreground/40",
+      tagBg: "bg-craft-blue text-white",
     },
     {
       title: "QA & Polish",
       description:
         "Bug tracking, widespread testing, optimization, and game feel tuning.",
       icon: Bug,
-      color: "from-purple-500 to-violet-500",
+      color: "bg-[#dcfce7] text-[#166534] border-foreground/40",
+      tagBg: "bg-craft-green text-white",
     },
     {
       title: "Live Ops",
       description:
         "Deployment, analytics monitoring, user feedback loops, and updates.",
       icon: Rocket,
-      color: "from-green-500 to-emerald-500",
+      color: "bg-craft-purple/30 text-foreground border-foreground/40",
+      tagBg: "bg-[#8b5cf6] text-white",
     },
   ];
 
   return (
     <>
       <section
-        className="relative py-24 bg-slate-900 overflow-hidden"
+        className="relative py-28 bg-gradient-to-b from-[#faf8f5] to-[#f5f2eb] border-b border-foreground/10 overflow-hidden paper-grain"
         id="process"
       >
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-24"
           >
-            <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
+            <div className="inline-block px-6 py-2 bg-craft-red text-white border border-foreground/80 paper-shadow rotate-[1deg] font-craft-title text-2xl uppercase tracking-wider">
               Production Pipeline
-            </h2>
-            <p className="text-xl text-slate-400">My Workflow</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
+            </div>
+            <p className="text-sm font-craft-sketch text-muted-foreground mt-3">My Workflow</p>
           </motion.div>
 
           {/* Horizontal Timeline */}
           <div className="relative mt-12 md:mt-24">
-            {/* ENERGY TRACK (Horizontal - Desktop) */}
-            <div className="hidden md:block absolute top-20 left-0 right-0 h-2 bg-slate-800 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,#0ff2,transparent,#0ff2)] bg-[length:200%_100%] animate-[lineFlow_3s_linear_infinite]" />
-            </div>
+            {/* Desktop timeline line */}
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 border-t-2 border-dashed border-foreground/20 z-0" />
 
-            {/* ENERGY TRACK (Vertical - Mobile) */}
-            <div className="md:hidden absolute top-0 bottom-10 left-1/2 -translate-x-1/2 w-2 bg-slate-800 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,#0ff2,transparent,#0ff2)] bg-[length:100%_200%] animate-[lineFlow_3s_linear_infinite]" />
-            </div>
+            {/* Mobile timeline line */}
+            <div className="md:hidden absolute top-0 bottom-10 left-12 w-0.5 border-l-2 border-dashed border-foreground/20 z-0" />
 
-            {/* SCROLLER / GRID */}
-            <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center overflow-visible md:overflow-x-auto pb-10 md:justify-between">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className="relative flex flex-col items-center min-w-[200px] snap-center z-10"
-                >
-                  {/* CONNECTING LINE BETWEEN NODES (Desktop only) */}
-                  {index !== steps.length - 1 && (
-                    <div className="absolute top-10 left-[120px] w-[140px] h-[2px] bg-cyan-500/20 md:block hidden">
-                      <div className="w-full h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse opacity-60" />
+            {/* Steps Container */}
+            <div className="flex flex-col md:flex-row gap-12 md:gap-8 items-start justify-between relative z-10">
+              {steps.map((step, index) => {
+                const rotation = index % 2 === 0 ? "rotate-[-1.5deg]" : "rotate-[1.5deg]";
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative flex flex-col md:items-center items-start md:text-center w-full md:max-w-[200px]"
+                  >
+                    {/* Level Tag (Sticker Style) */}
+                    <div className="md:absolute md:top-[-45px] mb-3 md:mb-0">
+                      <span className={`px-2 py-0.5 border border-foreground/60 shadow-[1px_1px_2px_rgba(0,0,0,0.06)] text-[9px] font-craft-title uppercase font-bold tracking-tight rounded-sm ${step.tagBg}`}>
+                        STAGE 0{index + 1}
+                      </span>
                     </div>
-                  )}
 
-                  {/* NODE WRAPPER */}
-                  <div className="relative mb-6 group">
-                    {/* Pulsing Glow */}
-                    <div className="absolute -inset-4 rounded-full opacity-40 blur-xl bg-cyan-400/20 group-hover:opacity-70 transition-all animate-[pulseGlow_2s_infinite]" />
+                    {/* Round Badge Node */}
+                    <div className="relative mb-5 flex items-center justify-center bg-white border border-foreground/60 rounded-full w-20 h-20 paper-shadow group hover:scale-105 transition-transform duration-300">
+                      {/* Pins on the nodes */}
+                      <div className="absolute top-0 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-foreground/50 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]" />
+                      <step.icon className="w-8 h-8 text-foreground" />
+                    </div>
 
-                    {/* HEXAGON */}
+                    {/* Text Container (Index Card Style) */}
                     <div
-                      className="relative w-24 h-24 bg-slate-900 border border-slate-700 group-hover:border-cyan-400 z-10 flex items-center justify-center transition-colors duration-300 shadow-2xl"
-                      style={{
-                        clipPath:
-                          "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)",
-                      }}
+                      style={{ rotate: rotation }}
+                      className={`craft-panel p-4 w-full bg-white border border-foreground/60 paper-shadow-lg ${step.color}`}
                     >
-                      <step.icon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <h3 className="font-craft-title text-base text-foreground mb-1 uppercase tracking-tight">
+                        {step.title}
+                      </h3>
+                      <p className="font-craft-body text-xs text-foreground/80 leading-relaxed">
+                        {step.description}
+                      </p>
                     </div>
-
-                    {/* Tooltip */}
-                    <div className="absolute left-1/2 -bottom-14 -translate-x-1/2 bg-slate-800 border border-cyan-400/40 text-slate-200 text-xs px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap"></div>
-                  </div>
-
-                  {/* LEVEL BADGE - Moved to flow */}
-                  <div className="mb-4">
-                    <div className="relative">
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-r ${step.color} blur-sm opacity-50`}
-                      />
-                      <div className="relative bg-slate-950 border border-slate-600 px-2 py-1 rounded-sm">
-                        <span className="text-[8px] font-bold text-white uppercase">
-                          Lvl {index + 1}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* TEXT */}
-                  <div className="text-center max-w-[260px] md:max-w-[180px] px-2 bg-slate-900/50 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-4 md:p-0 rounded-xl md:rounded-none border border-slate-800/50 md:border-none">
-                    <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-wide group-hover:text-cyan-300 transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-slate-950 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent font-bold mb-6 py-4">
-            What Happens After My Workflow?
-          </h2>
+      {/* Post-Workflow Phase */}
+      <section className="py-28 bg-gradient-to-b from-[#f5f2eb] to-[#faf8f5] border-b border-foreground/10 overflow-hidden paper-grain">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="inline-block px-5 py-1.5 bg-craft-yellow text-foreground border border-foreground/80 paper-shadow rotate-[-1deg] font-craft-title text-xl uppercase tracking-wider mb-6">
+            Post-Workflow Checklist
+          </div>
 
-          <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-16">
+          <p className="font-craft-body text-lg text-foreground/80 max-w-3xl mx-auto mb-16 leading-relaxed">
             Once the core production pipeline is complete, I shift into a
             high-precision polish phase — optimizing performance, refining UX,
             enhancing interaction, and preparing for global release. Every
@@ -156,36 +136,70 @@ export function ProcessSection() {
             professional, publish-ready product.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="bg-slate-900 border border-slate-700 p-8 rounded-xl hover:border-cyan-400 transition">
-              <h3 className="text-xl text-white font-bold mb-4">
-                ✨ Final QA & Polishing
-              </h3>
-              <p className="text-slate-400 text-sm">
-                Bug fixing, refinements, UX tweaks, animation smoothing, shader
-                adjustments.
-              </p>
-            </div>
+          {/* Sticky Notes Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Note 1 - QA */}
+            <motion.div
+              initial={{ opacity: 0, rotate: -2, y: 15 }}
+              whileInView={{ opacity: 1, rotate: -1.5, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              className="relative p-8 bg-[#fef9c3]/60 border border-foreground/60 paper-shadow-lg flex flex-col justify-between items-center text-center text-[#5c4613] h-64"
+            >
+              <div className="craft-tape w-12 h-4 top-[-8px] left-[35%] pointer-events-none tape-yellow" style={{ transform: "rotate(-2deg)" }} />
+              <div className="mt-4">
+                <h3 className="font-craft-title text-lg mb-3">
+                  ✨ QA & Polish
+                </h3>
+                <p className="font-craft-body text-sm text-[#5c4613]/90 leading-relaxed">
+                  Bug fixing, refinements, UX tweaks, animation smoothing, and shader adjustments.
+                </p>
+              </div>
+              <span className="font-craft-sketch text-[10px] text-[#5c4613]/70 mt-4">VERIFYING STABILITY</span>
+            </motion.div>
 
-            <div className="bg-slate-900 border border-slate-700 p-8 rounded-xl hover:border-purple-400 transition">
-              <h3 className="text-xl text-white font-bold mb-4">
-                🚀 Performance Optimization
-              </h3>
-              <p className="text-slate-400 text-sm">
-                GPU/CPU efficiency, batching, memory optimization, mobile
-                tuning.
-              </p>
-            </div>
+            {/* Note 2 - Optimization */}
+            <motion.div
+              initial={{ opacity: 0, rotate: 1.5, y: 15 }}
+              whileInView={{ opacity: 1, rotate: 2, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              className="relative p-8 bg-craft-pink/50 border border-foreground/60 paper-shadow-lg flex flex-col justify-between items-center text-center text-[#232321] h-64"
+            >
+              <div className="craft-tape w-12 h-4 top-[-8px] left-[35%] pointer-events-none tape-coral" style={{ transform: "rotate(3deg)" }} />
+              <div className="mt-4">
+                <h3 className="font-craft-title text-lg text-craft-red mb-3">
+                  🚀 Performance
+                </h3>
+                <p className="font-craft-body text-sm text-[#232321]/90 leading-relaxed">
+                  GPU/CPU efficiency, draw call batching, memory profiling, and mobile scaling.
+                </p>
+              </div>
+              <span className="font-craft-sketch text-[10px] text-craft-red/80 mt-4">PROFILING MEMORY</span>
+            </motion.div>
 
-            <div className="bg-slate-900 border border-slate-700 p-8 rounded-xl hover:border-pink-400 transition">
-              <h3 className="text-xl text-white font-bold mb-4">
-                📦 Release & Deployment
-              </h3>
-              <p className="text-slate-400 text-sm">
-                Build pipeline setup, CI/CD, Play Store / App Store publishing,
-                patch workflow.
-              </p>
-            </div>
+            {/* Note 3 - Release */}
+            <motion.div
+              initial={{ opacity: 0, rotate: -1.5, y: 15 }}
+              whileInView={{ opacity: 1, rotate: -1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              className="relative p-8 bg-[#dbeafe] border border-foreground/60 paper-shadow-lg flex flex-col justify-between items-center text-center text-[#1e40af] h-64"
+            >
+              <div className="craft-tape w-12 h-4 top-[-8px] left-[35%] pointer-events-none tape-blue" style={{ transform: "rotate(-1deg)" }} />
+              <div className="mt-4">
+                <h3 className="font-craft-title text-lg text-[#1e40af] mb-3">
+                  📦 Deployment
+                </h3>
+                <p className="font-craft-body text-sm text-[#1e40af]/90 leading-relaxed">
+                  Build automation setup, Google Play / Apple App Store submissions, and live patching.
+                </p>
+              </div>
+              <span className="font-craft-sketch text-[10px] text-[#1e40af]/80 mt-4">LAUNCHING GLOBALLY</span>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -3,9 +3,7 @@ import {
   Gamepad2,
   Users,
   Lightbulb,
-  Search,
   Code,
-  LayoutDashboard,
 } from "lucide-react";
 
 export function ServicesSection() {
@@ -15,7 +13,7 @@ export function ServicesSection() {
       description:
         "From initial concept to global launch. I manage the entire lifecycle, ensuring vision alignment, timely delivery, and quality assurance.",
       icon: Gamepad2,
-      color: "from-cyan-500 to-blue-500",
+      color: "bg-[#dbeafe] text-[#1e40af] border-foreground/40",
       skills: ["Roadmap Planning", "Milestone Delivery", "Live Ops"],
     },
     {
@@ -23,7 +21,7 @@ export function ServicesSection() {
       description:
         "Building and managing high-performing teams. I bridge the gap between artists, designers, and developers to foster collaboration.",
       icon: Users,
-      color: "from-purple-500 to-pink-500",
+      color: "bg-[#dcfce7] text-[#166534] border-foreground/40",
       skills: ["Hiring", "Mentorship", "Conflict Resolution"],
     },
     {
@@ -31,7 +29,7 @@ export function ServicesSection() {
       description:
         "Expert advice on game architecture, engine selection, and scalability. I help prevent technical debt before it starts.",
       icon: Code,
-      color: "from-blue-500 to-indigo-500",
+      color: "bg-craft-pink/50 text-[#232321] border-foreground/40",
       skills: ["Architecture", "Optimization", "Code Reviews"],
     },
     {
@@ -39,82 +37,87 @@ export function ServicesSection() {
       description:
         "Deconstructing game loops and mechanics to improve player retention and monetization strategies.",
       icon: Lightbulb,
-      color: "from-yellow-500 to-orange-500",
+      color: "bg-[#fef9c3] text-[#5c4613] border-foreground/40",
       skills: ["GDD Creation", "Economy Balancing", "UX Review"],
     },
   ];
 
   return (
-    <section className="relative py-24 bg-slate-950 overflow-hidden" id="services">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]" />
-      </div>
+    <section className="relative py-28 bg-gradient-to-b from-[#faf8f5] to-[#f5f2eb] border-t border-b border-foreground/10 overflow-hidden paper-grain" id="services">
+      {/* Background craft shapes */}
+      <div className="absolute bottom-[-100px] left-[5%] w-72 h-72 bg-craft-tan rounded-full opacity-10 pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
+        
+        {/* Title Tag */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4">
+          <div className="inline-block px-6 py-2 bg-craft-blue text-white border border-foreground/80 paper-shadow rotate-[-1deg] font-craft-title text-2xl uppercase tracking-wider">
             Guild Services
-          </h2>
-          <p className="text-xl text-slate-400">What I Offer</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
+          </div>
+          <p className="text-sm font-craft-sketch text-muted-foreground mt-3">Professional Offerings</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
-            >
-              {/* Glow Effect */}
-              <div
-                className={`absolute -inset-1 bg-gradient-to-r ${service.color} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
-              />
+          {services.map((service, index) => {
+            const rot = index % 2 === 0 ? "rotate-[-1.2deg]" : "rotate-[1.2deg]";
+            const tapeColor = index % 4 === 0 ? "tape-blue" : index % 4 === 1 ? "tape-green" : index % 4 === 2 ? "tape-coral" : "tape-yellow";
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ scale: 1.02, rotate: "0deg" }}
+                className={`relative ${rot}`}
+              >
+                {/* Index Card Design */}
+                <div className={`craft-panel h-full p-8 flex flex-col justify-between border border-foreground/60 paper-shadow-lg ${service.color}`}>
+                  {/* Decorative tape at the top center */}
+                  <div className={`craft-tape w-12 h-4 top-[-8px] left-[45%] pointer-events-none ${tapeColor}`} style={{ transform: "rotate(-2deg)" }} />
 
-              {/* Card */}
-              <div className="relative h-full bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 group-hover:border-cyan-400/50 rounded-2xl p-8 transition-all hover:-translate-y-1">
-                <div className="flex items-start gap-6">
-                  {/* Icon */}
-                  <div className={`p-4 rounded-xl bg-gradient-to-r ${service.color} shadow-lg shrink-0`}>
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-
-                  {/* Content */}
                   <div>
-                    <h3 className="text-2xl text-white mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-slate-400 mb-6 leading-relaxed">
+                    <div className="flex items-start gap-5 mb-5">
+                      {/* Icon container */}
+                      <div className="p-3 bg-white border border-foreground/65 paper-shadow rounded-none shrink-0 flex items-center justify-center">
+                        <service.icon className="w-6 h-6 text-foreground" />
+                      </div>
+
+                      {/* Header */}
+                      <div>
+                        <h3 className="font-craft-title text-xl text-foreground mb-1">
+                          {service.title}
+                        </h3>
+                        <div className="w-12 h-0.5 bg-foreground/20" />
+                      </div>
+                    </div>
+
+                    <p className="font-craft-body text-base text-foreground/80 leading-relaxed mb-6">
                       {service.description}
                     </p>
+                  </div>
 
-                    {/* Skills/Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {service.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 text-xs rounded-full bg-slate-800 border border-slate-700 text-slate-300 group-hover:border-cyan-400/30 transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Skills/Tags as tiny ripped papers */}
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-dashed border-foreground/20">
+                    {service.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="px-2.5 py-1 font-craft-body text-xs font-bold bg-white border border-foreground/35 shadow-[1px_1px_2px_rgba(0,0,0,0.05)] text-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

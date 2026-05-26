@@ -1,5 +1,5 @@
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -21,29 +21,66 @@ interface NavigationProps {
   showSections?: boolean;
 }
 
+const navItems = [
+  { name: "Home", icon: Home, section: "hero" },
+  { name: "About", icon: User, section: "about" },
+  { name: "Skills", icon: Code, section: "skills" },
+  { name: "Services", icon: Zap, section: "services" },
+  { name: "Process", icon: GitBranch, section: "process" },
+  { name: "Experience", icon: Briefcase, section: "experience" },
+  { name: "Projects", icon: FolderOpen, section: "projects" },
+  { name: "Stats", icon: Trophy, section: "stats" },
+  { name: "Contact", icon: Mail, section: "contact" },
+];
+
+const getTapeColorClass = (index: number) => {
+  const colors = ["tape-yellow", "tape-blue", "tape-coral", "tape-green"];
+  return colors[index % colors.length];
+};
+
 export function Navigation({
   onNavigate,
   showSections = true,
 }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
 
-  const navItems = [
-    { name: "Home", icon: Home, section: "hero" },
-    { name: "About", icon: User, section: "about" },
-    { name: "Skills", icon: Code, section: "skills" },
-    { name: "Services", icon: Zap, section: "services" },
-    { name: "Process", icon: GitBranch, section: "process" },
-    { name: "Experience", icon: Briefcase, section: "experience" },
-    { name: "Projects", icon: FolderOpen, section: "projects" },
-    { name: "Stats", icon: Trophy, section: "stats" },
-    { name: "Contact", icon: Mail, section: "contact" },
-  ];
+  useEffect(() => {
+    if (!showSections) return;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120; // offset for navbar height + buffer
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+
+      if (isAtBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const item = navItems[i];
+        const el = document.getElementById(item.section);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(item.section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showSections]);
 
   const scrollToSection = (section: string) => {
     setIsMobileMenuOpen(false);
@@ -73,33 +110,35 @@ export function Navigation({
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`!fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           isScrolled
-            ? "bg-slate-950/95 backdrop-blur-xl border-b border-cyan-400/20 shadow-lg shadow-cyan-500/10"
+            ? "bg-[#fbfbf9]/95 border-b-[1.2px] border-foreground/60 paper-shadow paper-grain"
             : "bg-transparent"
         }`}
       >
+        {/* Decorative Tape on Header top right */}
+        <div className="absolute right-10 top-0 w-24 h-6 tape-yellow rotate-3 opacity-90 pointer-events-none hidden md:block" />
+
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            {/* Logo representation as a small hand-cut polaroid */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 cursor-pointer"
+              whileHover={{ scale: 1.05, rotate: 1 }}
+              className="flex items-center gap-3 cursor-pointer relative"
               onClick={() => scrollToSection("hero")}
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg blur-lg opacity-50" />
+              <div className="relative p-1.5 bg-white border border-foreground/50 paper-shadow rotate-[-2deg] rounded-sm">
                 <img
                   src="/favicon.png"
                   alt="Logo"
-                  className="relative w-10 h-10 rounded-lg object-cover border border-cyan-500/20"
+                  className="w-8 h-8 object-cover rounded-none"
                 />
               </div>
               <div className="hidden sm:block">
-                <div className="text-xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                <div className="font-craft-title text-lg text-foreground tracking-wide">
                   Jamal Parvaiz
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs font-craft-sketch text-muted-foreground">
                   Game Developer/Producer
                 </div>
                 {!showSections && (
@@ -108,7 +147,7 @@ export function Navigation({
                       e.stopPropagation();
                       if (onNavigate) onNavigate("home");
                     }}
-                    className="text-xs text-cyan-400 mt-1 cursor-pointer hover:text-cyan-300 flex items-center gap-1 transition-colors"
+                    className="text-xs text-primary font-craft-sketch mt-1 cursor-pointer hover:underline flex items-center gap-1 transition-all"
                   >
                     <ArrowLeft className="w-3 h-3" />
                     Back to Home
@@ -117,34 +156,49 @@ export function Navigation({
               </div>
             </motion.div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation links */}
             {showSections && (
-              <div className="hidden md:flex items-center gap-1">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.section}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    onClick={() => scrollToSection(item.section)}
-                    className="group relative px-4 py-2 rounded-lg text-slate-300 hover:text-cyan-300 transition-colors"
-                  >
-                    <span className="relative z-10 flex items-center gap-2 text-sm">
-                      <item.icon className="w-4 h-4" />
-                      {item.name}
-                    </span>
-                    <div className="absolute inset-0 bg-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300" />
-                  </motion.button>
-                ))}
+              <div className="hidden md:flex items-center gap-1.5">
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.section;
+                  return (
+                    <motion.button
+                      key={item.section}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      onClick={() => scrollToSection(item.section)}
+                      className={`group relative px-3 py-1.5 font-craft-body text-sm font-medium transition-all duration-200 ${
+                        isActive
+                          ? "text-foreground font-semibold"
+                          : "text-foreground/75 hover:text-foreground"
+                      }`}
+                    >
+                      <span className="relative z-10 flex items-center gap-1.5">
+                        <item.icon className={`w-4 h-4 transition-transform duration-200 group-hover:scale-110 ${isActive ? "text-primary" : "text-foreground/60 group-hover:text-primary"}`} />
+                        {item.name}
+                      </span>
+                      {/* Paper Washi Tape Highlight for active, or scribble for hover */}
+                      <div
+                        className={`absolute inset-0 rounded-sm transition-all duration-200 ${
+                          isActive
+                            ? `opacity-100 ${getTapeColorClass(index)} ${
+                                index % 2 === 0 ? "rotate-[1.5deg]" : "rotate-[-1.5deg]"
+                              } border-l border-r border-dashed border-foreground/15 shadow-sm scale-y-90 scale-x-[0.98]`
+                            : "bg-craft-yellow/15 opacity-0 group-hover:opacity-100 group-hover:rotate-[-1deg] scale-y-75 scale-x-95"
+                        }`}
+                      />
+                    </motion.button>
+                  );
+                })}
               </div>
             )}
 
-            {/* CTA Button */}
+            {/* Hire Me Custom Cutout Button */}
             <div className="hidden md:block">
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-6 py-2 rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25"
+                className="craft-btn font-craft-title px-5 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Hire Me
               </Button>
@@ -154,12 +208,12 @@ export function Navigation({
             {showSections && (
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 transition-all"
+                className="md:hidden p-2 border border-foreground/45 bg-background text-foreground hover:bg-[#efeae0] transition-all paper-shadow"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-5 h-5" />
                 )}
               </button>
             )}
@@ -167,7 +221,7 @@ export function Navigation({
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {showSections && (
         <motion.div
           initial={false}
@@ -178,35 +232,42 @@ export function Navigation({
           transition={{ duration: 0.3 }}
           className="fixed top-20 left-0 right-0 z-40 md:hidden overflow-hidden"
         >
-          <div className="bg-slate-950/98 backdrop-blur-xl border-b border-cyan-400/20 shadow-lg shadow-cyan-500/10">
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-2">
-              {navItems.map((item, index) => (
+          <div className="bg-[#fbfbf9]/95 border-b-[1.2px] border-foreground/60 paper-shadow-lg px-6 py-5 space-y-2.5 paper-grain">
+            {navItems.map((item, index) => {
+              const isActive = activeSection === item.section;
+              return (
                 <motion.button
                   key={item.section}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.section)}
-                  className="w-full group relative flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-cyan-300 transition-all"
+                  className={`w-full group relative flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all font-craft-body ${
+                    isActive ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                  }`}
                 >
-                  <div className="absolute inset-0 bg-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <item.icon className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">{item.name}</span>
-                  <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-cyan-400">→</span>
-                  </div>
+                  <div
+                    className={`absolute inset-0 rounded-md transition-opacity ${
+                      isActive
+                        ? `${getTapeColorClass(index)} opacity-80 border-l border-r border-dashed border-foreground/10`
+                        : "bg-craft-yellow/10 opacity-0 group-hover:opacity-100"
+                    }`}
+                  />
+                  <item.icon className="w-4 h-4 text-primary relative z-10" />
+                  <span className="relative z-10 font-medium">{item.name}</span>
+                  <span className={`ml-auto relative z-10 transition-all ${isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"} text-primary`}>→</span>
                 </motion.button>
-              ))}
+              );
+            })}
 
-              {/* Mobile CTA */}
-              <div className="pt-4">
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-lg transition-all hover:scale-105 shadow-lg shadow-cyan-500/25"
-                >
-                  Hire Me
-                </Button>
-              </div>
+            {/* Mobile CTA */}
+            <div className="pt-3">
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="w-full craft-btn font-craft-title py-3 bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                Hire Me
+              </Button>
             </div>
           </div>
         </motion.div>

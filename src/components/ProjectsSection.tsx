@@ -26,7 +26,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: ClownTownImg,
       tags: ["Multiplayer", "Real-Time", "Mobile", "Physics"],
       tech: ["Unity", "C#", "Nakama", "Photon"],
-      color: "from-red-500 to-orange-500",
+      color: "bg-craft-pink/50 text-[#232321] border-foreground/40",
     },
     {
       title: "Spades With Friends",
@@ -36,7 +36,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: SpadesImg,
       tags: ["Multiplayer", "Social", "Card Game", "Cross-Platform"],
       tech: ["Unity", "Mirror", "PlayFab", "Firebase"],
-      color: "from-purple-500 to-pink-500",
+      color: "bg-[#dbeafe] text-[#1e40af] border-foreground/40",
     },
     {
       title: "Pocket Shop",
@@ -46,7 +46,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: PocketShopImg,
       tags: ["Simulation", "Racing", "3D", "Story-Driven"],
       tech: ["Unity", "C#", "Addressables", "IAP", "Nakama"],
-      color: "from-blue-500 to-cyan-500",
+      color: "bg-[#fef9c3] text-[#5c4613] border-foreground/40",
     },
     {
       title: "DubbGames",
@@ -56,7 +56,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: DubbGamesImg,
       tags: ["WebGL", "Multiplayer", "Platform", "Full-Stack"],
       tech: ["Unity", "React", "Node.js", "WebGL", "Nakama"],
-      color: "from-cyan-500 to-purple-500",
+      color: "bg-[#dcfce7] text-[#166534] border-foreground/40",
     },
     {
       title: "Alive AR",
@@ -66,7 +66,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: AliveARImg,
       tags: ["AR", "Multiplayer", "FPS", "Team Combat"],
       tech: ["Unity", "ARFoundation", "Photon", "PlayFab", "GPS"],
-      color: "from-green-500 to-teal-500",
+      color: "bg-[#e0f2fe] text-[#0369a1] border-foreground/40",
     },
     {
       title: "Dalcal",
@@ -76,7 +76,7 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: DalcalImg,
       tags: ["Mobile", "Puzzle", "Multiplayer", "Social"],
       tech: ["Unity", "Nakama", "C#", "Socket.IO"],
-      color: "from-yellow-500 to-amber-500",
+      color: "bg-[#fffbeb] text-[#b45309] border-foreground/40",
     },
     {
       title: "Nine No Draw",
@@ -86,125 +86,124 @@ export function ProjectsSection({ onViewCaseStudy }: ProjectsSectionProps) {
       image: NineNoDrawImg,
       tags: ["Mobile", "Board Game", "Multiplayer", "Dominoes"],
       tech: ["Unity", "Nakama", "Addressables", "Zenject"],
-      color: "from-indigo-500 to-violet-500",
+      color: "bg-craft-purple/30 text-foreground border-foreground/40",
     },
   ];
 
   return (
-    <section className="relative py-24 bg-slate-950 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]" />
-      </div>
+    <section className="relative py-28 bg-gradient-to-b from-[#f5f2eb] to-[#faf8f5] border-t border-b border-foreground/10 overflow-hidden paper-grain" id="projects">
+      {/* Background craft decorations */}
+      <div className="absolute top-[-50px] left-[15%] w-80 h-80 bg-craft-tan rounded-full opacity-10 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
+        
+        {/* Title Tag */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 py-4">
+          <div className="inline-block px-6 py-2 bg-craft-blue text-white border border-foreground/80 paper-shadow rotate-[-1deg] font-craft-title text-2xl uppercase tracking-wider">
             Featured Projects
-          </h2>
-          <p className="text-xl text-slate-400">Game Library</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
+          </div>
+          <p className="text-sm font-craft-sketch text-muted-foreground mt-3">My Game Library & Case Studies</p>
         </motion.div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
-            >
-              {/* Card Glow */}
-              <div
-                className={`absolute -inset-1 bg-gradient-to-r ${project.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500`}
-              />
+          {projects.map((project, index) => {
+            const rotation = index % 2 === 0 ? "rotate-[-1.5deg]" : "rotate-[1deg]";
+            const tapeColor = index % 4 === 0 ? "tape-coral" : index % 4 === 1 ? "tape-yellow" : index % 4 === 2 ? "tape-blue" : index % 4 === 3 ? "tape-green" : "tape-coral";
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ scale: 1.03, rotate: "0deg" }}
+                className={`relative ${rotation}`}
+              >
+                {/* Scrapbook Paper Card */}
+                <div className={`craft-panel h-full p-5 bg-white border border-foreground/60 paper-shadow-lg flex flex-col justify-between ${project.color}`}>
+                  
+                  {/* Tape top anchor */}
+                  <div className={`craft-tape w-16 h-4 top-[-8px] left-[15px] rotate-[-12deg] pointer-events-none ${tapeColor}`} />
 
-              {/* Card */}
-              <div className="relative h-full bg-slate-900/90 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-cyan-400/50 group-hover:transform group-hover:scale-[1.02]">
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
-
-                  {/* Hover Play Button */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <div className="p-4 rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/50">
-                      <Eye className="w-8 h-8 text-cyan-400" />
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  {/* Title */}
                   <div>
-                    <h3 className="text-2xl text-white mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-cyan-400">{project.subtitle}</p>
+                    {/* Game Cover Art Image Container */}
+                    <div className="relative aspect-video border border-foreground/40 bg-white overflow-hidden rounded-[2px] shadow-[1px_1px_3px_rgba(0,0,0,0.06)] mb-4 group/img">
+                      <ImageWithFallback
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                      />
+                      {/* Paper filter color overlay */}
+                      <div className="absolute inset-0 bg-craft-tan/10 mix-blend-color-burn pointer-events-none" />
+
+                      {/* Hover eye icon */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-background/30 opacity-0 group-hover/img:opacity-100 transition-opacity">
+                        <div className="p-3 bg-white border border-foreground/80 paper-shadow">
+                          <Eye className="w-6 h-6 text-foreground" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Metadata */}
+                    <div className="mb-3">
+                      <h3 className="font-craft-title text-xl text-foreground mb-0.5 uppercase tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="font-craft-sketch text-xs text-muted-foreground">{project.subtitle}</p>
+                    </div>
+
+                    {/* Description */}
+                    <p className="font-craft-body text-xs text-foreground/80 leading-relaxed line-clamp-3 mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-0.5 border border-foreground/20 font-craft-body text-[10px] font-bold bg-white text-foreground rounded-sm shadow-[1px_1px_2px_rgba(0,0,0,0.04)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-slate-400 line-clamp-3">
-                    {project.description}
-                  </p>
+                  <div>
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1.5 pt-3 mb-4 border-t border-dashed border-foreground/20">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="font-craft-sketch text-[10px] text-muted-foreground"
+                        >
+                          #{tech}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className={`px-3 py-1 text-xs rounded-full bg-gradient-to-r ${project.color} text-white`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {/* CTA Button */}
+                    <Button
+                      onClick={() => onViewCaseStudy?.(project)}
+                      className="w-full bg-white hover:bg-neutral-50 text-foreground border border-foreground/80 paper-shadow active:translate-y-0.5 active:shadow-[1px_1px_1px_rgba(0,0,0,0.1)] rounded-sm py-4 text-xs font-craft-title uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      View Case Study
+                    </Button>
                   </div>
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-700/30">
-                    {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-xs text-slate-500 bg-slate-800/50 px-2 py-1 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* CTA Button */}
-                  <Button
-                    onClick={() => onViewCaseStudy?.(project)}
-                    className="w-full bg-slate-800/50 hover:bg-cyan-500/20 border border-slate-700/50 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 transition-all"
-                    variant="outline"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View Case Study
-                  </Button>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

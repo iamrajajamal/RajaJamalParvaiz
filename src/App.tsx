@@ -42,36 +42,38 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <>
       <Navigation />
-      <div id="hero">
-        <HeroSection />
+      <div className="min-h-screen bg-background text-foreground paper-grain font-craft-body transition-colors duration-300 selection:bg-craft-yellow/40 selection:text-foreground">
+        <div id="hero">
+          <HeroSection />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
+        <div id="skills">
+          <SkillsSection />
+        </div>
+        <div id="services">
+          <ServicesSection />
+        </div>
+        <div id="process">
+          <ProcessSection />
+        </div>
+        <div id="experience">
+          <ExperienceSection />
+        </div>
+        <div id="projects">
+          <ProjectsSection onViewCaseStudy={handleViewCaseStudy} />
+        </div>
+        <div id="stats">
+          <StatsSection />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
+        <Toaster />
       </div>
-      <div id="about">
-        <AboutSection />
-      </div>
-      <div id="skills">
-        <SkillsSection />
-      </div>
-      <div id="services">
-        <ServicesSection />
-      </div>
-      <div id="process">
-        <ProcessSection />
-      </div>
-      <div id="experience">
-        <ExperienceSection />
-      </div>
-      <div id="projects">
-        <ProjectsSection onViewCaseStudy={handleViewCaseStudy} />
-      </div>
-      <div id="stats">
-        <StatsSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
-      <Toaster />
-    </div>
+    </>
   );
 }
