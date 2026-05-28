@@ -1,15 +1,67 @@
-import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Download, Play, Gamepad2, Monitor } from "lucide-react";
 import { Button } from "./ui/button";
 import MyPictureCutout from "../assets/mypicture/mypicture_paper_cutout.png";
 import MyPictureStanding from "../assets/mypicture/mypicture_developer_standing.png";
 import MyPictureCoding from "../assets/mypicture/mypicture_developer_coding.png";
+import { PaperPlaneCanvas } from "./PaperPlaneCanvas";
+import { useMatterPhysics } from "../hooks/useMatterPhysics";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "motion/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSection() {
   const [activePhoto, setActivePhoto] = useState(0);
   const [prevActivePhoto, setPrevActivePhoto] = useState(0);
   const [exitingCardId, setExitingCardId] = useState<number | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [cw, setCw] = useState(320);
+  const [ch, setCh] = useState(400);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMd = window.innerWidth >= 768;
+      setIsDesktop(isMd);
+      setCw(isMd ? 320 : 280);
+      setCh(isMd ? 400 : 360);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // GSAP ScrollTrigger for pinning
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=120%", // Pin duration
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          let newIndex = 0;
+          if (progress > 0.33 && progress <= 0.68) {
+            newIndex = 1;
+          } else if (progress > 0.68) {
+            newIndex = 2;
+          }
+          setActivePhoto(newIndex);
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [isDesktop]);
 
   const photos = [
     {
@@ -37,6 +89,23 @@ export function HeroSection() {
       color: "border-craft-green",
     },
   ];
+
+  // Compute anchors for Matter.js physics
+  const anchors = photos.map((photo, index) => {
+    const positionIndex = (index - activePhoto + photos.length) % photos.length;
+    const ax = cw / 2 + positionIndex * 15;
+    const ay = ch / 2 + positionIndex * -12;
+    const baseRotation = photo.rotation * (Math.PI / 180);
+    const behindRotation = (index % 2 === 0 ? 1 : -1) * (positionIndex * 6) * (Math.PI / 180);
+    const aa = positionIndex === 0 ? baseRotation : behindRotation;
+    return { x: ax, y: ay, angle: aa };
+  });
+
+  useMatterPhysics(cardsContainerRef, {
+    itemSelector: ".portrait-card",
+    anchors: anchors,
+    disableCollision: true,
+  });
 
   const handlePhotoClick = (index: number) => {
     setPrevActivePhoto(activePhoto);
@@ -85,7 +154,11 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#cde7f7] to-[#a4d4f2] pt-28 pb-20 paper-grain">
+    <section 
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#cde7f7] to-[#a4d4f2] pt-28 pb-20 paper-grain"
+    >
+      <PaperPlaneCanvas />
       {/* Paper Sun Cutout */}
       <motion.div
         animate={{ rotate: 360 }}
@@ -253,7 +326,10 @@ export function HeroSection() {
 
         {/* Right Side: Interactive Polaroid Photo Stack */}
         <div className="lg:col-span-5 flex justify-center py-8 lg:py-0">
-          <div className="relative w-[280px] h-[360px] md:w-[320px] md:h-[400px]">
+          <div 
+            ref={cardsContainerRef}
+            className="relative w-[280px] h-[360px] md:w-[320px] md:h-[400px]"
+          >
             {/* Instruction Sticky Note */}
             <div className="absolute top-[-40px] right-[-30px] z-40 bg-[#fef08a] border border-foreground/50 p-2 rounded paper-shadow rotate-[12deg] max-w-[120px] text-center hidden md:block">
               <span className="font-craft-sketch text-[10px] text-black font-bold uppercase">
@@ -277,7 +353,7 @@ export function HeroSection() {
                 <motion.div
                   key={photo.id}
                   style={{ zIndex: renderZIndex }}
-                  animate={{
+                  animate={!isDesktop ? {
                     x: isExiting
                       ? [0, 240, positionIndex * 15]
                       : isBehind
@@ -298,8 +374,8 @@ export function HeroSection() {
                         ? (index % 2 === 0 ? 1 : -1) * (positionIndex * 6)
                         : photo.rotation,
                     scale: isBehind ? 0.95 - positionIndex * 0.04 : 1,
-                  }}
-                  whileHover={!isBehind ? { scale: 1.02 } : { scale: 0.98 }}
+                  } : undefined}
+                  whileHover={!isBehind && !isDesktop ? { scale: 1.02 } : undefined}
                   transition={
                     isExiting
                       ? {
@@ -314,7 +390,7 @@ export function HeroSection() {
                         }
                   }
                   onClick={() => handlePhotoClick(index)}
-                  className="absolute inset-0 cursor-pointer craft-polaroid w-full h-full flex flex-col justify-between"
+                  className="absolute inset-0 cursor-pointer craft-polaroid w-full h-full flex flex-col justify-between portrait-card"
                 >
                   {/* Washi Tape at the top of active image */}
                   {!isBehind && (

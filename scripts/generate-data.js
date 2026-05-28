@@ -422,30 +422,43 @@ const imports = [
     `import { LucideIcon } from "lucide-react";`
 ];
 
+// Load placeholders
+const PLACEHOLDERS_FILE = path.join(__dirname, '../src/data/imagePlaceholders.json');
+let placeholders = {};
+if (fs.existsSync(PLACEHOLDERS_FILE)) {
+    placeholders = JSON.parse(fs.readFileSync(PLACEHOLDERS_FILE, 'utf8'));
+}
+
 let specificData = {};
 
 let variableCounter = 0;
 
 for (const p of projects) {
     const images = scanDirectoryForImages(p.dirName);
-    
-    // Sort images to try and find "Main" or "Splash" or "Home" to put first if possible, 
-    // or just alphanumerical.
-    // Let's create imports
-    
     const galleryItems = [];
     
     images.forEach((img, idx) => {
-        const varName = `${p.dirName.replace(/\s+/g, '')}_${idx}`;
-        const relativePath = `../assets/Portfolio-Compressed/${p.dirName}/${img}`;
-        imports.push(`import ${varName} from "${relativePath}";`);
+        const baseName = img.replace(/\.webp$/, '');
+        const varWebp = `${p.dirName.replace(/\s+/g, '')}_${idx}_webp`;
+        const varAvif = `${p.dirName.replace(/\s+/g, '')}_${idx}_avif`;
+        
+        const relPathWebp = `../assets/Portfolio-Compressed/${p.dirName}/${baseName}.webp`;
+        const relPathAvif = `../assets/Portfolio-Compressed/${p.dirName}/${baseName}.avif`;
+        
+        imports.push(`import ${varWebp} from "${relPathWebp}";`);
+        imports.push(`import ${varAvif} from "${relPathAvif}";`);
+        
+        const placeholderKey = `${p.dirName}/${baseName}`;
+        const placeholder = placeholders[placeholderKey] || '';
         
         // Determine caption based on filename (removing extension and numbers)
-        const caption = img.replace(/.webp$/, '').replace(/[-_]/g, ' ');
+        const caption = baseName.replace(/[-_]/g, ' ');
         
         galleryItems.push({
             type: "image",
-            urlCode: varName, // We'll replace this string literal with the variable later
+            urlCode: varWebp,
+            avifUrlCode: varAvif,
+            placeholder: placeholder,
             caption: caption
         });
     });
@@ -496,6 +509,8 @@ export interface CaseStudyResult {
 export interface CaseStudyGalleryItem {
   type: "image" | "video";
   url: string;
+  avifUrl?: string;
+  placeholder?: string;
   caption: string;
 }
 
@@ -518,7 +533,6 @@ const defaultFeatures: CaseStudyFeature[] = [
     description: "Real-time synchronization with lag compensation and prediction algorithms for smooth gameplay across different network conditions.",
     icon: Users,
   },
-  // ... other defaults if needed, but we are providing specific data for all now.
 ];
 
 const defaultChallenges: CaseStudyChallenge[] = [];
@@ -526,7 +540,6 @@ const defaultResults: CaseStudyResult[] = [];
 const defaultProducerMetrics: CaseStudyResult[] = [];
 
 export const getCaseStudyData = (project: Project): CaseStudyData => {
-  // Define specific data for each project
   const specificData: Record<string, Partial<CaseStudyData>> = {
 `;
 
@@ -557,7 +570,7 @@ for (const [title, data] of Object.entries(specificData)) {
     
     content += `      gallery: [\n`;
     data.gallery.forEach(g => {
-        content += `        { type: "image", url: ${g.urlCode}, caption: ${JSON.stringify(g.caption)} },\n`;
+        content += `        { type: "image", url: ${g.urlCode}, avifUrl: ${g.avifUrlCode}, placeholder: ${JSON.stringify(g.placeholder)}, caption: ${JSON.stringify(g.caption)} },\n`;
     });
     content += `      ],\n`;
     

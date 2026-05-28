@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import {
   Gamepad2,
@@ -6,11 +7,12 @@ import {
   Palette,
   Network,
   ClipboardList,
-  CheckSquare,
-  Cpu
+  Cpu,
 } from "lucide-react";
 
 export function SkillsSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const skillCategories = [
     {
       icon: Gamepad2,
@@ -71,35 +73,26 @@ export function SkillsSection() {
       title: "Tools & DevOps",
       color: "bg-craft-purple/40 text-foreground border-foreground/50",
       ratingColor: "bg-[#8b5cf6]",
-      skills: [
-        "Unity",
-        "Unreal Engine",
-        "Visual Studio",
-        "Docker",
-        "Git",
-      ],
+      skills: ["Unity", "Unreal Engine", "Visual Studio", "Docker", "Git"],
     },
     {
       icon: Palette,
       title: "Additional Skills",
       color: "bg-[#fae8ff] text-[#6b21a8] border-foreground/50",
       ratingColor: "bg-[#d946ef]",
-      skills: [
-        "Graphic Design",
-        "Photoshop",
-        "Illustrator",
-        "Web Development",
-      ],
+      skills: ["Graphic Design", "Photoshop", "Illustrator", "Web Development"],
     },
   ];
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-[#faf8f5] to-[#f5f2eb] border-b border-foreground/10 overflow-hidden paper-grain">
+    <section
+      ref={containerRef}
+      className="relative py-28 bg-gradient-to-b from-[#faf8f5] to-[#f5f2eb] border-b border-foreground/10 overflow-hidden paper-grain"
+    >
       {/* Background paper decoration */}
       <div className="absolute top-1/4 right-[-100px] w-80 h-80 bg-craft-tan rounded-full opacity-20 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        
         {/* Title Tag */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,14 +104,23 @@ export function SkillsSection() {
           <div className="inline-block px-6 py-2 bg-craft-yellow text-foreground border border-foreground/80 paper-shadow rotate-[1.5deg] font-craft-title text-2xl uppercase tracking-wider">
             Tech Tree
           </div>
-          <p className="text-sm font-craft-sketch text-muted-foreground mt-3">Skills & Expertise Inventory</p>
+          <p className="text-sm font-craft-sketch text-muted-foreground mt-3">
+            Skills & Expertise Inventory
+          </p>
         </motion.div>
 
         {/* Skill Tree Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => {
-            const rotation = (categoryIndex % 2 === 0 ? "-1deg" : "1.5deg");
-            const tapeColor = categoryIndex % 4 === 0 ? "tape-coral" : categoryIndex % 4 === 1 ? "tape-yellow" : categoryIndex % 4 === 2 ? "tape-blue" : "tape-green";
+            const rotation = categoryIndex % 2 === 0 ? "-1deg" : "1.5deg";
+            const tapeColor =
+              categoryIndex % 4 === 0
+                ? "tape-coral"
+                : categoryIndex % 4 === 1
+                  ? "tape-yellow"
+                  : categoryIndex % 4 === 2
+                    ? "tape-blue"
+                    : "tape-green";
             return (
               <motion.div
                 key={categoryIndex}
@@ -126,15 +128,22 @@ export function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.08 }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.01,
+                  transition: { duration: 0.2 },
+                }}
                 style={{ rotate: rotation }}
-                className="relative"
+                className="relative z-10"
               >
                 {/* Main Card */}
                 <div
                   className={`craft-panel h-full p-6 flex flex-col justify-between ${category.color}`}
                 >
                   {/* Tape Accent */}
-                  <div className={`craft-tape w-16 h-4 top-[-8px] left-[20px] rotate-[-12deg] pointer-events-none ${tapeColor}`} />
+                  <div
+                    className={`craft-tape w-16 h-4 top-[-8px] left-[20px] rotate-[-12deg] pointer-events-none ${tapeColor}`}
+                  />
 
                   <div>
                     {/* Header */}
@@ -157,16 +166,35 @@ export function SkillsSection() {
                           viewport={{ once: true }}
                           transition={{
                             duration: 0.3,
-                            delay: skillIndex * 0.04,
+                            delay: skillIndex * 0.05,
                           }}
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2.5 w-full p-2 bg-white/60 border border-foreground/40 rounded-sm paper-shadow"
                         >
-                          <div className="flex items-center gap-2.5 w-full p-2 bg-white/60 border border-foreground/40 rounded-sm paper-shadow">
-                            <CheckSquare className="w-4 h-4 text-primary shrink-0" />
-                            <span className="font-craft-body text-sm text-foreground/80 font-medium">
-                              {skill}
-                            </span>
+                          <div className="relative w-4 h-4 border border-foreground/60 rounded-[2px] bg-white shrink-0 flex items-center justify-center">
+                            <svg
+                              className="w-3 h-3 text-primary stroke-[3]"
+                              viewBox="0 0 12 10"
+                              fill="none"
+                            >
+                              <motion.path
+                                d="M 2 5.5 L 4.5 8 L 10 2"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                initial={{ pathLength: 0 }}
+                                whileInView={{ pathLength: 1 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                  duration: 0.25,
+                                  delay: 0.2 + skillIndex * 0.08,
+                                  ease: "easeOut",
+                                }}
+                              />
+                            </svg>
                           </div>
+                          <span className="font-craft-body text-sm text-foreground/80 font-medium">
+                            {skill}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -175,22 +203,21 @@ export function SkillsSection() {
                   {/* Level Badge styled as star boxes */}
                   <div className="mt-6 pt-4 border-t border-dashed border-foreground/20">
                     <div className="flex items-center justify-between">
-                      <span className="font-craft-sketch text-[10px] text-muted-foreground uppercase">Proficiency</span>
+                      <span className="font-craft-sketch text-[10px] text-muted-foreground uppercase">
+                        Proficiency
+                      </span>
                       <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
                           <div
                             key={i}
                             className={`w-6 h-3 border border-foreground/40 rounded-[1px] shadow-[1px_1px_2px_rgba(0,0,0,0.06)] ${
-                              i < 4
-                                ? category.ratingColor
-                                : "bg-white"
+                              i < 4 ? category.ratingColor : "bg-white"
                             }`}
                           />
                         ))}
                       </div>
                     </div>
                   </div>
-
                 </div>
               </motion.div>
             );
@@ -205,16 +232,18 @@ export function SkillsSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex justify-center mt-16"
         >
-          <div className="relative group">
+          <div className="relative group z-10">
             {/* Highlighter loop */}
             <div className="absolute inset-0 bg-craft-yellow/20 rounded-full blur-md opacity-70" />
-            
+
             <div className="relative p-5 bg-white border border-foreground/65 paper-shadow-lg rotate-[-4deg] flex items-center justify-center max-w-[150px] mx-auto text-center">
               {/* Staple on centerpiece */}
               <div className="craft-staple top-[-3px] left-1/2 -translate-x-1/2" />
               <div>
                 <Cpu className="w-8 h-8 text-primary mx-auto mb-1" />
-                <span className="font-craft-sketch text-[10px] text-foreground font-bold">SYSTEMS INTEGRATION</span>
+                <span className="font-craft-sketch text-[10px] text-foreground font-bold">
+                  SYSTEMS INTEGRATION
+                </span>
               </div>
             </div>
           </div>

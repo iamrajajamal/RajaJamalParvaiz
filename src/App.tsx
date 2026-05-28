@@ -11,12 +11,19 @@ import { StatsSection } from "./components/StatsSection";
 import { ContactSection } from "./components/ContactSection";
 import { CaseStudyPage } from "./components/CaseStudyPage";
 import { Toaster } from "./components/ui/sonner";
+import { Preloader } from "./components/Preloader";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import { CustomCursor } from "./components/CustomCursor";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<"portfolio" | "caseStudy">(
     "portfolio"
   );
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Initialize smooth scroll & velocity skewing
+  useSmoothScroll();
 
   const handleViewCaseStudy = (project: any) => {
     setSelectedProject(project);
@@ -35,16 +42,24 @@ export default function App() {
     }, 100);
   };
 
+  if (isLoading) {
+    return <Preloader onComplete={() => setIsLoading(false)} />;
+  }
+
   if (currentPage === "caseStudy" && selectedProject) {
     return (
-      <CaseStudyPage project={selectedProject} onBack={handleBackToPortfolio} />
+      <>
+        <CustomCursor />
+        <CaseStudyPage project={selectedProject} onBack={handleBackToPortfolio} />
+      </>
     );
   }
 
   return (
     <>
+      <CustomCursor />
       <Navigation />
-      <div className="min-h-screen bg-background text-foreground paper-grain font-craft-body transition-colors duration-300 selection:bg-craft-yellow/40 selection:text-foreground">
+      <div className="skew-container min-h-screen bg-background text-foreground paper-grain font-craft-body transition-colors duration-300 selection:bg-craft-yellow/40 selection:text-foreground">
         <div id="hero">
           <HeroSection />
         </div>

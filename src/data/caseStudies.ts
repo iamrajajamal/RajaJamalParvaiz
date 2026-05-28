@@ -13,119 +13,232 @@ import {
   Database,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
-import ClownTown_0 from "../assets/Portfolio-Compressed/ClownTown/Clown Town.webp";
-import ClownTown_1 from "../assets/Portfolio-Compressed/ClownTown/Friends & Invite.webp";
-import ClownTown_2 from "../assets/Portfolio-Compressed/ClownTown/Home 5.webp";
-import ClownTown_3 from "../assets/Portfolio-Compressed/ClownTown/Inventory - Skin.webp";
-import ClownTown_4 from "../assets/Portfolio-Compressed/ClownTown/Leader Board (1).webp";
-import ClownTown_5 from "../assets/Portfolio-Compressed/ClownTown/Leader Board (2).webp";
-import ClownTown_6 from "../assets/Portfolio-Compressed/ClownTown/Leader Board.webp";
-import ClownTown_7 from "../assets/Portfolio-Compressed/ClownTown/My Profile 2.webp";
-import ClownTown_8 from "../assets/Portfolio-Compressed/ClownTown/My Profile.webp";
-import ClownTown_9 from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop (1).webp";
-import ClownTown_10 from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop.webp";
-import AliveAR_0 from "../assets/Portfolio-Compressed/AliveAR/1.webp";
-import AliveAR_1 from "../assets/Portfolio-Compressed/AliveAR/2.webp";
-import AliveAR_2 from "../assets/Portfolio-Compressed/AliveAR/3.webp";
-import AliveAR_3 from "../assets/Portfolio-Compressed/AliveAR/4.webp";
-import AliveAR_4 from "../assets/Portfolio-Compressed/AliveAR/Alive.webp";
-import AliveAR_5 from "../assets/Portfolio-Compressed/AliveAR/City_Env_0.webp";
-import AliveAR_6 from "../assets/Portfolio-Compressed/AliveAR/City_Env_1.webp";
-import AliveAR_7 from "../assets/Portfolio-Compressed/AliveAR/City_Env_2.webp";
-import AliveAR_8 from "../assets/Portfolio-Compressed/AliveAR/City_Env_3.webp";
-import AliveAR_9 from "../assets/Portfolio-Compressed/AliveAR/City_Env_4.webp";
-import AliveAR_10 from "../assets/Portfolio-Compressed/AliveAR/City_Env_5.webp";
-import AliveAR_11 from "../assets/Portfolio-Compressed/AliveAR/Female Soldier.webp";
-import AliveAR_12 from "../assets/Portfolio-Compressed/AliveAR/Loading.webp";
-import AliveAR_13 from "../assets/Portfolio-Compressed/AliveAR/Poster.webp";
-import AliveAR_14 from "../assets/Portfolio-Compressed/AliveAR/select.webp";
-import AliveAR_15 from "../assets/Portfolio-Compressed/AliveAR/Soldier 3.webp";
-import AliveAR_16 from "../assets/Portfolio-Compressed/AliveAR/Soldier 4.webp";
-import AliveAR_17 from "../assets/Portfolio-Compressed/AliveAR/Soldier.webp";
-import SpadesWithFriends_0 from "../assets/Portfolio-Compressed/SpadesWithFriends/Active player.webp";
-import SpadesWithFriends_1 from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis (1).webp";
-import SpadesWithFriends_2 from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis.webp";
-import SpadesWithFriends_3 from "../assets/Portfolio-Compressed/SpadesWithFriends/Another user profile.webp";
-import SpadesWithFriends_4 from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar (1).webp";
-import SpadesWithFriends_5 from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar.webp";
-import SpadesWithFriends_6 from "../assets/Portfolio-Compressed/SpadesWithFriends/Basic Emojies.webp";
-import SpadesWithFriends_7 from "../assets/Portfolio-Compressed/SpadesWithFriends/COINS.webp";
-import SpadesWithFriends_8 from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen (1).webp";
-import SpadesWithFriends_9 from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen.webp";
-import SpadesWithFriends_10 from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby (1).webp";
-import SpadesWithFriends_11 from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby.webp";
-import SpadesWithFriends_12 from "../assets/Portfolio-Compressed/SpadesWithFriends/Shop.webp";
-import SpadesWithFriends_13 from "../assets/Portfolio-Compressed/SpadesWithFriends/Single Player Score.webp";
-import SpadesWithFriends_14 from "../assets/Portfolio-Compressed/SpadesWithFriends/Smack Talk.webp";
-import SpadesWithFriends_15 from "../assets/Portfolio-Compressed/SpadesWithFriends/Splash Screen.webp";
-import SpadesWithFriends_16 from "../assets/Portfolio-Compressed/SpadesWithFriends/Start a party.webp";
-import SpadesWithFriends_17 from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions (1).webp";
-import SpadesWithFriends_18 from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions.webp";
-import SpadesWithFriends_19 from "../assets/Portfolio-Compressed/SpadesWithFriends/Tournament.webp";
-import SpadesWithFriends_20 from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners (1).webp";
-import SpadesWithFriends_21 from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners.webp";
-import PocketShop_0 from "../assets/Portfolio-Compressed/PocketShop/Add Auction.webp";
-import PocketShop_1 from "../assets/Portfolio-Compressed/PocketShop/Auction Screen (Parts_Suspension & Steering).webp";
-import PocketShop_2 from "../assets/Portfolio-Compressed/PocketShop/Auction Screen.webp";
-import PocketShop_3 from "../assets/Portfolio-Compressed/PocketShop/Detal Screen.webp";
-import PocketShop_4 from "../assets/Portfolio-Compressed/PocketShop/Detal Screen_Shock Absorbers.webp";
-import PocketShop_5 from "../assets/Portfolio-Compressed/PocketShop/Gameplay-Drag.webp";
-import PocketShop_6 from "../assets/Portfolio-Compressed/PocketShop/Garage UI_Exhaust.webp";
-import PocketShop_7 from "../assets/Portfolio-Compressed/PocketShop/Global Map UI Cloud.webp";
-import PocketShop_8 from "../assets/Portfolio-Compressed/PocketShop/Global Selected USA.webp";
-import PocketShop_9 from "../assets/Portfolio-Compressed/PocketShop/image 2.webp";
-import PocketShop_10 from "../assets/Portfolio-Compressed/PocketShop/Main Screen.webp";
-import PocketShop_11 from "../assets/Portfolio-Compressed/PocketShop/My Profile_Cars.webp";
-import PocketShop_12 from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Jobs Popup.webp";
-import PocketShop_13 from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Popup.webp";
-import PocketShop_14 from "../assets/Portfolio-Compressed/PocketShop/POCKET-SHOP.webp";
-import PocketShop_15 from "../assets/Portfolio-Compressed/PocketShop/Splash.webp";
-import PocketShop_16 from "../assets/Portfolio-Compressed/PocketShop/Story Dialogue Box.webp";
-import DubbGame_0 from "../assets/Portfolio-Compressed/DubbGame/Baccarat (1).webp";
-import DubbGame_1 from "../assets/Portfolio-Compressed/DubbGame/Baccarat (2).webp";
-import DubbGame_2 from "../assets/Portfolio-Compressed/DubbGame/Baccarat.webp";
-import DubbGame_3 from "../assets/Portfolio-Compressed/DubbGame/BlackJack (1).webp";
-import DubbGame_4 from "../assets/Portfolio-Compressed/DubbGame/BlackJack (2).webp";
-import DubbGame_5 from "../assets/Portfolio-Compressed/DubbGame/BlackJack.webp";
-import DubbGame_6 from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (1).webp";
-import DubbGame_7 from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (2).webp";
-import DubbGame_8 from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams.webp";
-import DubbGame_9 from "../assets/Portfolio-Compressed/DubbGame/Home.webp";
-import DubbGame_10 from "../assets/Portfolio-Compressed/DubbGame/Login.webp";
-import DubbGame_11 from "../assets/Portfolio-Compressed/DubbGame/Prize Pool (1).webp";
-import DubbGame_12 from "../assets/Portfolio-Compressed/DubbGame/Prize Pool.webp";
-import DubbGame_13 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (1).webp";
-import DubbGame_14 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (2).webp";
-import DubbGame_15 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (3).webp";
-import DubbGame_16 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (4).webp";
-import DubbGame_17 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (5).webp";
-import DubbGame_18 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (6).webp";
-import DubbGame_19 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (7).webp";
-import DubbGame_20 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (8).webp";
-import DubbGame_21 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (9).webp";
-import DubbGame_22 from "../assets/Portfolio-Compressed/DubbGame/Slot Machine.webp";
-import Dalcal_0 from "../assets/Portfolio-Compressed/Dalcal/Complete.webp";
-import Dalcal_1 from "../assets/Portfolio-Compressed/Dalcal/Difficulty.webp";
-import Dalcal_2 from "../assets/Portfolio-Compressed/Dalcal/Level 10.webp";
-import Dalcal_3 from "../assets/Portfolio-Compressed/Dalcal/Level 14.webp";
-import Dalcal_4 from "../assets/Portfolio-Compressed/Dalcal/Level 15.webp";
-import Dalcal_5 from "../assets/Portfolio-Compressed/Dalcal/Level 16.webp";
-import Dalcal_6 from "../assets/Portfolio-Compressed/Dalcal/Level 17.webp";
-import Dalcal_7 from "../assets/Portfolio-Compressed/Dalcal/Level 6.webp";
-import Dalcal_8 from "../assets/Portfolio-Compressed/Dalcal/Level 7.webp";
-import Dalcal_9 from "../assets/Portfolio-Compressed/Dalcal/Profile (1).webp";
-import Dalcal_10 from "../assets/Portfolio-Compressed/Dalcal/Profile.webp";
-import Dalcal_11 from "../assets/Portfolio-Compressed/Dalcal/Select Tiers.webp";
-import Dalcal_12 from "../assets/Portfolio-Compressed/Dalcal/Splash.webp";
-import NineNoDraw_0 from "../assets/Portfolio-Compressed/NineNoDraw/Edit Profile.webp";
-import NineNoDraw_1 from "../assets/Portfolio-Compressed/NineNoDraw/Game interface (1).webp";
-import NineNoDraw_2 from "../assets/Portfolio-Compressed/NineNoDraw/Game interface.webp";
-import NineNoDraw_3 from "../assets/Portfolio-Compressed/NineNoDraw/Home.webp";
-import NineNoDraw_4 from "../assets/Portfolio-Compressed/NineNoDraw/Leader Board.webp";
-import NineNoDraw_5 from "../assets/Portfolio-Compressed/NineNoDraw/Shop (1).webp";
-import NineNoDraw_6 from "../assets/Portfolio-Compressed/NineNoDraw/Shop (2).webp";
-import NineNoDraw_7 from "../assets/Portfolio-Compressed/NineNoDraw/Shop.webp";
-import NineNoDraw_8 from "../assets/Portfolio-Compressed/NineNoDraw/Splash Screen.webp";
+import ClownTown_0_webp from "../assets/Portfolio-Compressed/ClownTown/Clown Town.webp";
+import ClownTown_0_avif from "../assets/Portfolio-Compressed/ClownTown/Clown Town.avif";
+import ClownTown_1_webp from "../assets/Portfolio-Compressed/ClownTown/Friends & Invite.webp";
+import ClownTown_1_avif from "../assets/Portfolio-Compressed/ClownTown/Friends & Invite.avif";
+import ClownTown_2_webp from "../assets/Portfolio-Compressed/ClownTown/Home 5.webp";
+import ClownTown_2_avif from "../assets/Portfolio-Compressed/ClownTown/Home 5.avif";
+import ClownTown_3_webp from "../assets/Portfolio-Compressed/ClownTown/Inventory - Skin.webp";
+import ClownTown_3_avif from "../assets/Portfolio-Compressed/ClownTown/Inventory - Skin.avif";
+import ClownTown_4_webp from "../assets/Portfolio-Compressed/ClownTown/Leader Board (1).webp";
+import ClownTown_4_avif from "../assets/Portfolio-Compressed/ClownTown/Leader Board (1).avif";
+import ClownTown_5_webp from "../assets/Portfolio-Compressed/ClownTown/Leader Board (2).webp";
+import ClownTown_5_avif from "../assets/Portfolio-Compressed/ClownTown/Leader Board (2).avif";
+import ClownTown_6_webp from "../assets/Portfolio-Compressed/ClownTown/Leader Board.webp";
+import ClownTown_6_avif from "../assets/Portfolio-Compressed/ClownTown/Leader Board.avif";
+import ClownTown_7_webp from "../assets/Portfolio-Compressed/ClownTown/My Profile 2.webp";
+import ClownTown_7_avif from "../assets/Portfolio-Compressed/ClownTown/My Profile 2.avif";
+import ClownTown_8_webp from "../assets/Portfolio-Compressed/ClownTown/My Profile.webp";
+import ClownTown_8_avif from "../assets/Portfolio-Compressed/ClownTown/My Profile.avif";
+import ClownTown_9_webp from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop (1).webp";
+import ClownTown_9_avif from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop (1).avif";
+import ClownTown_10_webp from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop.webp";
+import ClownTown_10_avif from "../assets/Portfolio-Compressed/ClownTown/Shop - Weapon Shop.avif";
+import AliveAR_0_webp from "../assets/Portfolio-Compressed/AliveAR/1.webp";
+import AliveAR_0_avif from "../assets/Portfolio-Compressed/AliveAR/1.avif";
+import AliveAR_1_webp from "../assets/Portfolio-Compressed/AliveAR/2.webp";
+import AliveAR_1_avif from "../assets/Portfolio-Compressed/AliveAR/2.avif";
+import AliveAR_2_webp from "../assets/Portfolio-Compressed/AliveAR/3.webp";
+import AliveAR_2_avif from "../assets/Portfolio-Compressed/AliveAR/3.avif";
+import AliveAR_3_webp from "../assets/Portfolio-Compressed/AliveAR/4.webp";
+import AliveAR_3_avif from "../assets/Portfolio-Compressed/AliveAR/4.avif";
+import AliveAR_4_webp from "../assets/Portfolio-Compressed/AliveAR/Alive.webp";
+import AliveAR_4_avif from "../assets/Portfolio-Compressed/AliveAR/Alive.avif";
+import AliveAR_5_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_0.webp";
+import AliveAR_5_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_0.avif";
+import AliveAR_6_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_1.webp";
+import AliveAR_6_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_1.avif";
+import AliveAR_7_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_2.webp";
+import AliveAR_7_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_2.avif";
+import AliveAR_8_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_3.webp";
+import AliveAR_8_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_3.avif";
+import AliveAR_9_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_4.webp";
+import AliveAR_9_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_4.avif";
+import AliveAR_10_webp from "../assets/Portfolio-Compressed/AliveAR/City_Env_5.webp";
+import AliveAR_10_avif from "../assets/Portfolio-Compressed/AliveAR/City_Env_5.avif";
+import AliveAR_11_webp from "../assets/Portfolio-Compressed/AliveAR/Female Soldier.webp";
+import AliveAR_11_avif from "../assets/Portfolio-Compressed/AliveAR/Female Soldier.avif";
+import AliveAR_12_webp from "../assets/Portfolio-Compressed/AliveAR/Loading.webp";
+import AliveAR_12_avif from "../assets/Portfolio-Compressed/AliveAR/Loading.avif";
+import AliveAR_13_webp from "../assets/Portfolio-Compressed/AliveAR/Poster.webp";
+import AliveAR_13_avif from "../assets/Portfolio-Compressed/AliveAR/Poster.avif";
+import AliveAR_14_webp from "../assets/Portfolio-Compressed/AliveAR/select.webp";
+import AliveAR_14_avif from "../assets/Portfolio-Compressed/AliveAR/select.avif";
+import AliveAR_15_webp from "../assets/Portfolio-Compressed/AliveAR/Soldier 3.webp";
+import AliveAR_15_avif from "../assets/Portfolio-Compressed/AliveAR/Soldier 3.avif";
+import AliveAR_16_webp from "../assets/Portfolio-Compressed/AliveAR/Soldier 4.webp";
+import AliveAR_16_avif from "../assets/Portfolio-Compressed/AliveAR/Soldier 4.avif";
+import AliveAR_17_webp from "../assets/Portfolio-Compressed/AliveAR/Soldier.webp";
+import AliveAR_17_avif from "../assets/Portfolio-Compressed/AliveAR/Soldier.avif";
+import SpadesWithFriends_0_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Active player.webp";
+import SpadesWithFriends_0_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Active player.avif";
+import SpadesWithFriends_1_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis (1).webp";
+import SpadesWithFriends_1_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis (1).avif";
+import SpadesWithFriends_2_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis.webp";
+import SpadesWithFriends_2_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Animated Emojis.avif";
+import SpadesWithFriends_3_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Another user profile.webp";
+import SpadesWithFriends_3_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Another user profile.avif";
+import SpadesWithFriends_4_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar (1).webp";
+import SpadesWithFriends_4_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar (1).avif";
+import SpadesWithFriends_5_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar.webp";
+import SpadesWithFriends_5_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Avatar.avif";
+import SpadesWithFriends_6_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Basic Emojies.webp";
+import SpadesWithFriends_6_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Basic Emojies.avif";
+import SpadesWithFriends_7_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/COINS.webp";
+import SpadesWithFriends_7_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/COINS.avif";
+import SpadesWithFriends_8_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen (1).webp";
+import SpadesWithFriends_8_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen (1).avif";
+import SpadesWithFriends_9_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen.webp";
+import SpadesWithFriends_9_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Main Screen.avif";
+import SpadesWithFriends_10_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby (1).webp";
+import SpadesWithFriends_10_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby (1).avif";
+import SpadesWithFriends_11_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby.webp";
+import SpadesWithFriends_11_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Partners Mode Lobby.avif";
+import SpadesWithFriends_12_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Shop.webp";
+import SpadesWithFriends_12_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Shop.avif";
+import SpadesWithFriends_13_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Single Player Score.webp";
+import SpadesWithFriends_13_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Single Player Score.avif";
+import SpadesWithFriends_14_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Smack Talk.webp";
+import SpadesWithFriends_14_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Smack Talk.avif";
+import SpadesWithFriends_15_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Splash Screen.webp";
+import SpadesWithFriends_15_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Splash Screen.avif";
+import SpadesWithFriends_16_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Start a party.webp";
+import SpadesWithFriends_16_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Start a party.avif";
+import SpadesWithFriends_17_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions (1).webp";
+import SpadesWithFriends_17_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions (1).avif";
+import SpadesWithFriends_18_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions.webp";
+import SpadesWithFriends_18_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Subscriptions.avif";
+import SpadesWithFriends_19_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/Tournament.webp";
+import SpadesWithFriends_19_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/Tournament.avif";
+import SpadesWithFriends_20_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners (1).webp";
+import SpadesWithFriends_20_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners (1).avif";
+import SpadesWithFriends_21_webp from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners.webp";
+import SpadesWithFriends_21_avif from "../assets/Portfolio-Compressed/SpadesWithFriends/With partners.avif";
+import PocketShop_0_webp from "../assets/Portfolio-Compressed/PocketShop/Add Auction.webp";
+import PocketShop_0_avif from "../assets/Portfolio-Compressed/PocketShop/Add Auction.avif";
+import PocketShop_1_webp from "../assets/Portfolio-Compressed/PocketShop/Auction Screen (Parts_Suspension & Steering).webp";
+import PocketShop_1_avif from "../assets/Portfolio-Compressed/PocketShop/Auction Screen (Parts_Suspension & Steering).avif";
+import PocketShop_2_webp from "../assets/Portfolio-Compressed/PocketShop/Auction Screen.webp";
+import PocketShop_2_avif from "../assets/Portfolio-Compressed/PocketShop/Auction Screen.avif";
+import PocketShop_3_webp from "../assets/Portfolio-Compressed/PocketShop/Detal Screen.webp";
+import PocketShop_3_avif from "../assets/Portfolio-Compressed/PocketShop/Detal Screen.avif";
+import PocketShop_4_webp from "../assets/Portfolio-Compressed/PocketShop/Detal Screen_Shock Absorbers.webp";
+import PocketShop_4_avif from "../assets/Portfolio-Compressed/PocketShop/Detal Screen_Shock Absorbers.avif";
+import PocketShop_5_webp from "../assets/Portfolio-Compressed/PocketShop/Gameplay-Drag.webp";
+import PocketShop_5_avif from "../assets/Portfolio-Compressed/PocketShop/Gameplay-Drag.avif";
+import PocketShop_6_webp from "../assets/Portfolio-Compressed/PocketShop/Garage UI_Exhaust.webp";
+import PocketShop_6_avif from "../assets/Portfolio-Compressed/PocketShop/Garage UI_Exhaust.avif";
+import PocketShop_7_webp from "../assets/Portfolio-Compressed/PocketShop/Global Map UI Cloud.webp";
+import PocketShop_7_avif from "../assets/Portfolio-Compressed/PocketShop/Global Map UI Cloud.avif";
+import PocketShop_8_webp from "../assets/Portfolio-Compressed/PocketShop/Global Selected USA.webp";
+import PocketShop_8_avif from "../assets/Portfolio-Compressed/PocketShop/Global Selected USA.avif";
+import PocketShop_9_webp from "../assets/Portfolio-Compressed/PocketShop/image 2.webp";
+import PocketShop_9_avif from "../assets/Portfolio-Compressed/PocketShop/image 2.avif";
+import PocketShop_10_webp from "../assets/Portfolio-Compressed/PocketShop/Main Screen.webp";
+import PocketShop_10_avif from "../assets/Portfolio-Compressed/PocketShop/Main Screen.avif";
+import PocketShop_11_webp from "../assets/Portfolio-Compressed/PocketShop/My Profile_Cars.webp";
+import PocketShop_11_avif from "../assets/Portfolio-Compressed/PocketShop/My Profile_Cars.avif";
+import PocketShop_12_webp from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Jobs Popup.webp";
+import PocketShop_12_avif from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Jobs Popup.avif";
+import PocketShop_13_webp from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Popup.webp";
+import PocketShop_13_avif from "../assets/Portfolio-Compressed/PocketShop/Part Pferformance Popup.avif";
+import PocketShop_14_webp from "../assets/Portfolio-Compressed/PocketShop/POCKET-SHOP.webp";
+import PocketShop_14_avif from "../assets/Portfolio-Compressed/PocketShop/POCKET-SHOP.avif";
+import PocketShop_15_webp from "../assets/Portfolio-Compressed/PocketShop/Splash.webp";
+import PocketShop_15_avif from "../assets/Portfolio-Compressed/PocketShop/Splash.avif";
+import PocketShop_16_webp from "../assets/Portfolio-Compressed/PocketShop/Story Dialogue Box.webp";
+import PocketShop_16_avif from "../assets/Portfolio-Compressed/PocketShop/Story Dialogue Box.avif";
+import DubbGame_0_webp from "../assets/Portfolio-Compressed/DubbGame/Baccarat (1).webp";
+import DubbGame_0_avif from "../assets/Portfolio-Compressed/DubbGame/Baccarat (1).avif";
+import DubbGame_1_webp from "../assets/Portfolio-Compressed/DubbGame/Baccarat (2).webp";
+import DubbGame_1_avif from "../assets/Portfolio-Compressed/DubbGame/Baccarat (2).avif";
+import DubbGame_2_webp from "../assets/Portfolio-Compressed/DubbGame/Baccarat.webp";
+import DubbGame_2_avif from "../assets/Portfolio-Compressed/DubbGame/Baccarat.avif";
+import DubbGame_3_webp from "../assets/Portfolio-Compressed/DubbGame/BlackJack (1).webp";
+import DubbGame_3_avif from "../assets/Portfolio-Compressed/DubbGame/BlackJack (1).avif";
+import DubbGame_4_webp from "../assets/Portfolio-Compressed/DubbGame/BlackJack (2).webp";
+import DubbGame_4_avif from "../assets/Portfolio-Compressed/DubbGame/BlackJack (2).avif";
+import DubbGame_5_webp from "../assets/Portfolio-Compressed/DubbGame/BlackJack.webp";
+import DubbGame_5_avif from "../assets/Portfolio-Compressed/DubbGame/BlackJack.avif";
+import DubbGame_6_webp from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (1).webp";
+import DubbGame_6_avif from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (1).avif";
+import DubbGame_7_webp from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (2).webp";
+import DubbGame_7_avif from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams (2).avif";
+import DubbGame_8_webp from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams.webp";
+import DubbGame_8_avif from "../assets/Portfolio-Compressed/DubbGame/Didget Dreams.avif";
+import DubbGame_9_webp from "../assets/Portfolio-Compressed/DubbGame/Home.webp";
+import DubbGame_9_avif from "../assets/Portfolio-Compressed/DubbGame/Home.avif";
+import DubbGame_10_webp from "../assets/Portfolio-Compressed/DubbGame/Login.webp";
+import DubbGame_10_avif from "../assets/Portfolio-Compressed/DubbGame/Login.avif";
+import DubbGame_11_webp from "../assets/Portfolio-Compressed/DubbGame/Prize Pool (1).webp";
+import DubbGame_11_avif from "../assets/Portfolio-Compressed/DubbGame/Prize Pool (1).avif";
+import DubbGame_12_webp from "../assets/Portfolio-Compressed/DubbGame/Prize Pool.webp";
+import DubbGame_12_avif from "../assets/Portfolio-Compressed/DubbGame/Prize Pool.avif";
+import DubbGame_13_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (1).webp";
+import DubbGame_13_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (1).avif";
+import DubbGame_14_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (2).webp";
+import DubbGame_14_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (2).avif";
+import DubbGame_15_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (3).webp";
+import DubbGame_15_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (3).avif";
+import DubbGame_16_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (4).webp";
+import DubbGame_16_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (4).avif";
+import DubbGame_17_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (5).webp";
+import DubbGame_17_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (5).avif";
+import DubbGame_18_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (6).webp";
+import DubbGame_18_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (6).avif";
+import DubbGame_19_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (7).webp";
+import DubbGame_19_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (7).avif";
+import DubbGame_20_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (8).webp";
+import DubbGame_20_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (8).avif";
+import DubbGame_21_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (9).webp";
+import DubbGame_21_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine (9).avif";
+import DubbGame_22_webp from "../assets/Portfolio-Compressed/DubbGame/Slot Machine.webp";
+import DubbGame_22_avif from "../assets/Portfolio-Compressed/DubbGame/Slot Machine.avif";
+import Dalcal_0_webp from "../assets/Portfolio-Compressed/Dalcal/Complete.webp";
+import Dalcal_0_avif from "../assets/Portfolio-Compressed/Dalcal/Complete.avif";
+import Dalcal_1_webp from "../assets/Portfolio-Compressed/Dalcal/Difficulty.webp";
+import Dalcal_1_avif from "../assets/Portfolio-Compressed/Dalcal/Difficulty.avif";
+import Dalcal_2_webp from "../assets/Portfolio-Compressed/Dalcal/Level 10.webp";
+import Dalcal_2_avif from "../assets/Portfolio-Compressed/Dalcal/Level 10.avif";
+import Dalcal_3_webp from "../assets/Portfolio-Compressed/Dalcal/Level 14.webp";
+import Dalcal_3_avif from "../assets/Portfolio-Compressed/Dalcal/Level 14.avif";
+import Dalcal_4_webp from "../assets/Portfolio-Compressed/Dalcal/Level 15.webp";
+import Dalcal_4_avif from "../assets/Portfolio-Compressed/Dalcal/Level 15.avif";
+import Dalcal_5_webp from "../assets/Portfolio-Compressed/Dalcal/Level 16.webp";
+import Dalcal_5_avif from "../assets/Portfolio-Compressed/Dalcal/Level 16.avif";
+import Dalcal_6_webp from "../assets/Portfolio-Compressed/Dalcal/Level 17.webp";
+import Dalcal_6_avif from "../assets/Portfolio-Compressed/Dalcal/Level 17.avif";
+import Dalcal_7_webp from "../assets/Portfolio-Compressed/Dalcal/Level 6.webp";
+import Dalcal_7_avif from "../assets/Portfolio-Compressed/Dalcal/Level 6.avif";
+import Dalcal_8_webp from "../assets/Portfolio-Compressed/Dalcal/Level 7.webp";
+import Dalcal_8_avif from "../assets/Portfolio-Compressed/Dalcal/Level 7.avif";
+import Dalcal_9_webp from "../assets/Portfolio-Compressed/Dalcal/Profile (1).webp";
+import Dalcal_9_avif from "../assets/Portfolio-Compressed/Dalcal/Profile (1).avif";
+import Dalcal_10_webp from "../assets/Portfolio-Compressed/Dalcal/Profile.webp";
+import Dalcal_10_avif from "../assets/Portfolio-Compressed/Dalcal/Profile.avif";
+import Dalcal_11_webp from "../assets/Portfolio-Compressed/Dalcal/Select Tiers.webp";
+import Dalcal_11_avif from "../assets/Portfolio-Compressed/Dalcal/Select Tiers.avif";
+import Dalcal_12_webp from "../assets/Portfolio-Compressed/Dalcal/Splash.webp";
+import Dalcal_12_avif from "../assets/Portfolio-Compressed/Dalcal/Splash.avif";
+import NineNoDraw_0_webp from "../assets/Portfolio-Compressed/NineNoDraw/Edit Profile.webp";
+import NineNoDraw_0_avif from "../assets/Portfolio-Compressed/NineNoDraw/Edit Profile.avif";
+import NineNoDraw_1_webp from "../assets/Portfolio-Compressed/NineNoDraw/Game interface (1).webp";
+import NineNoDraw_1_avif from "../assets/Portfolio-Compressed/NineNoDraw/Game interface (1).avif";
+import NineNoDraw_2_webp from "../assets/Portfolio-Compressed/NineNoDraw/Game interface.webp";
+import NineNoDraw_2_avif from "../assets/Portfolio-Compressed/NineNoDraw/Game interface.avif";
+import NineNoDraw_3_webp from "../assets/Portfolio-Compressed/NineNoDraw/Home.webp";
+import NineNoDraw_3_avif from "../assets/Portfolio-Compressed/NineNoDraw/Home.avif";
+import NineNoDraw_4_webp from "../assets/Portfolio-Compressed/NineNoDraw/Leader Board.webp";
+import NineNoDraw_4_avif from "../assets/Portfolio-Compressed/NineNoDraw/Leader Board.avif";
+import NineNoDraw_5_webp from "../assets/Portfolio-Compressed/NineNoDraw/Shop (1).webp";
+import NineNoDraw_5_avif from "../assets/Portfolio-Compressed/NineNoDraw/Shop (1).avif";
+import NineNoDraw_6_webp from "../assets/Portfolio-Compressed/NineNoDraw/Shop (2).webp";
+import NineNoDraw_6_avif from "../assets/Portfolio-Compressed/NineNoDraw/Shop (2).avif";
+import NineNoDraw_7_webp from "../assets/Portfolio-Compressed/NineNoDraw/Shop.webp";
+import NineNoDraw_7_avif from "../assets/Portfolio-Compressed/NineNoDraw/Shop.avif";
+import NineNoDraw_8_webp from "../assets/Portfolio-Compressed/NineNoDraw/Splash Screen.webp";
+import NineNoDraw_8_avif from "../assets/Portfolio-Compressed/NineNoDraw/Splash Screen.avif";
 
 export interface Project {
   title: string;
@@ -156,6 +269,8 @@ export interface CaseStudyResult {
 export interface CaseStudyGalleryItem {
   type: "image" | "video";
   url: string;
+  avifUrl?: string;
+  placeholder?: string;
   caption: string;
 }
 
@@ -178,7 +293,6 @@ const defaultFeatures: CaseStudyFeature[] = [
     description: "Real-time synchronization with lag compensation and prediction algorithms for smooth gameplay across different network conditions.",
     icon: Users,
   },
-  // ... other defaults if needed, but we are providing specific data for all now.
 ];
 
 const defaultChallenges: CaseStudyChallenge[] = [];
@@ -186,7 +300,6 @@ const defaultResults: CaseStudyResult[] = [];
 const defaultProducerMetrics: CaseStudyResult[] = [];
 
 export const getCaseStudyData = (project: Project): CaseStudyData => {
-  // Define specific data for each project
   const specificData: Record<string, Partial<CaseStudyData>> = {
     "Clown Town": {
       overview: "Clown Town is a fast-paced, physics-driven multiplayer brawler built for competitive mobile play. The project focused on delivering responsive, fair combat in chaotic scenarios while integrating a scalable backend for matchmaking, player sessions, and leaderboards using Mirror and Nakama.",
@@ -271,17 +384,17 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: ClownTown_0, caption: "Clown Town" },
-        { type: "image", url: ClownTown_1, caption: "Friends & Invite" },
-        { type: "image", url: ClownTown_2, caption: "Home 5" },
-        { type: "image", url: ClownTown_3, caption: "Inventory   Skin" },
-        { type: "image", url: ClownTown_4, caption: "Leader Board (1)" },
-        { type: "image", url: ClownTown_5, caption: "Leader Board (2)" },
-        { type: "image", url: ClownTown_6, caption: "Leader Board" },
-        { type: "image", url: ClownTown_7, caption: "My Profile 2" },
-        { type: "image", url: ClownTown_8, caption: "My Profile" },
-        { type: "image", url: ClownTown_9, caption: "Shop   Weapon Shop (1)" },
-        { type: "image", url: ClownTown_10, caption: "Shop   Weapon Shop" },
+        { type: "image", url: ClownTown_0_webp, avifUrl: ClownTown_0_avif, placeholder: "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJagCsACHcpy8Zcx3qo5AA/tjXS0e2puCtO3rbMC7yBvSIhZGuolTEXgbUQ0GTAEm3wA7ansrDBum+NebpDR9Z+RR5cVqt2lq72ugAAAA=", caption: "Clown Town" },
+        { type: "image", url: ClownTown_1_webp, avifUrl: ClownTown_1_avif, placeholder: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoUAAsAPzmGulOvKKWisAgB4CcJbACsACIDpY69rx8AAP4/V+PDtFqjzs5mdUbPCJJl92ezxeAsnRINkqCeuQQxfQFYAWWbrMv3aaA+DVbisotl2OKqjJXoiW/AAA==", caption: "Friends & Invite" },
+        { type: "image", url: ClownTown_2_webp, avifUrl: ClownTown_2_avif, placeholder: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJagCdAYniFtKqLED9ZkAA/r+VpfaDnjpubcqSLoyifebi/4HEaQv7XUfFYBAWM3SK/Z6oBn2a1oVn5+q1NR/5BC1/TS3t7jG1FCFEEm2svapUsAAAAA==", caption: "Home 5" },
+        { type: "image", url: ClownTown_3_webp, avifUrl: ClownTown_3_avif, placeholder: "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoADDWXM3YyBGXBRIAD+cvhOJ3ephByt3d8pi4/6IrQS70+lBj2oR4LQwzZRUyaE5n1BTaqVXAzJ5SAArzexCPM38VBogUR4WRT8GmZn9vNiJlm8QeP7i6hlsAA=", caption: "Inventory   Skin" },
+        { type: "image", url: ClownTown_4_webp, avifUrl: ClownTown_4_avif, placeholder: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbAC7MoR4GCKix2l5H3lYOgAA/rpo2A8hkqe1dXQaocI5GzxkmstjTJkVi3Ab6Uo63rGxYJbNOyx83cyVDpEAu1gr4HhLAhLKN1+Wy8i8zPLj7AAAAA==", caption: "Leader Board (1)" },
+        { type: "image", url: ClownTown_5_webp, avifUrl: ClownTown_5_avif, placeholder: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdADKN7zCVXlwAAP7mL/c1qVsUnEgnzHa4OmRAuZAMFg8Ikslgfaum+aFeR0f9ijkD0ugM3pvUSH5T63+mJ279wBj6C+736e0ad0F0+ndWE/QgAA==", caption: "Leader Board (2)" },
+        { type: "image", url: ClownTown_6_webp, avifUrl: ClownTown_6_avif, placeholder: "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdFQgAad4ooOGEcAAA8Nim90/oFLCKEHL1t8g2N8wbJuJL8CYNQ/VzsPG4A+mX/yNIZOmoTDq/VVTnAB0eROfjhneNCEab3TI2GJBrvLiJjqJR+95ml8Pi/WQAAAA=", caption: "Leader Board" },
+        { type: "image", url: ClownTown_7_webp, avifUrl: ClownTown_7_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbAC7ACHoVK/zTzBGcAD+JrlIs52wWLgiym9XZ1T4h8Ldh1+Wu9aaeOhpJcW/OoLNpTkYwDEp2gNDunZwG8qPAAA=", caption: "My Profile 2" },
+        { type: "image", url: ClownTown_8_webp, avifUrl: ClownTown_8_avif, placeholder: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC7ACC+RdyVpygAAP2bsSH1eJ7pSoesAK2VpWd3LWTSe6wbT43yEreyJPlTyyE7WzlMkIB/3JJDsBj49QcrWWk5AAAA", caption: "My Profile" },
+        { type: "image", url: ClownTown_9_webp, avifUrl: ClownTown_9_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC/OCB8TgPaYUiqAAD+umkO2Xb+jzfmd+D+1Se1r8jsIdwm14UOmqXOp/zCpvmnuHa/nBHr2eC7dvuHnJAA", caption: "Shop   Weapon Shop (1)" },
+        { type: "image", url: ClownTown_10_webp, avifUrl: ClownTown_10_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC/OCB8TgPaYUiqAAD+umkO2Xb+jzfmd+D+1Se1r8jsIdwm14UOmqXOp/zCpvmnuHa/nBHr2eC7dvuHnJAA", caption: "Shop   Weapon Shop" },
       ],
     },
     "Alive AR": {
@@ -377,24 +490,24 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: AliveAR_0, caption: "1" },
-        { type: "image", url: AliveAR_1, caption: "2" },
-        { type: "image", url: AliveAR_2, caption: "3" },
-        { type: "image", url: AliveAR_3, caption: "4" },
-        { type: "image", url: AliveAR_4, caption: "Alive" },
-        { type: "image", url: AliveAR_5, caption: "City Env 0" },
-        { type: "image", url: AliveAR_6, caption: "City Env 1" },
-        { type: "image", url: AliveAR_7, caption: "City Env 2" },
-        { type: "image", url: AliveAR_8, caption: "City Env 3" },
-        { type: "image", url: AliveAR_9, caption: "City Env 4" },
-        { type: "image", url: AliveAR_10, caption: "City Env 5" },
-        { type: "image", url: AliveAR_11, caption: "Female Soldier" },
-        { type: "image", url: AliveAR_12, caption: "Loading" },
-        { type: "image", url: AliveAR_13, caption: "Poster" },
-        { type: "image", url: AliveAR_14, caption: "select" },
-        { type: "image", url: AliveAR_15, caption: "Soldier 3" },
-        { type: "image", url: AliveAR_16, caption: "Soldier 4" },
-        { type: "image", url: AliveAR_17, caption: "Soldier" },
+        { type: "image", url: AliveAR_0_webp, avifUrl: AliveAR_0_avif, placeholder: "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAwCdASoUAAkAPzmGulOvKKWisAgB4CcJQBYdhEB09N4AAP7MA+ghfAyTfgJPsMEF29YvYTxgbVGmOVkDBC5z5NgAAA==", caption: "1" },
+        { type: "image", url: AliveAR_1_webp, avifUrl: AliveAR_1_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoUAAkAPzmEulOvKKWisAgB4CcJZwDCgB8qog+xu75uYAD+26Roz6YZn2wx69tnnv4XFqgaAzzbL5WhavpohblLc4xBXi4it68IftKNsf1AAA==", caption: "2" },
+        { type: "image", url: AliveAR_2_webp, avifUrl: AliveAR_2_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAAkAPzmGuVOvKSWisAgB4CcJYwDG9B8xCbg/hxIAAP6pwtD2DFW68olWkElzSq0f7qEYEbLUAv/02up1FzZfoZbaAAAA", caption: "3" },
+        { type: "image", url: AliveAR_3_webp, avifUrl: AliveAR_3_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAkAPzmGuVOvKSWisAgB4CcJaAC7ABqwl1hBBAAA/r+HGc0/5XTGRp0kWwqffS5Kuw6lBjiJm0em1zA6qnrsB6YJkhGrWf0AAA==", caption: "4" },
+        { type: "image", url: AliveAR_4_webp, avifUrl: AliveAR_4_avif, placeholder: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAA8APzmGuVOvKSWisAgB4CcJYgC7AAi46MkChc+cAAD+FYW0rQnJ2J9XzVgrX/BiEuIesEtZZ0ZiLwBXYhN4tH5/vZUq3bBaI28C9MYeyst4FfqULCsP9YnyG9sB6Eat9+ZxqywrgAAA", caption: "Alive" },
+        { type: "image", url: AliveAR_5_webp, avifUrl: AliveAR_5_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQAAKUcXj52wcAQhDpgAA/tpyk8ZH8IN0MFW/SLXVoHZY7S4Dulno3eqJ+1mJXzVIruRZk1BiGOMVvgJNtNuU0AA=", caption: "City Env 0" },
+        { type: "image", url: AliveAR_6_webp, avifUrl: AliveAR_6_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAwCdASoUAAsAPzmGuVQvKSWjMAgB4CcJQAAKVSA4vCmatPQA/uNFqB5iea/JRijvNQk/aF607rpnJxrdz1umaiG0/x3iSMebVTjWELLVpv6rUFcrLAhIAAA=", caption: "City Env 1" },
+        { type: "image", url: AliveAR_7_webp, avifUrl: AliveAR_7_avif, placeholder: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBAAASfbqyxjLD59xgAA/tpgzIdP/rgVWSY0+u+tYS/GO0LSE2PvHU0fmRP31MWkQJHdvfiYqofP9I0Ntu97i4yAAA==", caption: "City Env 2" },
+        { type: "image", url: AliveAR_8_webp, avifUrl: AliveAR_8_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZQAAXBiIsnRt8EFR3AAA/uQTDSLTAXG0ccv3sMTGdWaJ+tf0PSKJOqakBlUZXFE6CQefhM5+rgKCy+AAAA==", caption: "City Env 3" },
+        { type: "image", url: AliveAR_9_webp, avifUrl: AliveAR_9_avif, placeholder: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJYwAAW+kgcVIg7wmUAAD+2mCzTAMX8S6XvxgOxgmra1U2px7FTtJK+hdJnyceLrAAAA==", caption: "City Env 4" },
+        { type: "image", url: AliveAR_10_webp, avifUrl: AliveAR_10_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoUAAsAPzmGulOvKSWisAgB4CcJZQAAWp4O7ip91SBMKAD+6M7b7p+8oEPFspR1HDAjwQPZyruoRUW4fZslz2DAVl9QewAA", caption: "City Env 5" },
+        { type: "image", url: AliveAR_11_webp, avifUrl: AliveAR_11_avif, placeholder: "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABwAwCdASoUAAoAPzmGulOvKKWisAgB4CcJaQAAWuKndRaZQAAA/m8B9Ry6TVyYMh1uSsvUAAA=", caption: "Female Soldier" },
+        { type: "image", url: AliveAR_12_webp, avifUrl: AliveAR_12_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAAoAPzmEulOvKKWisAgB4CcJZgCdABgeva2BrPCUAAD+JmSd7ua2JMPPXRpcHof+f8kzNaxFIS9fAfn3xe+OTGd3PpYAAAA=", caption: "Loading" },
+        { type: "image", url: AliveAR_13_webp, avifUrl: AliveAR_13_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoUAAoAPzmGulQvKSWjMAgB4CcJaAC7ACKq922lOV5e+/If8AD+6Nm29/yqarf7wOdCe+mGpqqO5zesPJGwEHrq/lB+vZQAAAA=", caption: "Poster" },
+        { type: "image", url: AliveAR_14_webp, avifUrl: AliveAR_14_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAwCdASoUAA0APzmGulQvKSWjMAgB4CcJYgCw7CCPf7qAAP7i9dCuoZkfxRxLJOHhOlbFIhFNX4kFY22sRJy/JKLwd/4wibss2u2VLyAAAA==", caption: "select" },
+        { type: "image", url: AliveAR_15_webp, avifUrl: AliveAR_15_avif, placeholder: "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAAAQAwCdASoUAAoAPzmGuVOvKSWisAgB4CcJaQAAevlasAAA/uhOs2WTa4oZzf0ZfyZDbrykoAAAAA==", caption: "Soldier 3" },
+        { type: "image", url: AliveAR_16_webp, avifUrl: AliveAR_16_avif, placeholder: "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAwCdASoUAAoAPzmEuVOvKKWisAgB4CcJaQAAetGsBgAA/uhOtBb829Jp1wXQnrUS27+AAAA=", caption: "Soldier 4" },
+        { type: "image", url: AliveAR_17_webp, avifUrl: AliveAR_17_avif, placeholder: "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAgCdASoUAAoAPzmGulQvKSWjMAgB4CcJaWbvADdYAAD+6XbqZtvX7fHOfPf5FDwp6Gj79nSsHC4w1ja2HQBAAAA=", caption: "Soldier" },
       ],
     },
     "Spades With Friends": {
@@ -489,28 +602,28 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: SpadesWithFriends_0, caption: "Active player" },
-        { type: "image", url: SpadesWithFriends_1, caption: "Animated Emojis (1)" },
-        { type: "image", url: SpadesWithFriends_2, caption: "Animated Emojis" },
-        { type: "image", url: SpadesWithFriends_3, caption: "Another user profile" },
-        { type: "image", url: SpadesWithFriends_4, caption: "Avatar (1)" },
-        { type: "image", url: SpadesWithFriends_5, caption: "Avatar" },
-        { type: "image", url: SpadesWithFriends_6, caption: "Basic Emojies" },
-        { type: "image", url: SpadesWithFriends_7, caption: "COINS" },
-        { type: "image", url: SpadesWithFriends_8, caption: "Main Screen (1)" },
-        { type: "image", url: SpadesWithFriends_9, caption: "Main Screen" },
-        { type: "image", url: SpadesWithFriends_10, caption: "Partners Mode Lobby (1)" },
-        { type: "image", url: SpadesWithFriends_11, caption: "Partners Mode Lobby" },
-        { type: "image", url: SpadesWithFriends_12, caption: "Shop" },
-        { type: "image", url: SpadesWithFriends_13, caption: "Single Player Score" },
-        { type: "image", url: SpadesWithFriends_14, caption: "Smack Talk" },
-        { type: "image", url: SpadesWithFriends_15, caption: "Splash Screen" },
-        { type: "image", url: SpadesWithFriends_16, caption: "Start a party" },
-        { type: "image", url: SpadesWithFriends_17, caption: "Subscriptions (1)" },
-        { type: "image", url: SpadesWithFriends_18, caption: "Subscriptions" },
-        { type: "image", url: SpadesWithFriends_19, caption: "Tournament" },
-        { type: "image", url: SpadesWithFriends_20, caption: "With partners (1)" },
-        { type: "image", url: SpadesWithFriends_21, caption: "With partners" },
+        { type: "image", url: SpadesWithFriends_0_webp, avifUrl: SpadesWithFriends_0_avif, placeholder: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdAA8XW3w4kAD+2P2/+jQFoVLbllGiCiuZNdsLzIb3/FK5nEwVeG2dkFbvXl0AAA==", caption: "Active player" },
+        { type: "image", url: SpadesWithFriends_1_webp, avifUrl: SpadesWithFriends_1_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZACsAC0RyqEAAP7qj2q0FKKPQUcjzgI9g6omtD0H1nQuhU1F6zkIlJL6hP+vt3RSl5AkS8wAAA==", caption: "Animated Emojis (1)" },
+        { type: "image", url: SpadesWithFriends_2_webp, avifUrl: SpadesWithFriends_2_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZACsAC0RyqEAAP7qj2q0FKKPQUcjzgI9g6omtD0H1nQuhU1F6zkIlJL6hP+vt3RSl5AkS8wAAA==", caption: "Animated Emojis" },
+        { type: "image", url: SpadesWithFriends_3_webp, avifUrl: SpadesWithFriends_3_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoR3ACINDPCZBSBdabDAAP66NTOdZEo4XcyMmQTLYAw4Nfehd9WWs1Ai4/FWSGMFERUWivrJBVpw1gAA", caption: "Another user profile" },
+        { type: "image", url: SpadesWithFriends_4_webp, avifUrl: SpadesWithFriends_4_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJYgC06CDU6ArvpvhKAAD+vBZimHlR/O1kJ1CrrnDqLl6r9DVXW0ip9Mk0dDLgfYkgAAAA", caption: "Avatar (1)" },
+        { type: "image", url: SpadesWithFriends_5_webp, avifUrl: SpadesWithFriends_5_avif, placeholder: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoABfvfWVaLafgAA/svou6fVx4Y4ra8s8gKunaJqGZFbunUfGW26splZ1Xn/6CwkMt0FwEIMJMG9X/kabEgAAA==", caption: "Avatar" },
+        { type: "image", url: SpadesWithFriends_6_webp, avifUrl: SpadesWithFriends_6_avif, placeholder: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABQAwCdASoUAAsAPzmGuVQvKSWjMAgB4CcJZQDImDBhfKneAAD+7D2vc99feqDuIQS2a5Pg+Y/s/m3xDAAAAA==", caption: "Basic Emojies" },
+        { type: "image", url: SpadesWithFriends_7_webp, avifUrl: SpadesWithFriends_7_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBOgBEExIAq8CTb0AwAA/stJKIp+Rif9EVtyNqsvQl9rBqVz0NsN/NFdboFKIOn++Nu+vcDQAA==", caption: "COINS" },
+        { type: "image", url: SpadesWithFriends_8_webp, avifUrl: SpadesWithFriends_8_avif, placeholder: "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC7AB7GwbYfs4j4p802FgAA/tlDvrq1qjrE05K7RnghwJs4DtUQPbZFvjN8YKYn1QNXIJp3QAAA", caption: "Main Screen (1)" },
+        { type: "image", url: SpadesWithFriends_9_webp, avifUrl: SpadesWithFriends_9_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdACBvA5Zu9HdCJ6AA/rolNU6sWn3erT3PNSJLcUA441G0xi4iVHHdD87snjkTYoMkhPTSolze4ckkLbrwREY3RBqeT/iD5cAFKeAAAA==", caption: "Main Screen" },
+        { type: "image", url: SpadesWithFriends_10_webp, avifUrl: SpadesWithFriends_10_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJaACdMoABBntS/P7dzwAA/svtKQ7FRPytZVBHpTkHde3tzLHSWi5lQhZ3LXFsM+cQJFvLMDCyqxsWzWV5N4jAAAA=", caption: "Partners Mode Lobby (1)" },
+        { type: "image", url: SpadesWithFriends_11_webp, avifUrl: SpadesWithFriends_11_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJaACdMoADYBm3iiAfs0wplAAA/rwSIBZ8SjesyVBxvNE5C0g573mA5CJTdpDFYy0/g2whiOQc6U7/LhMnEAAA", caption: "Partners Mode Lobby" },
+        { type: "image", url: SpadesWithFriends_12_webp, avifUrl: SpadesWithFriends_12_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJZACsACLaSp8q4uDxi6LIAAD+zCzh79afIoJiLX95EsPU1QJKHxt6l/gllhaeIqnucQpakOuuIqSJmJh4AA==", caption: "Shop" },
+        { type: "image", url: SpadesWithFriends_13_webp, avifUrl: SpadesWithFriends_13_avif, placeholder: "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoACYWF9r9HhuDYAAP5AxuiTPpF6xptlkoggaJPgC4jv0by7rekMsRpdix7q9bXmGD+zff+GTV308cppD4IVaFJVXPR7su3wsRTEaqJbb9mEapJIAAA=", caption: "Single Player Score" },
+        { type: "image", url: SpadesWithFriends_14_webp, avifUrl: SpadesWithFriends_14_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJYgC7ACHhr7418pNqEAD+wEoyhryLQl65DvGrl+kOx87YSC/a8oUfossyQ113jqaHpA3gY3ULgALCzNgAAA==", caption: "Smack Talk" },
+        { type: "image", url: SpadesWithFriends_15_webp, avifUrl: SpadesWithFriends_15_avif, placeholder: "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC06BxHF1FmZWCeK4AAzIGxvMZqW1Hbi5A5dPBxasvcjK74iJSfr1TIjEHlBVVLmj7uJXue5fo/95FJImVqKaZgRtsH64b6P8+Oe8z9rcAA", caption: "Splash Screen" },
+        { type: "image", url: SpadesWithFriends_16_webp, avifUrl: SpadesWithFriends_16_avif, placeholder: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdMoADTqALejuohk9AAP5Jakya82K7cgditP+g04NOGcsrEHa2ztWSNNsT2La/ZZko6hFLPGBUr/WSmS9giSxN7MlhjQ4hgAAA", caption: "Start a party" },
+        { type: "image", url: SpadesWithFriends_17_webp, avifUrl: SpadesWithFriends_17_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQBOgBDzOin2KHrgcAAD+u6csMoBLTJT+dXP9y/qPBk7PByZoA97cH6qZMzm8ljzTnEGzzJMdX/54DEsVNgAA", caption: "Subscriptions (1)" },
+        { type: "image", url: SpadesWithFriends_18_webp, avifUrl: SpadesWithFriends_18_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQBOgBDzOin2KHrgcAAD+u6csMoBLTJT+dXP9y/qPBk7PByZoA97cH6qZMzm8ljzTnEGzzJMdX/54DEsVNgAA", caption: "Subscriptions" },
+        { type: "image", url: SpadesWithFriends_19_webp, avifUrl: SpadesWithFriends_19_avif, placeholder: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoUAAsAPzmGulQvKSWjMAgB4CcJbACdMoMYJn/AR26FL5CQqIAA/oeRYJd43NQaWjnwUdqvpKHOtBpeDjdCQsUAy0YxYppssYORX7RcmxJNbni9baweBCBcirrX6WHeBGDrs6GuLa18AA==", caption: "Tournament" },
+        { type: "image", url: SpadesWithFriends_20_webp, avifUrl: SpadesWithFriends_20_avif, placeholder: "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdACKUccnCDowFFFgA/ki8q/sb4hPn32dLcMGiGVTp5o7KppHBXyHXn0YOyxR0xHa8ncOV0SOUitPYGKEwRlq9ow5TcX7ZXWFN4AA=", caption: "With partners (1)" },
+        { type: "image", url: SpadesWithFriends_21_webp, avifUrl: SpadesWithFriends_21_avif, placeholder: "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoUAAsAPzmGulOvKSWisAgB4CcJagCdAYuu2K1PlN+4cCmtvQAA/rwWQk5BUFjBxjPkQ0JnsY0cj4cG1KN3kDmZrbtXyyUB6GhCf14tlQ7wso17fy20ajV+Bw1uL52N5Q4taNtEwAA=", caption: "With partners" },
       ],
     },
     "Pocket Shop": {
@@ -609,23 +722,23 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: PocketShop_0, caption: "Add Auction" },
-        { type: "image", url: PocketShop_1, caption: "Auction Screen (Parts Suspension & Steering)" },
-        { type: "image", url: PocketShop_2, caption: "Auction Screen" },
-        { type: "image", url: PocketShop_3, caption: "Detal Screen" },
-        { type: "image", url: PocketShop_4, caption: "Detal Screen Shock Absorbers" },
-        { type: "image", url: PocketShop_5, caption: "Gameplay Drag" },
-        { type: "image", url: PocketShop_6, caption: "Garage UI Exhaust" },
-        { type: "image", url: PocketShop_7, caption: "Global Map UI Cloud" },
-        { type: "image", url: PocketShop_8, caption: "Global Selected USA" },
-        { type: "image", url: PocketShop_9, caption: "image 2" },
-        { type: "image", url: PocketShop_10, caption: "Main Screen" },
-        { type: "image", url: PocketShop_11, caption: "My Profile Cars" },
-        { type: "image", url: PocketShop_12, caption: "Part Pferformance Jobs Popup" },
-        { type: "image", url: PocketShop_13, caption: "Part Pferformance Popup" },
-        { type: "image", url: PocketShop_14, caption: "POCKET SHOP" },
-        { type: "image", url: PocketShop_15, caption: "Splash" },
-        { type: "image", url: PocketShop_16, caption: "Story Dialogue Box" },
+        { type: "image", url: PocketShop_0_webp, avifUrl: PocketShop_0_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoUAAsAPzmGuVQvKSWjMAgB4CcJZgCdAB5aivEpTQAA/tlPq8Dy7S6s5zyisWabEOyYRbWmkRcTD85yhN8oCUCDlMqewAAA", caption: "Add Auction" },
+        { type: "image", url: PocketShop_1_webp, avifUrl: PocketShop_1_avif, placeholder: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJYgC/OCPTM2FdIHJIMgAA/oNNzDS0EYCWsxPM6t9UC1EnA0FJK8haabiK9LCgAAA=", caption: "Auction Screen (Parts Suspension & Steering)" },
+        { type: "image", url: PocketShop_2_webp, avifUrl: PocketShop_2_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJagAAUvJEQ+IN6ZdsAAD+d9vIM4rWgM7M2gSCdVWa9LrV/VpLFsbIDW8MCDsZwwnVVUdJxbswAA==", caption: "Auction Screen" },
+        { type: "image", url: PocketShop_3_webp, avifUrl: PocketShop_3_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJaACw7CKlhkGSSmkcAAD+unkq+1A8Tcrj+q2wiya4vMj2TAYT3ifhIayLDItnaFcQAAAA", caption: "Detal Screen" },
+        { type: "image", url: PocketShop_4_webp, avifUrl: PocketShop_4_avif, placeholder: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJagCdACKq54P9tFNHkAAA/rp5NEbEX5Stkf6Juz4ggfhyQggdTkuQAovn8LgA", caption: "Detal Screen Shock Absorbers" },
+        { type: "image", url: PocketShop_5_webp, avifUrl: PocketShop_5_avif, placeholder: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoUAAkAPzmGuVOvKSWisAgB4CcJZQAATrTTVmN7wsIvgAD6EFROISxiVFXEME2VtUCDMbSTg+UAioYBS7lS8cxwAAA=", caption: "Gameplay Drag" },
+        { type: "image", url: PocketShop_6_webp, avifUrl: PocketShop_6_avif, placeholder: "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJaACw7CHhbQlowSZG0KoAAP7MU3njc9bfwMAG32ahwsEBm4hz+Xtg3Fu2IYJLxLpekxyXm70sW4OEtxO2Lp0YBWpcbxDAAAA=", caption: "Garage UI Exhaust" },
+        { type: "image", url: PocketShop_7_webp, avifUrl: PocketShop_7_avif, placeholder: "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwBACdASoUAAsAPzmGuVOvKSWisAgB4CcJagC/OCPP3GrUvcxBgG+TOyKCAAD9m/csYK5SLGKVUGxdjJ5rnyMz15v0N+exLwMl66/zrUMtRr93bZDZ7S5HtRPaByydZYm1on0U1C7HGxAA", caption: "Global Map UI Cloud" },
+        { type: "image", url: PocketShop_8_webp, avifUrl: PocketShop_8_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbAC1FwAA2TXvYiAA/oZu+TDVZjq3pJFaRLQWii4gU3u8FMC1vCox1kicLeMlj7a1iysnxQttBZsu6Zq3qhV1AAA=", caption: "Global Selected USA" },
+        { type: "image", url: PocketShop_9_webp, avifUrl: PocketShop_9_avif, placeholder: "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoUAA0APzmEuVOvKKWisAgB4CcJbACdMoACCFkF585dAADbpnOzdbuq6mrkM/dECdwnNlr205abenTALyRYVbimRKTtCTiBfccG8v9aO7gTo6IA1etSUJEvFXi8pCkLEGIxxieysLdJZS2tnWD+M2y0DTEHt/AA", caption: "image 2" },
+        { type: "image", url: PocketShop_10_webp, avifUrl: PocketShop_10_avif, placeholder: "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBYdgvUS0mnkmaJuoADxAR729aPY/I0uiubnQ4jokUInPrV1C98/kuOREQfZqdvQtMNA1p9lPi5eUAA=", caption: "Main Screen" },
+        { type: "image", url: PocketShop_11_webp, avifUrl: PocketShop_11_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJYgC7ACKSI97z1IfAAP6hQSg02UNBSJvxsJ68KGX0lxgpHP5Va5kSi7UKGDPqa8kAt+AAAAA=", caption: "My Profile Cars" },
+        { type: "image", url: PocketShop_12_webp, avifUrl: PocketShop_12_avif, placeholder: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAsAPzmGuVQvKSWjMAgB4CcJaACdABhCHLA4+TMAAP65ORS5UkmPM0kYjqCRDDWgY9RxEcUfGyaIgD5TSSg2AAA=", caption: "Part Pferformance Jobs Popup" },
+        { type: "image", url: PocketShop_13_webp, avifUrl: PocketShop_13_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACsAB6OyC3jh1GHDAAA/rm1iAJkhnHtmGeJNGADsocX+7P62/3AtkgKT1BpUtXOAAAA", caption: "Part Pferformance Popup" },
+        { type: "image", url: PocketShop_14_webp, avifUrl: PocketShop_14_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABwAwCdASoUAAoAPzmGulOvKKWisAgB4CcJYwDCgDJ8XkHRMAAA/t+oSRo8xf9foHM4ZpBq9LkPCno3AQjK4QQvMSuXrplUgd1HE2IR9orbT7Kd5FAAAA==", caption: "POCKET SHOP" },
+        { type: "image", url: PocketShop_15_webp, avifUrl: PocketShop_15_avif, placeholder: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQBACdASoUAAsAPzmGulQvKSWjMAgB4CcJbACdMoSA/oADqseYlZ9/V8wAAP3W+KKVFtDQ3YHKfqSRo7/HfWG3VFYOI2xZRDkQkPj3kYD0eArbSvI/rmLwJ53AAAAA", caption: "Splash" },
+        { type: "image", url: PocketShop_16_webp, avifUrl: PocketShop_16_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoUAAsAPzmGuVOvKKWisAgB4CcJbAC7ABteHo1i37+kANvyzqLRLSI72IDO9si8fyuXFA37rAMugkC723Bnq9EdtMZ07AzPBlANhzWqkAg+LpVX0g/zKhyRLpqDHkQEq0AAAA==", caption: "Story Dialogue Box" },
       ],
     },
     "DubbGames": {
@@ -724,29 +837,29 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: DubbGame_0, caption: "Baccarat (1)" },
-        { type: "image", url: DubbGame_1, caption: "Baccarat (2)" },
-        { type: "image", url: DubbGame_2, caption: "Baccarat" },
-        { type: "image", url: DubbGame_3, caption: "BlackJack (1)" },
-        { type: "image", url: DubbGame_4, caption: "BlackJack (2)" },
-        { type: "image", url: DubbGame_5, caption: "BlackJack" },
-        { type: "image", url: DubbGame_6, caption: "Didget Dreams (1)" },
-        { type: "image", url: DubbGame_7, caption: "Didget Dreams (2)" },
-        { type: "image", url: DubbGame_8, caption: "Didget Dreams" },
-        { type: "image", url: DubbGame_9, caption: "Home" },
-        { type: "image", url: DubbGame_10, caption: "Login" },
-        { type: "image", url: DubbGame_11, caption: "Prize Pool (1)" },
-        { type: "image", url: DubbGame_12, caption: "Prize Pool" },
-        { type: "image", url: DubbGame_13, caption: "Slot Machine (1)" },
-        { type: "image", url: DubbGame_14, caption: "Slot Machine (2)" },
-        { type: "image", url: DubbGame_15, caption: "Slot Machine (3)" },
-        { type: "image", url: DubbGame_16, caption: "Slot Machine (4)" },
-        { type: "image", url: DubbGame_17, caption: "Slot Machine (5)" },
-        { type: "image", url: DubbGame_18, caption: "Slot Machine (6)" },
-        { type: "image", url: DubbGame_19, caption: "Slot Machine (7)" },
-        { type: "image", url: DubbGame_20, caption: "Slot Machine (8)" },
-        { type: "image", url: DubbGame_21, caption: "Slot Machine (9)" },
-        { type: "image", url: DubbGame_22, caption: "Slot Machine" },
+        { type: "image", url: DubbGame_0_webp, avifUrl: DubbGame_0_avif, placeholder: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoUAAwAPzmGuVOvKSWisAgB4CcJZACdACFRDwTqEHI6Y6raKAD+vcsWGlk1hp1yNzft9Hx+qgWa6eyFmbJc/nK1Zx46SZ2zDdcVoRc4z5peFThKoYAAAA==", caption: "Baccarat (1)" },
+        { type: "image", url: DubbGame_1_webp, avifUrl: DubbGame_1_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoUAAwAPzmGuVOvKSWisAgB4CcJZACdMoADQVUdDv7w+/waO6AA/rprH7LZZpj/8060q/RZGzwsPqXWtViruaDbYWYByu13sunr1f0ZW+EDY11NL6dfT7ACmWGi5rNPtGAAAA==", caption: "Baccarat (2)" },
+        { type: "image", url: DubbGame_2_webp, avifUrl: DubbGame_2_avif, placeholder: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJQBWAA+h1RdiM4nLE9gkAAP7MVH/NiGIliI1qGP8DVNgGQ+qxYvgSRQBHeTHBGbLENVVbXat/v1riMc6iFxoSQSjKAAAA", caption: "Baccarat" },
+        { type: "image", url: DubbGame_3_webp, avifUrl: DubbGame_3_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJYgAASe68Ln7l8YUAAP7anzce4PJvavIFvcmlo/VhAW+5z52zBlB+jyzoYStkl4/QeGWe1FwHdc8TtsiiE3CydizHikefnWfKsSetVwAAAA==", caption: "BlackJack (1)" },
+        { type: "image", url: DubbGame_4_webp, avifUrl: DubbGame_4_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJZAC06Bjy1/Ob0EUbAAD+2X9vQ6GIThU8h/OOxmN35M7b9xWylZmXXsEZOB1oybx51mi1sPABQf1uYVEoK0AA", caption: "BlackJack (2)" },
+        { type: "image", url: DubbGame_5_webp, avifUrl: DubbGame_5_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJYwCdACHuyy/m1vT7t90IAP7LusBsMynUCha/ldvtNYR6Yf9ruI3d0xZCvidLhCSxnwsNfxG4NAC9aK3jGJgA", caption: "BlackJack" },
+        { type: "image", url: DubbGame_6_webp, avifUrl: DubbGame_6_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJZQDCgCBykY3RYoNwAP7ZYf1Qr4vmemrKLihDtsIq/2pqjYvonIA/BKurWBNx4ey7BUZ2qu1xBvf7gAAAAA==", caption: "Didget Dreams (1)" },
+        { type: "image", url: DubbGame_7_webp, avifUrl: DubbGame_7_avif, placeholder: "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJZQC2yCB0TEEWzyQS6AAA/tlh/VCvi+Zo6J92ovh5riKWOJKEAH3cAmmv+/6oUH53NG+CuluXC821AAA=", caption: "Didget Dreams (2)" },
+        { type: "image", url: DubbGame_8_webp, avifUrl: DubbGame_8_avif, placeholder: "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJZwAAW+n0GRtRYEAA/uK26Fk7qAT96iLUsYusbE20gYQgAAA=", caption: "Didget Dreams" },
+        { type: "image", url: DubbGame_9_webp, avifUrl: DubbGame_9_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUABQAPzmUwFmvKiajqAgB4CcJZwAALnWipdvvxYgu3MC0Ha+gn9MAAP7MY54LgZNOdO9e1np5DKq7vtlOCstkxL8V8pWTccWr/qqgOAM4OK4pYviOEpR6em13oqEh6TIAAA==", caption: "Home" },
+        { type: "image", url: DubbGame_10_webp, avifUrl: DubbGame_10_avif, placeholder: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoUAAwALvmczmclLy8vDwD4SxAF2AId3chYtXGOKj0AAP7swVGXakW46iG8lwW+OxZtYknacH3TQKAO00upR51NVM4yPhwMQxcSDYG811pWS7CBuBwt1By7SpoDIuAA", caption: "Login" },
+        { type: "image", url: DubbGame_11_webp, avifUrl: DubbGame_11_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJQBZwBDz6KsH8uwQAAP7cgRP3x3nPwHlQETRI5YWwU2h771nDszoSSPWd2KeCsjh4HS7AAAA=", caption: "Prize Pool (1)" },
+        { type: "image", url: DubbGame_12_webp, avifUrl: DubbGame_12_avif, placeholder: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSBQAAAABD3Ds/4iIICQgaP6/9iCi/ykxJVZQOCA2AAAAEAMAnQEqFAAMAD85hrlTtKklorAIApAnCWQAAHrRRu+AAP7sjBLvVneoD7k63kaNhFGAAAAA", caption: "Prize Pool" },
+        { type: "image", url: DubbGame_13_webp, avifUrl: DubbGame_13_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJS7AKasQARN8aql0AAP7penNPl9mW+yHsBv8ziYyoHeZaIvIJos4zRh6v+CJXpPuS2dmn5fAAAA==", caption: "Slot Machine (1)" },
+        { type: "image", url: DubbGame_14_webp, avifUrl: DubbGame_14_avif, placeholder: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoUAAwAPzmEuVOvKKWisAgB4CcJbACdIKnBsPZGOgMFwQtQgAD9m33BsAhm1gbSWTyZSR6n/NB5PwpzWH4TqrLR/0stod8sAOuaDMUhwYDSKxmsDc/XC3BEs3GC7vxGMqJ88JpCH0j+AAAA", caption: "Slot Machine (2)" },
+        { type: "image", url: DubbGame_15_webp, avifUrl: DubbGame_15_avif, placeholder: "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJbAC7AB6NwF0nTB3oAP7Zf5hUBuER9SGQrpMuaxDrh9iMOM1jlvSo6JuOZKFxsOfJpZx6/zIQAAAA", caption: "Slot Machine (3)" },
+        { type: "image", url: DubbGame_16_webp, avifUrl: DubbGame_16_avif, placeholder: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAAwAPzmGuVOvKSWisAgB4CcJbACsACKCAdatq72ikG4AAP4/nNpD0R1e08u6u0DLdDJGhaiLssiMNbRLmeAb/Fnd1/Otp0szEn6GUEGD05mkLlZWAAAA", caption: "Slot Machine (4)" },
+        { type: "image", url: DubbGame_17_webp, avifUrl: DubbGame_17_avif, placeholder: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBACdASoUAAwAPzmEuVOvKKWisAgB4CcJbACdMoADKT4RQqMgnsDKi5lgAP5Iq7Dd+4p0sg6jZOQ7Nsse4+d/XXLQ8r3/QxWLGA4+rH3l3Me9qyO4Kn+LDKSO5Ir3UqK1Dj8G1dpAAA==", caption: "Slot Machine (5)" },
+        { type: "image", url: DubbGame_18_webp, avifUrl: DubbGame_18_avif, placeholder: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoUAAwAPzmEuVOvKKWisAgB4CcJbACdIKnBsPZGOgMFwQtQgAD9m33BsAhm1gbSWTyZSR6n/NB5PwpzWH4TqrLR/0stod8sAOuaDMUhwYDSKxmsDc/XC3BEs3GC7vxGMqJ88JpCH0j+AAAA", caption: "Slot Machine (6)" },
+        { type: "image", url: DubbGame_19_webp, avifUrl: DubbGame_19_avif, placeholder: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJbAC1GoAC4cTBXYk0AP4lIYZEyxrW/J0AGa0TCOiVNKtEshXupCAr6oxjNnx2CnSqw1IcL3YqWrFgWsBCX0ssAFXon6GQPUkuBhfAdDgEAI+QCrIAAA==", caption: "Slot Machine (7)" },
+        { type: "image", url: DubbGame_20_webp, avifUrl: DubbGame_20_avif, placeholder: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAAwAPzmGuVOvKKWisAgB4CcJZACdABwnnFARPfBelVYAANt8h9pbV5KXCJaEf2oJbqxXO5Ml4Z7UxPJ71NPQPNUIYPn08fW98RsJGy2NXLiuOUDxYAAA", caption: "Slot Machine (8)" },
+        { type: "image", url: DubbGame_21_webp, avifUrl: DubbGame_21_avif, placeholder: "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgCdAAreoUqG0YAA/nBG4OLshYBD55DJEp5WBpPWW8OfjD8mith7z43Q95iXedjqYITbW4c1PAse8obTnVDtyhqXcAwHmEKPypwAAAA=", caption: "Slot Machine (9)" },
+        { type: "image", url: DubbGame_22_webp, avifUrl: DubbGame_22_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoUAAwAPzmGulQvKSWjMAgB4CcJZwAAWkg9uw1othmsYcsAAP7Q1hLQ0mwFg0RznShHZ/0NhBcVqbNfHgtbXrbbZhxRRytIlbYLLudYFF+6AAAA", caption: "Slot Machine" },
       ],
     },
     "Dalcal": {
@@ -836,19 +949,19 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: Dalcal_0, caption: "Complete" },
-        { type: "image", url: Dalcal_1, caption: "Difficulty" },
-        { type: "image", url: Dalcal_2, caption: "Level 10" },
-        { type: "image", url: Dalcal_3, caption: "Level 14" },
-        { type: "image", url: Dalcal_4, caption: "Level 15" },
-        { type: "image", url: Dalcal_5, caption: "Level 16" },
-        { type: "image", url: Dalcal_6, caption: "Level 17" },
-        { type: "image", url: Dalcal_7, caption: "Level 6" },
-        { type: "image", url: Dalcal_8, caption: "Level 7" },
-        { type: "image", url: Dalcal_9, caption: "Profile (1)" },
-        { type: "image", url: Dalcal_10, caption: "Profile" },
-        { type: "image", url: Dalcal_11, caption: "Select Tiers" },
-        { type: "image", url: Dalcal_12, caption: "Splash" },
+        { type: "image", url: Dalcal_0_webp, avifUrl: Dalcal_0_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoJABQAPzmGuVOvKSWisAgB4CcJaACdMoR3ACnDFruVA8GAAP640ta7kFZJA/fV7Fsk652dqAY+9aCBqt8T+mqDzMCnLk12AAA=", caption: "Complete" },
+        { type: "image", url: Dalcal_1_webp, avifUrl: Dalcal_1_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoJABQAPzmEuVOvKKWisAgB4CcJZACdACHSd+Q2SwAA/rjLPS2AoObh51HrBBFobKj4aPeQhsnf7pYQtWXcffNHkRcd81gCc4AAAA==", caption: "Difficulty" },
+        { type: "image", url: Dalcal_2_webp, avifUrl: Dalcal_2_avif, placeholder: "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoJABQAPzmGulQvKSWjMAgB4CcJZgCdLwACa1MduzoAAP6+SbhUIM70GifA/dtu9tWWvFt1+2O4JRhepsW7y3EzxEdNXUfCa7nwyLAA", caption: "Level 10" },
+        { type: "image", url: Dalcal_3_webp, avifUrl: Dalcal_3_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoJABQAPzmEuVOvKKWisAgB4CcJZACdLwACaqR3IewAAP6+SbhUIOfvbuxr9J9nnnZh0WHjf2x3BKML1Ni3l8BEFC+E13PYQ4AAAA==", caption: "Level 14" },
+        { type: "image", url: Dalcal_4_webp, avifUrl: Dalcal_4_avif, placeholder: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAgCdASoJABQAPzmEuVOvKKWisAgB4CcJZAC7AC0kAAD+5xGJ0CFtn6DUkkA82br4a6b8CSt2LL3u1H/vdVyaYE+CwdlD8sAAAA==", caption: "Level 15" },
+        { type: "image", url: Dalcal_5_webp, avifUrl: Dalcal_5_avif, placeholder: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoJABQAPzmGuVOvKSWisAgB4CcJZACdMoADTqBATAAA/rieg6Q71tiaTFmX7R3Vgrv5pVJxvlXvmaRZkLTTMHZOxGAAAA==", caption: "Level 16" },
+        { type: "image", url: Dalcal_6_webp, avifUrl: Dalcal_6_avif, placeholder: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAwCdASoJABQAPzmGuVOvKSWisAgB4CcJZAC7ACHfQIyAAP64noOkO9bYmkxZz4a6b8CSt2LL3v3yMggL0kFsY85HmYIgAAA=", caption: "Level 17" },
+        { type: "image", url: Dalcal_7_webp, avifUrl: Dalcal_7_avif, placeholder: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoJABQAPzmEulOvKKWisAgB4CcJZACdL0iCarplS5gA/r5Jt61tWCoFXpTffk9mdtSZj5ZmOCXi58sj9it3NZDZkugAAA==", caption: "Level 6" },
+        { type: "image", url: Dalcal_8_webp, avifUrl: Dalcal_8_avif, placeholder: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoJABQAPzmGulQvKSWjMAgB4CcJZgCdL1AAKj/XwgAA+daLIAl1eT/HYUMsUNhv9sd3svwYsHopQ2UaaLaTn5czUssYkoAA", caption: "Level 7" },
+        { type: "image", url: Dalcal_9_webp, avifUrl: Dalcal_9_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoJABQAPzmMu1SvKaYjMAgB4CcJaACdL1ACbcLDlmL6AAD+slL77nBVFQZ5DAh+j+2OpMP5OH16B3qywFu/U84ksUvLcvboAAA=", caption: "Profile (1)" },
+        { type: "image", url: Dalcal_10_webp, avifUrl: Dalcal_10_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoJABQAPzmMu1SvKaYjMAgB4CcJaACdL1ACbcLDlmL6AAD+slL77nBVFQZ5DAh+j+2OpMP5OH16B3qywFu/U84ksUvLcvboAAA=", caption: "Profile" },
+        { type: "image", url: Dalcal_11_webp, avifUrl: Dalcal_11_avif, placeholder: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoJABQAPzmGuVOvKSWisAgB4CcJZgCdMoR3ACnJjJtUAAD+uNpFb8lP+KcBtBVnH8IaZyG1yJ0Dsf1uZq2BU1OjZAypJ/sl6gAAAA==", caption: "Select Tiers" },
+        { type: "image", url: Dalcal_12_webp, avifUrl: Dalcal_12_avif, placeholder: "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAgCdASoJABQAPzmEuVOvKKWisAgB4CcJZgCsAC0kAAD+vYNgSzBe2WFrFwyjjv7bfUn2D9AzVIDwAAA=", caption: "Splash" },
       ],
     },
     "Nine No Draw": {
@@ -942,15 +1055,15 @@ export const getCaseStudyData = (project: Project): CaseStudyData => {
         }
 ],
       gallery: [
-        { type: "image", url: NineNoDraw_0, caption: "Edit Profile" },
-        { type: "image", url: NineNoDraw_1, caption: "Game interface (1)" },
-        { type: "image", url: NineNoDraw_2, caption: "Game interface" },
-        { type: "image", url: NineNoDraw_3, caption: "Home" },
-        { type: "image", url: NineNoDraw_4, caption: "Leader Board" },
-        { type: "image", url: NineNoDraw_5, caption: "Shop (1)" },
-        { type: "image", url: NineNoDraw_6, caption: "Shop (2)" },
-        { type: "image", url: NineNoDraw_7, caption: "Shop" },
-        { type: "image", url: NineNoDraw_8, caption: "Splash Screen" },
+        { type: "image", url: NineNoDraw_0_webp, avifUrl: NineNoDraw_0_avif, placeholder: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJagCdMoGv/gQC0LtbAdJ2aAAA/nEHB5KysISxDmhh7ztCEjADgyWb0GzpqMJS2FJzLyS1FhXQYxB0IgAAAA==", caption: "Edit Profile" },
+        { type: "image", url: NineNoDraw_1_webp, avifUrl: NineNoDraw_1_avif, placeholder: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZgCdABuZNkLq7em6AAD+y/stWs+PYgjg3HczgM7JXmqV0VIgyuk3d3UqGDGqR3CkaEefAAA=", caption: "Game interface (1)" },
+        { type: "image", url: NineNoDraw_2_webp, avifUrl: NineNoDraw_2_avif, placeholder: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoR3ACD8xW5v/X1zAAD9RmRDaK04UWg/6m5oSKVOJiXFQV6IhCDMxLwK4RO2mxo3rxdzKR41Pl//eYUUskyvmCeDZt0KDMTt0ESxa/DCcMVrwoAA", caption: "Game interface" },
+        { type: "image", url: NineNoDraw_3_webp, avifUrl: NineNoDraw_3_avif, placeholder: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAC7AA2KFZG5bUKfAAD+zZXXPAzIsedrCCN9whDQ1hZZPeLSKOplVFNIpOLti3dkvKKuvUC04jwe7Io9rrRfGtWZBN+K6SjFeFTG418GFwL9/tHS4AAA", caption: "Home" },
+        { type: "image", url: NineNoDraw_4_webp, avifUrl: NineNoDraw_4_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJamDrRgd/+BQM/6QAAP7kYx3Dp7tcjDCwjwlRaWNoknI/B2PjJNcm1plT192eEhmb4rJIT7WS3TiPV37+AAAA", caption: "Leader Board" },
+        { type: "image", url: NineNoDraw_5_webp, avifUrl: NineNoDraw_5_avif, placeholder: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdMoGv/gNnUGIkJrkW0QAA/nGaq4mV53hSYAAsh1zr77DczgrT0nX8JK5EEUvsLNk9+IkQR/aS2KISgYgA", caption: "Shop (1)" },
+        { type: "image", url: NineNoDraw_6_webp, avifUrl: NineNoDraw_6_avif, placeholder: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJaACw7B4/FP+dyk4AAP5y8JxjnFhId7/3/wjqAn8LKi9+c8vyOd7PvU9VU9vo3Jn4rzek8JQB5CLOAdrAAWQAAAA=", caption: "Shop (2)" },
+        { type: "image", url: NineNoDraw_7_webp, avifUrl: NineNoDraw_7_avif, placeholder: "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdMoRwGQv58ABtKqjosUd1DYL68CAA/nGapv6/qAFyQTuxJWNtXuzvF1Wkdi5PrhFX3D22l5KFOaJ0zT1cZNpd9g+FEU0VGBw/1T7hbaLHcTUsKP/Z2jLUAi9o0SNZLgAA", caption: "Shop" },
+        { type: "image", url: NineNoDraw_8_webp, avifUrl: NineNoDraw_8_avif, placeholder: "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoRwABUE24mLV6woAPRY4cb41xTp6P5xlzn1Ce8xcg/H22l/akbyripgxeRGIFJyd67s1jwSUZ778GriRlVLfCDv8YgAhCDjd2XyW6Z1mqpVZubqRd4P9jlnDottTVhT4ztEsJwW+QAAAA==", caption: "Splash Screen" },
       ],
     },
   };

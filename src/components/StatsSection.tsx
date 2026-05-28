@@ -1,5 +1,159 @@
+import { useEffect, useState, useRef } from "react";
 import { motion } from "motion/react";
 import { Gamepad2, Trophy, Globe, Users, Rocket, Star } from "lucide-react";
+
+interface CountUpProps {
+  value: string;
+}
+
+export function CountUp({ value }: CountUpProps) {
+  const [current, setCurrent] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  
+  const cleanVal = value.replace(/,/g, "");
+  const target = parseInt(cleanVal, 10);
+  const suffix = cleanVal.replace(/[0-9]/g, ""); // extracts "+", " XP", etc.
+  const isNumeric = !isNaN(target);
+  const hasCommas = value.includes(",");
+
+  useEffect(() => {
+    if (!isNumeric) return;
+    let startTime: number | null = null;
+    const duration = 1500; // 1.5s
+    let animationFrameId: number;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out quad
+      const easeProgress = progress * (2 - progress);
+      setCurrent(Math.floor(easeProgress * target));
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          animationFrameId = requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+    };
+  }, [target, isNumeric]);
+
+  if (!isNumeric) return <span>{value}</span>;
+  const formatted = hasCommas ? current.toLocaleString() : current;
+  return <span ref={ref}>{formatted}{suffix}</span>;
+}
+
+export function PaperScraps() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = canvas.offsetWidth);
+    let height = (canvas.height = canvas.offsetHeight);
+
+    const resize = () => {
+      if (!canvas) return;
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    };
+
+    window.addEventListener("resize", resize);
+
+    const colors = ["#f43f5e", "#eab308", "#3b82f6", "#22c55e", "#a855f7", "#e5dec9", "#f5f2eb"];
+    const scraps = Array.from({ length: 25 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * -height,
+      size: Math.random() * 8 + 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speedY: Math.random() * 1.2 + 0.6,
+      speedX: Math.random() * 0.8 - 0.4,
+      rotation: Math.random() * 360,
+      rotSpeed: Math.random() * 1.5 - 0.75,
+    }));
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      scraps.forEach((scrap) => {
+        scrap.y += scrap.speedY;
+        scrap.x += scrap.speedX + Math.sin(scrap.y / 25) * 0.4;
+        scrap.rotation += scrap.rotSpeed;
+
+        if (scrap.y > height) {
+          scrap.y = -20;
+          scrap.x = Math.random() * width;
+        }
+
+        ctx.save();
+        ctx.translate(scrap.x, scrap.y);
+        ctx.rotate((scrap.rotation * Math.PI) / 180);
+        ctx.fillStyle = scrap.color;
+        ctx.strokeStyle = "rgba(0,0,0,0.1)";
+        ctx.lineWidth = 1;
+        
+        ctx.beginPath();
+        ctx.moveTo(-scrap.size / 2, -scrap.size / 2);
+        ctx.lineTo(scrap.size / 2 - Math.random() * 2, -scrap.size / 2 + Math.random() * 2);
+        ctx.lineTo(scrap.size / 2, scrap.size / 2);
+        ctx.lineTo(-scrap.size / 2 + Math.random() * 2, scrap.size / 2 - Math.random() * 2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.restore();
+      });
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          animationFrameId = requestAnimationFrame(render);
+        } else {
+          cancelAnimationFrame(animationFrameId);
+        }
+      },
+      { threshold: 0.02 }
+    );
+
+    observer.observe(canvas);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+    />
+  );
+}
 
 export function StatsSection() {
   const stats = [
@@ -49,6 +203,9 @@ export function StatsSection() {
 
   return (
     <section className="relative py-28 bg-gradient-to-b from-[#f5f2eb] to-[#faf8f5] border-b border-foreground/10 overflow-hidden notebook-grid paper-grain">
+      {/* Background falling paper scraps canvas */}
+      <PaperScraps />
+
       {/* Background craft shapes */}
       <div className="absolute top-1/3 left-[-80px] w-64 h-64 bg-craft-tan rounded-full opacity-10 pointer-events-none" />
 
@@ -109,7 +266,7 @@ export function StatsSection() {
                     <div>
                       <div className="text-3xl font-craft-title tracking-tight text-foreground mb-1">
                         <span className="px-1.5 py-0.5 bg-white border border-foreground/40 paper-shadow">
-                          {stat.value}
+                          <CountUp value={stat.value} />
                         </span>
                       </div>
                       <div className="font-craft-body text-sm font-bold text-foreground/80 mt-2">
@@ -162,7 +319,7 @@ export function StatsSection() {
 
               <div className="font-craft-sketch text-xs text-muted-foreground mb-1">TOTAL XP ACCUMULATED</div>
               <div className="font-craft-title text-3xl md:text-4xl text-foreground tracking-wide mb-1">
-                999,999 XP
+                <CountUp value="999,999 XP" />
               </div>
               <div className="font-craft-sketch text-xs text-foreground font-bold border border-foreground/30 px-2 py-0.5 inline-block bg-white mt-2">
                 Master Developer Rank

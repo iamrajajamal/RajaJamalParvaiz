@@ -1,7 +1,15 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Brain, Calendar, Code, Bug, Rocket } from "lucide-react";
 
 export function ProcessSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const beltX = useTransform(scrollYProgress, [0, 1], ["0px", "-200px"]);
+
   const steps = [
     {
       title: "Concept & GDD",
@@ -48,6 +56,7 @@ export function ProcessSection() {
   return (
     <>
       <section
+        ref={sectionRef}
         className="relative py-28 bg-gradient-to-b from-[#faf8f5] to-[#f5f2eb] border-b border-foreground/10 overflow-hidden paper-grain"
         id="process"
       >
@@ -68,8 +77,11 @@ export function ProcessSection() {
 
           {/* Horizontal Timeline */}
           <div className="relative mt-12 md:mt-24">
-            {/* Desktop timeline line */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 border-t-2 border-dashed border-foreground/20 z-0" />
+            {/* Desktop Conveyor Belt */}
+            <motion.div
+              style={{ backgroundPositionX: beltX }}
+              className="hidden md:block absolute top-[62px] left-0 right-0 h-5 bg-[repeating-linear-gradient(90deg,#e5dec9_0px,#e5dec9_6px,#c3bba8_6px,#c3bba8_12px)] border-y-2 border-foreground/75 z-0 shadow-[inset_0_1px_3px_rgba(0,0,0,0.15)]"
+            />
 
             {/* Mobile timeline line */}
             <div className="md:hidden absolute top-0 bottom-10 left-12 w-0.5 border-l-2 border-dashed border-foreground/20 z-0" />
@@ -81,10 +93,10 @@ export function ProcessSection() {
                 return (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 25 }}
+                    initial={{ opacity: 0, y: 35 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ type: "spring", stiffness: 120, damping: 15, delay: index * 0.1 }}
                     className="relative flex flex-col md:items-center items-start md:text-center w-full md:max-w-[200px]"
                   >
                     {/* Level Tag (Sticker Style) */}

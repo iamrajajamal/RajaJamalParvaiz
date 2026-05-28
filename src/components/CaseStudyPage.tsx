@@ -8,7 +8,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { OptimizedImage } from "./OptimizedImage";
 import { Navigation } from "./Navigation";
 import { getCaseStudyData } from "../data/caseStudies";
 import { useState } from "react";
@@ -19,6 +19,8 @@ interface CaseStudyPageProps {
     subtitle: string;
     description: string;
     image: string;
+    avifImage?: string;
+    placeholder?: string;
     tags: string[];
     tech: string[];
     color: string;
@@ -106,10 +108,12 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                 {/* Tape on image */}
                 <div className="craft-tape w-16 h-4 top-[-8px] left-1/2 -translate-x-1/2 tape-blue pointer-events-none z-10" />
                 
-                <ImageWithFallback
+                <OptimizedImage
                   src={project.image}
+                  avifSrc={project.avifImage}
+                  placeholder={project.placeholder}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-craft-tan/10 mix-blend-color-burn pointer-events-none" />
               </div>
@@ -228,10 +232,12 @@ export function CaseStudyPage({ project, onBack }: CaseStudyPageProps) {
                   <div className="aspect-video relative bg-slate-100 border border-foreground/30 shadow-inner overflow-hidden mb-3">
                     {item.type === "image" ? (
                       <>
-                        <ImageWithFallback
+                        <OptimizedImage
                           src={item.url}
+                          avifSrc={item.avifUrl}
+                          placeholder={item.placeholder}
                           alt={item.caption}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full"
                         />
                         <div className="absolute inset-0 bg-craft-tan/10 mix-blend-color-burn pointer-events-none" />
                       </>

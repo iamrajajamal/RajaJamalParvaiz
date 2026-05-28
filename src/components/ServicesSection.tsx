@@ -63,18 +63,19 @@ export function ServicesSection() {
           <p className="text-sm font-craft-sketch text-muted-foreground mt-3">Professional Offerings</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ perspective: 1200 }}>
           {services.map((service, index) => {
             const rot = index % 2 === 0 ? "rotate-[-1.2deg]" : "rotate-[1.2deg]";
             const tapeColor = index % 4 === 0 ? "tape-blue" : index % 4 === 1 ? "tape-green" : index % 4 === 2 ? "tape-coral" : "tape-yellow";
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ scale: 1.02, rotate: "0deg" }}
+                initial={{ opacity: 0, rotateX: -65, y: 20 }}
+                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ type: "spring", stiffness: 80, damping: 14, delay: index * 0.12 }}
+                whileHover={{ scale: 1.025, y: -4, rotateX: 2, transition: { duration: 0.2 } }}
+                style={{ transformOrigin: "top center" }}
                 className={`relative ${rot}`}
               >
                 {/* Index Card Design */}

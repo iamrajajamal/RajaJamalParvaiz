@@ -1,7 +1,35 @@
+import { useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import { Crown, Code, Users, Rocket, Star, Briefcase } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export function ExperienceSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !lineRef.current) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.to(lineRef.current, {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const experiences = [
     {
       role: "Lead Game Developer",
@@ -128,9 +156,44 @@ export function ExperienceSection() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
+        <div ref={containerRef} className="relative">
           {/* Hand-drawn center line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 border-l-2 border-dashed border-foreground/15 hidden md:block" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[4px] hidden md:block">
+            {/* Background faint dashed line */}
+            <svg className="absolute inset-0 w-full h-full opacity-15" preserveAspectRatio="none" fill="none">
+              <line
+                x1="2"
+                y1="0"
+                x2="2"
+                y2="100%"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeDasharray="8 6"
+                className="text-foreground"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+            {/* Foreground active dashed line */}
+            <div 
+              ref={lineRef} 
+              className="absolute inset-0 w-full overflow-hidden origin-top"
+              style={{ height: "0%" }}
+            >
+              <svg className="w-full h-full" preserveAspectRatio="none" fill="none">
+                <line
+                  x1="2"
+                  y1="0"
+                  x2="2"
+                  y2="100%"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeDasharray="8 6"
+                  className="text-foreground"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </div>
+          </div>
 
           {/* Experience Cards */}
           <div className="space-y-16">
